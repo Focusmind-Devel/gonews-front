@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: 'Muli', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'Muli';
+  src: url('./assets/fonts/Muli/static/Muli-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Muli-Bold';
+  src: url('./assets/fonts/Muli/static/Muli-ExtraBold.ttf');
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Contenedor */
+.container {
+  width: 100%;
+  max-width: 80%;
+  margin: 0 auto;
+}
