@@ -5,14 +5,50 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Tipografias */
 @font-face {
   font-family: 'Muli';
   src: url('./assets/fonts/Muli/static/Muli-Regular.ttf');
 }
 
 @font-face {
-  font-family: 'Muli-Bold';
+  font-family: 'Muli-Extra-Bold';
   src: url('./assets/fonts/Muli/static/Muli-ExtraBold.ttf');
+}
+
+@font-face {
+  font-family: 'Muli-Extra-Bold-Italic';
+  src: url('./assets/fonts/Muli/static/Muli-ExtraBoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Muli-Semi-Bold';
+  src: url('./assets/fonts/Muli/static/Muli-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Muli-Semi-Bold-Italic';
+  src: url('./assets/fonts/Muli/static/Muli-SemiBoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Muli-Black';
+  src: url('./assets/fonts/Muli/static/Muli-Black.ttf');
+}
+
+@font-face {
+  font-family: 'Muli-Black-Italic';
+  src: url('./assets/fonts/Muli/static/Muli-BlackItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Muli-Bold';
+  src: url('./assets/fonts/Muli/static/Muli-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Muli-Bold-Italic';
+  src: url('./assets/fonts/Muli/static/Muli-BoldItalic.ttf');
 }
 
 code {
@@ -25,4 +61,13 @@ code {
   width: 100%;
   max-width: 80%;
   margin: 0 auto;
+}
+
+.link_nota {
+  text-decoration: none;
+}
+
+.link_nota .title:hover {
+  color: #e71d36;
+  cursor: pointer;
 }

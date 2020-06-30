@@ -1,0 +1,61 @@
+@media screen and ( min-width: 320px ) and (max-width: 620px)
+    .top_nav
+        .main_top
+            grid-template-columns: repeat(3, 1fr)
+            #logo
+                grid-column: 2/2
+                img
+                    width: 125px
+                    height: 36px
+            #social_icons_top
+                display: none
+            #busqueda
+                display: none
+    // navegacion
+    #navigation
+        display: none
+    // header
+    .mobileHeader
+        height: 412px !important
+    .info-destacada
+        a.title
+            font-size: 28px
+        .category
+            font-size: 15px
+            width: 30%
+    // Ultimas Noticias
+    #ultimas-notas
+        h1
+            font-size: 28px
+        .ultimas_notas
+            grid-template-columns: 1fr
+    // Tres Categorias
+    .categoria
+        .titulo
+            font-size: 27px
+        .notas_categoria
+            grid-template-columns: 1fr
+    // Footer
+    #footer_menu
+        .container
+            display: grid
+            grid-template-columns: repeat(2, 1fr)
+            .logo
+                grid-column: 1/3
+                justify-self: center
+            .email
+                grid-column: 1/3
+                justify-self: center
+                font-size: 22px
+            .bottom_menu
+                font-size: 20px
+                align-self: start
+                justify-self: center
+                padding: 1rem
+    footer
+        .copy
+            flex-wrap: wrap-reverse
+            justify-content: center
+            text-align: center
+            p
+                font-size: 15px

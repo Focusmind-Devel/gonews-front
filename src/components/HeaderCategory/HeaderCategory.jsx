@@ -3,6 +3,17 @@ import './HeaderCategory.sass';
 // icono
 import flecha from '../../assets/images/flecha.png';
 import NotasContext from '../../context/notas/notasContext';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const HeaderBg = styled.div`
+  padding: 1rem 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #02182b;
+  background-position: center;
+  height: 650px;
+`;
 
 const HeaderCategory = ({ category }) => {
   const notasContext = useContext(NotasContext);
@@ -19,18 +30,21 @@ const HeaderCategory = ({ category }) => {
     return <h1>No hay notas disponibles</h1>;
   } else {
     return (
-      <div id='header'>
-        <img src={notaDestacada.headerImage} alt='imagen destacada' />
+      <HeaderBg
+        className='mobileHeader'
+        style={{ backgroundImage: `url(${notaDestacada.headerImage})` }}
+      >
         <div className='info-destacada'>
-          <div>
-            <h1 className='title'>{notaDestacada.title}</h1>
-            <div className='leer_mas'>
-              <img src={flecha} alt='icono flecha' />
-              <span>Leer nota</span>
-            </div>
-          </div>
+          <span className='category'>{notaDestacada.category}</span>
+          <Link to='/actualidad' className='title'>
+            {notaDestacada.title}
+          </Link>
+          <Link to='/' className='leer_mas'>
+            <img src={flecha} alt='icono flecha' />
+            <span>Leer nota</span>
+          </Link>
         </div>
-      </div>
+      </HeaderBg>
     );
   }
 };
