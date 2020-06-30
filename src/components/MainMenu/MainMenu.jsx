@@ -73,6 +73,7 @@ const MainMenu = () => {
     return () => {
       window.removeEventListener('scroll', scrollCallBack);
     };
+    //eslint-disable-next-line
   }, []);
 
   return (
