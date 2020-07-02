@@ -35,6 +35,7 @@ const Busqueda = ({ busquedaGrid }) => {
         id='search'
         onChange={handleChange}
         value={searchInput}
+        placeholder='Buscar'
       />
       <button className='search_btn' onClick={handleSubmit}>
         <img src={buscar} alt=' busqueda' />

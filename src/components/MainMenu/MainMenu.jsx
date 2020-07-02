@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import './MainMenu.sass';
 import logoFixed from '../../assets/images/Logo-fixed.png';
 import Busqueda from '../Busqueda/Busqueda';
+import SocialLinks from '../SocialLinks/SocialLinks';
 
-const MainMenu = () => {
+const MainMenu = ({ menuOpen, isOpen }) => {
   const [hideMenu, setHideMenu] = useState(true);
 
   const showMenu = () => {
@@ -70,58 +71,134 @@ const MainMenu = () => {
         }
       }
     });
+
     return () => {
       window.removeEventListener('scroll', scrollCallBack);
     };
+
     //eslint-disable-next-line
   }, []);
 
+  const hideOnClick = (e) => {
+    if (e.target.classList.contains('click')) {
+      e.target.parentElement.parentElement.parentElement.parentElement.style.display =
+        'none';
+
+      isOpen(false);
+    }
+  };
+
   return (
-    <nav id='navigation'>
-      <div id='menu' className='container'>
-        <div id='logo'>
-          <a href='/'>
-            <img src={logoFixed} alt='go news logo' />
-          </a>
+    <Fragment>
+      <nav id='navigation'>
+        <div id='menu' className='container'>
+          <div id='logo'>
+            <a href='/'>
+              <img src={logoFixed} alt='go news logo' />
+            </a>
+          </div>
+          <ul id='main_menu'>
+            <li className='menu_item'>
+              <Link to={'/actualidad'}>Actualidad</Link>
+            </li>
+            <li className='menu_item'>
+              <Link to={'/economia'}>Economia</Link>
+            </li>
+            <li className='menu_item principal'>
+              <Link to={'/politica'}>Politica</Link>
+            </li>
+            <li className='menu_item principal'>
+              <Link to={'/espectaculos'}>Espectaculos</Link>
+            </li>
+            <li className='menu_item principal'>
+              <Link to={'/deportes'}>Deportes</Link>
+            </li>
+            <li className='menu_item principal' onClick={showMenu}>
+              Mas +
+            </li>
+            <li className='menu_item adicional menos' onClick={showMenu}>
+              Menos +
+            </li>
+            <li className='menu_item adicional'>
+              <Link to={'/lifestyle'}>Lifestyle</Link>
+            </li>
+            <li className='menu_item adicional'>
+              <Link to={'/comidas'}>Comidas</Link>
+            </li>
+            <li className='menu_item adicional'>
+              <Link to={'/opinion'}>Opinion</Link>
+            </li>
+            <li className='menu_item adicional'>
+              <Link to={'/reportaje'}>Reportaje</Link>
+            </li>
+          </ul>
+          <Busqueda busquedaGrid={busquedaGrid} />
         </div>
-        <ul id='main_menu'>
-          <li className='menu_item'>
-            <Link to={'/actualidad'}>Actualidad</Link>
-          </li>
-          <li className='menu_item'>
-            <Link to={'/economia'}>Economia</Link>
-          </li>
-          <li className='menu_item principal'>
-            <Link to={'/politica'}>Politica</Link>
-          </li>
-          <li className='menu_item principal'>
-            <Link to={'/espectaculos'}>Espectaculos</Link>
-          </li>
-          <li className='menu_item principal'>
-            <Link to={'/deportes'}>Deportes</Link>
-          </li>
-          <li className='menu_item principal' onClick={showMenu}>
-            Mas +
-          </li>
-          <li className='menu_item adicional menos' onClick={showMenu}>
-            Menos +
-          </li>
-          <li className='menu_item adicional'>
-            <Link to={'/lifestyle'}>Lifestyle</Link>
-          </li>
-          <li className='menu_item adicional'>
-            <Link to={'/comidas'}>Comidas</Link>
-          </li>
-          <li className='menu_item adicional'>
-            <Link to={'/opinion'}>Opinion</Link>
-          </li>
-          <li className='menu_item adicional'>
-            <Link to={'/reportaje'}>Reportaje</Link>
-          </li>
-        </ul>
-        <Busqueda busquedaGrid={busquedaGrid} />
-      </div>
-    </nav>
+      </nav>
+      {menuOpen ? (
+        <nav id='navigation2' onClick={hideOnClick}>
+          <div id='menu' className='container'>
+            <Busqueda />
+            <ul id='main_menu'>
+              <li className='menu_item'>
+                <Link className='click' to={'/actualidad'}>
+                  Actualidad
+                </Link>
+              </li>
+              <li className='menu_item'>
+                <Link className='click' to={'/economia'}>
+                  Economia
+                </Link>
+              </li>
+              <li className='menu_item'>
+                <Link className='click' to={'/politica'}>
+                  Politica
+                </Link>
+              </li>
+              <li className='menu_item'>
+                <Link className='click' to={'/espectaculos'}>
+                  Espectaculos
+                </Link>
+              </li>
+              <li className='menu_item'>
+                <Link className='click' to={'/deportes'}>
+                  Deportes
+                </Link>
+              </li>
+              <li className='menu_item principal' onClick={showMenu}>
+                Mas +
+              </li>
+              <li className='menu_item adicional menos' onClick={showMenu}>
+                Menos -
+              </li>
+              <li className='menu_item adicional'>
+                <Link className='click' to={'/lifestyle'}>
+                  Lifestyle
+                </Link>
+              </li>
+              <li className='menu_item adicional'>
+                <Link className='click' to={'/comidas'}>
+                  Comidas
+                </Link>
+              </li>
+              <li className='menu_item adicional'>
+                <Link className='click' to={'/opinion'}>
+                  Opinion
+                </Link>
+              </li>
+              <li className='menu_item adicional'>
+                <Link className='click' to={'/reportaje'}>
+                  Reportaje
+                </Link>
+              </li>
+            </ul>
+            <SocialLinks />
+          </div>
+        </nav>
+      ) : (
+        false
+      )}
+    </Fragment>
   );
 };
 

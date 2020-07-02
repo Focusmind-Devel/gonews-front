@@ -6,6 +6,10 @@ import arrowUp from '../../assets/images/arrowUp.png';
 import { Link } from 'react-router-dom';
 
 function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <Fragment>
       <div id='footer_menu'>
@@ -52,10 +56,16 @@ function Footer() {
               </li>
             </ul>
           </div>
+          <SocialLinks />
           <a className='email' href='mailto:hola@gonews.com'>
             hola@<span>gonews</span>.com
           </a>
-          <img src={arrowUp} alt='back to top' />
+          <img
+            src={arrowUp}
+            alt='back to top'
+            className='back-to-top'
+            onClick={scrollToTop}
+          />
         </div>
       </div>
       <footer>

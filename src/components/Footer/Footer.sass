@@ -7,6 +7,7 @@
         justify-content: space-between
         align-items: center
         .bottom_menu
+            align-self: start
             .menu_title
                 color: #E71D36
                 font-size: 16px
@@ -19,12 +20,24 @@
                 a
                     color: #f2f2f2
                     text-decoration: none
-                    font-family: 'Muli-Semi-Bold';
+                    font-family: 'Muli-Semi-Bold'
+                    display: block
+                    margin-bottom: 0.5rem
+                    &:hover
+                        color: #e71d36
         .email
             color: #f2f2f2
             text-decoration: none
             span
                 color: #e71d36
+        .back-to-top
+            align-self: start
+            cursor: pointer
+        #social_icons_top
+            justify-self: center
+            grid-column: 1/3
+            margin-bottom: 1rem
+            display: none
 
 footer
     background: linear-gradient(90deg, #E71D36 17.19%, #02182B 100%)

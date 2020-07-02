@@ -7,8 +7,6 @@ import HeaderCategory from '../../components/HeaderCategory/HeaderCategory';
 const Category = ({ match }) => {
   const category = match.params.category;
 
-  console.log(match);
-
   const notasContext = useContext(NotasContext);
 
   const { notas } = notasContext;
@@ -17,7 +15,7 @@ const Category = ({ match }) => {
     <Fragment>
       <h1 className='category_name'>{category}</h1>
       <HeaderCategory category={category} />
-      <div className='container'>
+      <div className='container' id='sec_category'>
         <div className='categoria'>
           <div className='notas_categoria'>
             {notas

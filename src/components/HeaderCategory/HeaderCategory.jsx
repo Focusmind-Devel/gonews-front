@@ -24,8 +24,6 @@ const HeaderCategory = ({ category }) => {
 
   const notaDestacada = result[result.length - 1];
 
-  console.log(result);
-
   if (result <= 0) {
     return <h1>No hay notas disponibles</h1>;
   } else {

@@ -1,12 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Card from '../Card/Card';
 import './UltimasNoticias.sass';
 import NotasContext from '../../context/notas/notasContext';
+// import Carousel from 'react-elastic-carousel';
 
 const UltimasNoticias = () => {
   const notasContext = useContext(NotasContext);
 
   const { notas } = notasContext;
+
+  const [screenSize, setscreenSize] = useState(window.innerWidth);
+
+  useEffect(() => {
+    setscreenSize(window.innerWidth);
+  }, []);
 
   return (
     <section id='ultimas-notas'>
