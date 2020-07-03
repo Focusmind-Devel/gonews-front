@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import './HeaderCategory.sass';
+import '../Header/Header.sass';
 // icono
 import flecha from '../../assets/images/flecha.png';
 import NotasContext from '../../context/notas/notasContext';
@@ -33,14 +33,15 @@ const HeaderCategory = ({ category }) => {
         style={{ backgroundImage: `url(${notaDestacada.headerImage})` }}
       >
         <div className='info-destacada'>
-          <span className='category'>{notaDestacada.category}</span>
-          <Link to='/actualidad' className='title'>
-            {notaDestacada.title}
-          </Link>
-          <Link to='/' className='leer_mas'>
-            <img src={flecha} alt='icono flecha' />
-            <span>Leer nota</span>
-          </Link>
+          <div className='container'>
+            <Link to='/actualidad' className='title'>
+              {notaDestacada.title}
+            </Link>
+            <Link to='/' className='leer_mas'>
+              <img src={flecha} alt='icono flecha' />
+              <span>Leer nota</span>
+            </Link>
+          </div>
         </div>
       </HeaderBg>
     );

@@ -6,7 +6,7 @@
     "publishedAt": "2020-06-26",
     "headerImage": "./data/images/header.png",
     "thumbnail": "./data/images/nota1.png",
-    "category": "politica",
+    "category": "política",
     "content": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
   },
   {
@@ -46,7 +46,7 @@
     "publishedAt": "2020-06-26",
     "headerImage": "./data/images/header.png",
     "thumbnail": "./data/images/nota5.png",
-    "category": "espectaculos",
+    "category": "espectáculos",
     "content": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
   },
   {
@@ -66,7 +66,7 @@
     "publishedAt": "2020-06-26",
     "headerImage": "./data/images/header.png",
     "thumbnail": "./data/images/nota7.png",
-    "category": "politica",
+    "category": "política",
     "content": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
   },
   {
@@ -106,7 +106,7 @@
     "publishedAt": "2020-06-26",
     "headerImage": "./data/images/header.png",
     "thumbnail": "./data/images/nota1.png",
-    "category": "espectaculos",
+    "category": "espectáculos",
     "content": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
   },
   {
@@ -146,7 +146,7 @@
     "publishedAt": "2020-06-26",
     "headerImage": "./data/images/header.png",
     "thumbnail": "./data/images/nota5.png",
-    "category": "espectaculos",
+    "category": "espectáculos",
     "content": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
   },
   {
@@ -166,7 +166,7 @@
     "publishedAt": "2020-06-26",
     "headerImage": "./data/images/header.png",
     "thumbnail": "./data/images/nota7.png",
-    "category": "politica",
+    "category": "política",
     "content": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
   },
   {

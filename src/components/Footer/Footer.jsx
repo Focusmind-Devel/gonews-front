@@ -3,6 +3,7 @@ import './Footer.sass';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import logo from '../../assets/images/Logo.png';
 import arrowUp from '../../assets/images/arrowUp.png';
+import mailIcon from '../../assets/images/mail.png';
 import { Link } from 'react-router-dom';
 
 function Footer() {
@@ -25,13 +26,13 @@ function Footer() {
                 <Link to={'/actualidad'}>Actualidad</Link>
               </li>
               <li className='menu_item'>
-                <Link to={'/economia'}>Economia</Link>
+                <Link to={'/economía'}>Economía</Link>
               </li>
               <li className='menu_item principal'>
-                <Link to={'/politica'}>Politica</Link>
+                <Link to={'/política'}>Política</Link>
               </li>
               <li className='menu_item principal'>
-                <Link to={'/espectaculos'}>Espectaculos</Link>
+                <Link to={'/espectáculos'}>Espectáculos</Link>
               </li>
               <li className='menu_item principal'>
                 <Link to={'/deportes'}>Deportes</Link>
@@ -49,7 +50,7 @@ function Footer() {
                 <Link to={'/comidas'}>Comidas</Link>
               </li>
               <li className='menu_item adicional'>
-                <Link to={'/opinion'}>Opinion</Link>
+                <Link to={'/opinión'}>Opinión</Link>
               </li>
               <li className='menu_item adicional'>
                 <Link to={'/reportaje'}>Reportaje</Link>
@@ -58,6 +59,7 @@ function Footer() {
           </div>
           <SocialLinks />
           <a className='email' href='mailto:hola@gonews.com'>
+            <img src={mailIcon} alt='' />
             hola@<span>gonews</span>.com
           </a>
           <img
@@ -72,7 +74,17 @@ function Footer() {
         <div className='container'>
           <div className='copy'>
             <p>© Copyright Gonews. Todos los derechos reservados.</p>
-            <SocialLinks />
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                fontSize: '22px',
+                fontFamily: 'Muli-Italic',
+              }}
+            >
+              <span>Seguinos en:</span>
+              <SocialLinks />
+            </div>
           </div>
         </div>
       </footer>

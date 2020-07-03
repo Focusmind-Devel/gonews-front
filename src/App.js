@@ -10,6 +10,7 @@ import Category from './pages/Category/Category';
 import './MobileView.sass';
 import './TabletView.sass';
 import './LargeScreen.sass';
+import 'animate.css';
 
 function App() {
   const notasContext = useContext(NotasContext);

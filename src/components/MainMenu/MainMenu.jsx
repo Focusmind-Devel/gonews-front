@@ -23,6 +23,8 @@ const MainMenu = ({ menuOpen, isOpen }) => {
     } else {
       setHideMenu(true);
       for (let item of principal) {
+        item.classList.add =
+          'animate__animated animate__backInLeft animate__faster';
         item.style.display = 'block';
       }
       for (let item of adicional) {
@@ -81,8 +83,15 @@ const MainMenu = ({ menuOpen, isOpen }) => {
 
   const hideOnClick = (e) => {
     if (e.target.classList.contains('click')) {
-      e.target.parentElement.parentElement.parentElement.parentElement.style.display =
-        'none';
+      // e.target.parentElement.parentElement.parentElement.parentElement.style.display =
+      //   'none';
+
+      const element =
+        e.target.parentElement.parentElement.parentElement.parentElement;
+
+      console.log(element);
+
+      element.classList.add('animate__animated', 'animate__bounceOutLeft');
 
       isOpen(true);
     }
@@ -94,7 +103,11 @@ const MainMenu = ({ menuOpen, isOpen }) => {
         <div id='menu' className='container'>
           <div id='logo'>
             <a href='/'>
-              <img src={logoFixed} alt='go news logo' />
+              <img
+                className='animate__animated animate__fadeInLeft animate__faster'
+                src={logoFixed}
+                alt='go news logo'
+              />
             </a>
           </div>
           <ul id='main_menu'>
@@ -102,33 +115,39 @@ const MainMenu = ({ menuOpen, isOpen }) => {
               <Link to={'/actualidad'}>Actualidad</Link>
             </li>
             <li className='menu_item'>
-              <Link to={'/economia'}>Economia</Link>
+              <Link to={'/economía'}>Economía</Link>
             </li>
-            <li className='menu_item principal'>
-              <Link to={'/politica'}>Politica</Link>
+            <li className='menu_item principal animate__animated animate__fadeInLeft animate__faster'>
+              <Link to={'/política'}>Política</Link>
             </li>
-            <li className='menu_item principal'>
-              <Link to={'/espectaculos'}>Espectaculos</Link>
+            <li className='menu_item principal animate__animated animate__fadeInLeft animate__faster'>
+              <Link to={'/espectáculos'}>Espectáculos</Link>
             </li>
-            <li className='menu_item principal'>
+            <li className='menu_item principal animate__animated animate__fadeInLeft animate__faster'>
               <Link to={'/deportes'}>Deportes</Link>
             </li>
-            <li className='menu_item principal' onClick={showMenu}>
+            <li
+              className='menu_item principal animate__animated animate__fadeInLeft animate__faster'
+              onClick={showMenu}
+            >
               Mas +
             </li>
-            <li className='menu_item adicional menos' onClick={showMenu}>
-              Menos +
+            <li
+              className='menu_item adicional animate__animated animate__fadeInRight animate__faster menos'
+              onClick={showMenu}
+            >
+              Menos -
             </li>
-            <li className='menu_item adicional'>
+            <li className='menu_item adicional animate__animated animate__fadeInRight animate__faster'>
               <Link to={'/lifestyle'}>Lifestyle</Link>
             </li>
-            <li className='menu_item adicional'>
+            <li className='menu_item adicional animate__animated animate__fadeInRight animate__faster'>
               <Link to={'/comidas'}>Comidas</Link>
             </li>
-            <li className='menu_item adicional'>
-              <Link to={'/opinion'}>Opinion</Link>
+            <li className='menu_item adicional animate__animated animate__fadeInRight animate__faster'>
+              <Link to={'/opinión'}>Opinión</Link>
             </li>
-            <li className='menu_item adicional'>
+            <li className='menu_item adicional animate__animated animate__fadeInRight animate__faster'>
               <Link to={'/reportaje'}>Reportaje</Link>
             </li>
           </ul>
@@ -136,7 +155,11 @@ const MainMenu = ({ menuOpen, isOpen }) => {
         </div>
       </nav>
       {menuOpen ? (
-        <nav id='navigation2' onClick={hideOnClick}>
+        <nav
+          id='navigation2'
+          onClick={hideOnClick}
+          className='animate__animated animate__fadeInDown animate__faster'
+        >
           <div id='menu' className='container'>
             <Busqueda />
             <ul id='main_menu'>
@@ -146,18 +169,18 @@ const MainMenu = ({ menuOpen, isOpen }) => {
                 </Link>
               </li>
               <li className='menu_item'>
-                <Link className='click' to={'/economia'}>
-                  Economia
+                <Link className='click' to={'/economía'}>
+                  Economía
                 </Link>
               </li>
               <li className='menu_item'>
-                <Link className='click' to={'/politica'}>
-                  Politica
+                <Link className='click' to={'/política'}>
+                  Política
                 </Link>
               </li>
               <li className='menu_item'>
-                <Link className='click' to={'/espectaculos'}>
-                  Espectaculos
+                <Link className='click' to={'/espectáculos'}>
+                  Espectáculos
                 </Link>
               </li>
               <li className='menu_item'>
@@ -171,22 +194,22 @@ const MainMenu = ({ menuOpen, isOpen }) => {
               <li className='menu_item adicional menos' onClick={showMenu}>
                 Menos -
               </li>
-              <li className='menu_item adicional'>
+              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
                 <Link className='click' to={'/lifestyle'}>
                   Lifestyle
                 </Link>
               </li>
-              <li className='menu_item adicional'>
+              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
                 <Link className='click' to={'/comidas'}>
                   Comidas
                 </Link>
               </li>
-              <li className='menu_item adicional'>
-                <Link className='click' to={'/opinion'}>
-                  Opinion
+              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
+                <Link className='click' to={'/opinión'}>
+                  Opinión
                 </Link>
               </li>
-              <li className='menu_item adicional'>
+              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
                 <Link className='click' to={'/reportaje'}>
                   Reportaje
                 </Link>

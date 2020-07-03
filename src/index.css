@@ -12,6 +12,11 @@ body {
 }
 
 @font-face {
+  font-family: 'Muli-Italic';
+  src: url('./assets/fonts/Muli/static/Muli-Italic.ttf');
+}
+
+@font-face {
   font-family: 'Muli-Extra-Bold';
   src: url('./assets/fonts/Muli/static/Muli-ExtraBold.ttf');
 }
@@ -58,8 +63,8 @@ code {
 
 /* Contenedor */
 .container {
-  width: 100%;
-  max-width: 80%;
+  width: 90%;
+  max-width: 1100px;
   margin: 0 auto;
 }
 

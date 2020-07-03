@@ -17,12 +17,12 @@ function Categoria({ notas }) {
         setActualidad('actualidad');
       }
 
-      if (categoria[i].dataset.value === 'politica') {
-        setPolitica('politica');
+      if (categoria[i].dataset.value === 'política') {
+        setPolitica('política');
       }
 
-      if (categoria[i].dataset.value === 'espectaculos') {
-        setEspectaculos('espectaculos');
+      if (categoria[i].dataset.value === 'espectáculos') {
+        setEspectaculos('espectáculos');
       }
     }
   };
@@ -44,7 +44,7 @@ function Categoria({ notas }) {
         </div>
       </div>
 
-      <div className='categoria' ref={getAttibuteValue} data-value='politica'>
+      <div className='categoria' ref={getAttibuteValue} data-value='política'>
         <div className='titulo'>
           <img src={flecha} alt='icono flecha' />
           <span>{politica}</span>
@@ -62,7 +62,7 @@ function Categoria({ notas }) {
       <div
         className='categoria'
         ref={getAttibuteValue}
-        data-value='espectaculos'
+        data-value='espectáculos'
       >
         <div className='titulo'>
           <img src={flecha} alt='icono flecha' />
