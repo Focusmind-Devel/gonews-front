@@ -8,7 +8,7 @@ import burguerMenuOpen from '../../assets/images/menu-desplegado.png';
 // estilos
 import './Topbar.sass';
 
-const Topbar = ({ isOpen }) => {
+const Topbar = ({ isOpen, menuOpen }) => {
   const [burguer, setBurguer] = useState(false);
 
   const busquedaGrid = (grid) => {
@@ -34,7 +34,7 @@ const Topbar = ({ isOpen }) => {
   return (
     <div className='top_nav'>
       <div className='main_top'>
-        {burguer === true ? (
+        {menuOpen ? (
           <img
             className='burguer'
             src={burguerMenuOpen}

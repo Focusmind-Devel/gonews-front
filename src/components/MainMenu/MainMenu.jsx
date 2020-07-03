@@ -84,7 +84,7 @@ const MainMenu = ({ menuOpen, isOpen }) => {
       e.target.parentElement.parentElement.parentElement.parentElement.style.display =
         'none';
 
-      isOpen(false);
+      isOpen(true);
     }
   };
 

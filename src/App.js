@@ -33,7 +33,7 @@ function App() {
 
   return (
     <Fragment>
-      <TopBar isOpen={isOpen} />
+      <TopBar isOpen={isOpen} menuOpen={menuOpen} />
       <MainMenu menuOpen={menuOpen} isOpen={isOpen} />
       <Switch>
         <Route exact path='/' component={Home} />
