@@ -25,7 +25,14 @@ const HeaderCategory = ({ category }) => {
   const notaDestacada = result[result.length - 1];
 
   if (result <= 0) {
-    return <h1>No hay notas disponibles</h1>;
+    return (
+      <div
+        className='container'
+        style={{ height: '50vh', textAlign: 'center' }}
+      >
+        <h1>No hay notas disponibles</h1>
+      </div>
+    );
   } else {
     return (
       <HeaderBg

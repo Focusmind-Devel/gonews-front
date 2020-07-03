@@ -1,8 +1,8 @@
 import React from 'react';
 // iconos redes sociales
-import instagram from '../../assets/images/instagram.png';
-import facebook from '../../assets/images/facebook.png';
-import twitter from '../../assets/images/twitter.png';
+import { ReactComponent as Facebook } from '../../assets/images/facebook.svg';
+import { ReactComponent as Twitter } from '../../assets/images/twitter.svg';
+import { ReactComponent as Instagram } from '../../assets/images/instagram.svg';
 // estilos
 import './SocialLinks.sass';
 
@@ -10,25 +10,25 @@ const SocialLinks = () => {
   return (
     <div id='social_icons_top'>
       <a
+        href='https://twitter.com/home'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        <Twitter className='social_icon' />
+      </a>
+      <a
         href='https://www.instagram.com/'
         target='_blank'
         rel='noopener noreferrer'
       >
-        <img src={instagram} alt='instagram icon' />
+        <Instagram className='social_icon' />
       </a>
       <a
         href='https://www.facebook.com/'
         target='_blank'
         rel='noopener noreferrer'
       >
-        <img src={facebook} alt='facebook icon' />
-      </a>
-      <a
-        href='https://twitter.com/home'
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        <img src={twitter} alt='twitter icon' />
+        <Facebook className='social_icon' />
       </a>
     </div>
   );

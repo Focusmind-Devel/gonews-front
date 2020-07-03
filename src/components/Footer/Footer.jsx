@@ -28,13 +28,13 @@ function Footer() {
               <li className='menu_item'>
                 <Link to={'/economía'}>Economía</Link>
               </li>
-              <li className='menu_item principal'>
+              <li className='menu_item'>
                 <Link to={'/política'}>Política</Link>
               </li>
-              <li className='menu_item principal'>
+              <li className='menu_item'>
                 <Link to={'/espectáculos'}>Espectáculos</Link>
               </li>
-              <li className='menu_item principal'>
+              <li className='menu_item'>
                 <Link to={'/deportes'}>Deportes</Link>
               </li>
             </ul>
@@ -43,16 +43,16 @@ function Footer() {
           <div className='bottom_menu'>
             <p className='menu_title'>Mas +</p>
             <ul className='bottom_menu_1'>
-              <li className='menu_item adicional'>
+              <li className='menu_item'>
                 <Link to={'/lifestyle'}>Lifestyle</Link>
               </li>
-              <li className='menu_item adicional'>
+              <li className='menu_item'>
                 <Link to={'/comidas'}>Comidas</Link>
               </li>
-              <li className='menu_item adicional'>
+              <li className='menu_item'>
                 <Link to={'/opinión'}>Opinión</Link>
               </li>
-              <li className='menu_item adicional'>
+              <li className='menu_item'>
                 <Link to={'/reportaje'}>Reportaje</Link>
               </li>
             </ul>

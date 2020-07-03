@@ -83,15 +83,17 @@ const MainMenu = ({ menuOpen, isOpen }) => {
 
   const hideOnClick = (e) => {
     if (e.target.classList.contains('click')) {
-      // e.target.parentElement.parentElement.parentElement.parentElement.style.display =
-      //   'none';
-
       const element =
         e.target.parentElement.parentElement.parentElement.parentElement;
 
-      console.log(element);
+      // element.style.opacity = '0';
 
-      element.classList.add('animate__animated', 'animate__bounceOutLeft');
+      // element.style.display = 'none';
+
+      element.classList.remove('animate__fadeInLeft');
+      element.classList.add('animate__fadeOutLeft');
+
+      console.log(element);
 
       isOpen(true);
     }
@@ -158,7 +160,7 @@ const MainMenu = ({ menuOpen, isOpen }) => {
         <nav
           id='navigation2'
           onClick={hideOnClick}
-          className='animate__animated animate__fadeInDown animate__faster'
+          className='animate__animated animate__fadeInLeft animate__faster'
         >
           <div id='menu' className='container'>
             <Busqueda />
@@ -219,7 +221,69 @@ const MainMenu = ({ menuOpen, isOpen }) => {
           </div>
         </nav>
       ) : (
-        false
+        <nav
+          id='navigation2'
+          onClick={hideOnClick}
+          className='animate__animated animate__fadeOutLeft animate__faster'
+        >
+          <div id='menu' className='container'>
+            <Busqueda />
+            <ul id='main_menu'>
+              <li className='menu_item'>
+                <Link className='click' to={'/actualidad'}>
+                  Actualidad
+                </Link>
+              </li>
+              <li className='menu_item'>
+                <Link className='click' to={'/economía'}>
+                  Economía
+                </Link>
+              </li>
+              <li className='menu_item'>
+                <Link className='click' to={'/política'}>
+                  Política
+                </Link>
+              </li>
+              <li className='menu_item'>
+                <Link className='click' to={'/espectáculos'}>
+                  Espectáculos
+                </Link>
+              </li>
+              <li className='menu_item'>
+                <Link className='click' to={'/deportes'}>
+                  Deportes
+                </Link>
+              </li>
+              <li className='menu_item principal' onClick={showMenu}>
+                Mas +
+              </li>
+              <li className='menu_item adicional menos' onClick={showMenu}>
+                Menos -
+              </li>
+              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
+                <Link className='click' to={'/lifestyle'}>
+                  Lifestyle
+                </Link>
+              </li>
+              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
+                <Link className='click' to={'/comidas'}>
+                  Comidas
+                </Link>
+              </li>
+              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
+                <Link className='click' to={'/opinión'}>
+                  Opinión
+                </Link>
+              </li>
+              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
+                <Link className='click' to={'/reportaje'}>
+                  Reportaje
+                </Link>
+              </li>
+            </ul>
+            <SocialLinks />
+          </div>
+        </nav>
       )}
     </Fragment>
   );

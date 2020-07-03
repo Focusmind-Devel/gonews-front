@@ -68,10 +68,15 @@
             -webkit-overflow-scrolling: touch
             scroll-snap-points-x: repeat(300px)
             scroll-snap-type: mandatory
+            column-gap: 15px
             .card
-                flex-shrink: 0
-                margin-left: 1rem
-                width: 313.78px
+                width: 250px
+                height: 310px
+                .title
+                    font-size: 20px
+                .card_body
+                    &::before
+                        bottom: 40%
             &::-webkit-scrollbar
                 visibility: hidden
     // Notas Categoria
@@ -115,6 +120,8 @@
             text-align: center
             p
                 font-size: 15px
+            span
+                display: none
         #social_icons_top
             display: none
     .category_name
