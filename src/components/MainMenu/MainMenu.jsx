@@ -33,16 +33,6 @@ const MainMenu = ({ menuOpen, isOpen }) => {
     }
   };
 
-  const busquedaGrid = (grid) => {
-    const mainMenu = document.getElementById('main_menu');
-
-    if (grid === '10 / 13') {
-      mainMenu.style.gridColumn = '2/10';
-    } else {
-      mainMenu.style.gridColumn = '2/12';
-    }
-  };
-
   const [headerText, setHeaderText] = useState(false);
 
   useEffect(() => {
@@ -58,7 +48,7 @@ const MainMenu = ({ menuOpen, isOpen }) => {
         menu.classList.remove('container');
         mainMenu.style.gridColumn = '2/12';
         logo.style.display = 'block';
-        busqueda.style.display = 'block';
+        busqueda.style.display = 'flex';
         if (headerText !== true) {
           setHeaderText(true);
         }
@@ -153,7 +143,7 @@ const MainMenu = ({ menuOpen, isOpen }) => {
               <Link to={'/reportaje'}>Reportaje</Link>
             </li>
           </ul>
-          <Busqueda busquedaGrid={busquedaGrid} />
+          <Busqueda />
         </div>
       </nav>
       {menuOpen ? (

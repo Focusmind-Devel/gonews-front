@@ -6,7 +6,15 @@
     border: none
     border-radius: 8px
     padding: 10px
-    transition: all 0.5s
+    -webkit-transition: width 0.5s, margin 0.5s
+    -moz-transition: width 0.5s, margin 0.5s
+    -o-transition: width 0.5s, margin 0.5s
+    transition: width 0.5s, margin 0.5s
+    width: 50px
+    &.active
+        background: #fff
+        width: 250px
+        margin-left: 20px
     #search
         justify-self: end
         align-self: center
@@ -15,6 +23,9 @@
         border: none
         width: 0
         line-height: 40px
+        &.active
+            width: 220px
+            height: 25px
     .search_btn
         background: none
         border: none
