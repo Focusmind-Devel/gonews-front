@@ -7,8 +7,10 @@ import Slider from 'react-slick';
 const UltimasNoticias = () => {
   const notasContext = useContext(NotasContext);
 
+  //eslint-disable-next-line
   let [oldSlide, setOldSlide] = useState(0);
   let [activeSlide, setActiveSlide] = useState(0);
+  //eslint-disable-next-line
   let [activeSlide2, setActiveSlide2] = useState(0);
 
   const { notas } = notasContext;

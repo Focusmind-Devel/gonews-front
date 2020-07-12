@@ -11,6 +11,7 @@ import './MobileView.sass';
 import './TabletView.sass';
 import './LargeScreen.sass';
 import 'animate.css';
+import Search from './pages/Search/Search';
 
 function App() {
   const notasContext = useContext(NotasContext);
@@ -38,6 +39,7 @@ function App() {
       <MainMenu menuOpen={menuOpen} isOpen={isOpen} />
       <Switch>
         <Route exact path='/' component={Home} />
+        <Route path='/resultado/:text' component={Search} />
         <Route path='/:category' component={Category} />
       </Switch>
       <Footer />

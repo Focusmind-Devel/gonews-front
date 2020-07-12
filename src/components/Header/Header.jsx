@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, Fragment } from 'react';
 import './Header.sass';
 // icono
 import flecha from '../../assets/images/flecha.png';
@@ -26,23 +26,25 @@ const Header = () => {
     return <p>Cargando</p>;
   } else {
     return (
-      <HeaderBg
-        className='mobileHeader'
-        style={{ backgroundImage: `url(${notaDestacada.headerImage})` }}
-      >
-        <div className='info-destacada'>
-          <div className='container'>
-            <span className='category'>{notaDestacada.category}</span>
-            <Link to='/actualidad' className='title'>
-              {notaDestacada.title}
-            </Link>
-            <Link to='/' className='leer_mas'>
-              <img src={flecha} alt='icono flecha' />
-              <span>Leer nota</span>
-            </Link>
+      <Fragment>
+        <HeaderBg
+          className='mobileHeader'
+          style={{ backgroundImage: `url(${notaDestacada.headerImage})` }}
+        >
+          <div className='info-destacada'>
+            <div className='container'>
+              <span className='category'>{notaDestacada.category}</span>
+              <Link to='/actualidad' className='title'>
+                {notaDestacada.title}
+              </Link>
+              <Link to='/' className='leer_mas'>
+                <img src={flecha} alt='icono flecha' />
+                <span>Leer nota</span>
+              </Link>
+            </div>
           </div>
-        </div>
-      </HeaderBg>
+        </HeaderBg>
+      </Fragment>
     );
   }
 };

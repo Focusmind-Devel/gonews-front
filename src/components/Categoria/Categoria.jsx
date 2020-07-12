@@ -10,6 +10,7 @@ function Categoria({ notas }) {
       <Actualidad notas={notas} />
       <Politica notas={notas} />
       <Espectaculos notas={notas} />
+      <h1>Test</h1>
     </Fragment>
   );
 }

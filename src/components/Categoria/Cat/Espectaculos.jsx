@@ -7,8 +7,10 @@ import Slider from 'react-slick';
 
 function Espectaculos({ notas }) {
   const [espectaculos, setEspectaculos] = useState('');
+  //eslint-disable-next-line
   let [oldSlide, setOldSlide] = useState(0);
   let [activeSlide, setActiveSlide] = useState(0);
+  //eslint-disable-next-line
   let [activeSlide2, setActiveSlide2] = useState(0);
 
   const [screenSize, setscreenSize] = useState(window.innerWidth);
@@ -38,8 +40,8 @@ function Espectaculos({ notas }) {
     const categoria = document.querySelectorAll('.categoria');
 
     for (let i = 0; i < categoria.length; i++) {
-      if (categoria[i].dataset.value === 'espectáculos') {
-        setEspectaculos('espectáculos');
+      if (categoria[i].dataset.value === 'Espectáculo') {
+        setEspectaculos('Espectáculo');
       }
     }
   };
@@ -49,11 +51,11 @@ function Espectaculos({ notas }) {
       <div
         className='categoria'
         ref={getAttibuteValue}
-        data-value='espectáculos'
+        data-value='Espectáculo'
       >
         <div className='titulo'>
           <img src={flecha} alt='icono flecha' />
-          <Link to='/actualidad'>{espectaculos}</Link>
+          <Link to='/espectáculo'>{espectaculos}</Link>
         </div>
         {screenSize >= 415 ? (
           <div className='notas_categoria'>

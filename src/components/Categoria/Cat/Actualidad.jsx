@@ -7,8 +7,10 @@ import Slider from 'react-slick';
 
 function Actualidad({ notas }) {
   const [actualidad, setActualidad] = useState('');
+  //eslint-disable-next-line
   let [oldSlide, setOldSlide] = useState(0);
   let [activeSlide, setActiveSlide] = useState(0);
+  //eslint-disable-next-line
   let [activeSlide2, setActiveSlide2] = useState(0);
 
   const [screenSize, setscreenSize] = useState(window.innerWidth);
@@ -38,15 +40,15 @@ function Actualidad({ notas }) {
     const categoria = document.querySelectorAll('.categoria');
 
     for (let i = 0; i < categoria.length; i++) {
-      if (categoria[i].dataset.value === 'actualidad') {
-        setActualidad('actualidad');
+      if (categoria[i].dataset.value === 'Actualidad') {
+        setActualidad('Actualidad');
       }
     }
   };
 
   return (
     <Fragment>
-      <div className='categoria' ref={getAttibuteValue} data-value='actualidad'>
+      <div className='categoria' ref={getAttibuteValue} data-value='Actualidad'>
         <div className='titulo'>
           <img src={flecha} alt='icono flecha' />
           <Link to='/actualidad'>{actualidad}</Link>

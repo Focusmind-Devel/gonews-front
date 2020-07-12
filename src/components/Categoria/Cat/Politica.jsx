@@ -7,8 +7,10 @@ import Slider from 'react-slick';
 
 function Politica({ notas }) {
   const [politica, setPolitica] = useState('');
+  //eslint-disable-next-line
   let [oldSlide2, setOldSlide2] = useState(0);
   let [activeSlide2, setActiveSlide2] = useState(0);
+  //eslint-disable-next-line
   let [activeSlide3, setActiveSlide3] = useState(0);
 
   const [screenSize, setscreenSize] = useState(window.innerWidth);
@@ -38,18 +40,18 @@ function Politica({ notas }) {
     const categoria = document.querySelectorAll('.categoria');
 
     for (let i = 0; i < categoria.length; i++) {
-      if (categoria[i].dataset.value === 'política') {
-        setPolitica('política');
+      if (categoria[i].dataset.value === 'Política') {
+        setPolitica('Política');
       }
     }
   };
 
   return (
     <Fragment>
-      <div className='categoria' ref={getAttibuteValue} data-value='política'>
+      <div className='categoria' ref={getAttibuteValue} data-value='Política'>
         <div className='titulo'>
           <img src={flecha} alt='icono flecha' />
-          <Link to='/actualidad'>{politica}</Link>
+          <Link to='/política'>{politica}</Link>
         </div>
         {screenSize >= 415 ? (
           <div className='notas_categoria'>
