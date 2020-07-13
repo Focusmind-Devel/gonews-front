@@ -20,11 +20,9 @@ const HeaderCategory = ({ category }) => {
 
   const { notas } = notasContext;
 
-  const result = notas.filter((item) => item.category === category);
+  const notaDestacada = notas[notas.length - 1];
 
-  const notaDestacada = result[result.length - 1];
-
-  if (result <= 0) {
+  if (!category) {
     return (
       <div
         className='container'
@@ -41,7 +39,7 @@ const HeaderCategory = ({ category }) => {
       >
         <div className='info-destacada'>
           <div className='container'>
-            <Link to='/actualidad' className='title'>
+            <Link to={`/nota/${notaDestacada.id}`} className='title'>
               {notaDestacada.title}
             </Link>
             <Link to='/' className='leer_mas'>

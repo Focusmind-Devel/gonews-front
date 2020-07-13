@@ -1,9 +1,8 @@
-import React, { useEffect, useContext, Fragment, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import TopBar from './components/Topbar/Topbar';
 import MainMenu from './components/MainMenu/MainMenu';
 import Home from './pages/Home/Home';
 import Footer from './components/Footer/Footer';
-import NotasContext from './context/notas/notasContext';
 // router
 import { Route, Switch } from 'react-router-dom';
 import Category from './pages/Category/Category';
@@ -15,16 +14,7 @@ import Search from './pages/Search/Search';
 import Nota from './pages/Nota/Nota';
 
 function App() {
-  const notasContext = useContext(NotasContext);
-
-  const { getData } = notasContext;
-
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    getData();
-    //eslint-disable-next-line
-  }, []);
 
   const isOpen = (openMenu) => {
     if (openMenu) {

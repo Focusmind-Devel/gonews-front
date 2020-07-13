@@ -4,6 +4,7 @@
         position: fixed
         width: 100%
         z-index: 10
+        top: 0
         .main_top
             grid-template-columns: repeat(3, 1fr)
             .burguer
@@ -31,6 +32,8 @@
         .category
             font-size: 15px
             width: 30%
+    #navigation2
+        top: 0
     // Ultimas Noticias
     #ultimas-notas
         h1
@@ -48,7 +51,9 @@
             column-gap: 15px
             .card
                 width: 250px
-                height: 310px
+                height: 310px 
+                img
+                    width: 250px !important
                 .title
                     font-size: 20px
                 .card_body
@@ -126,3 +131,23 @@
             display: none
     .category_name
         padding-top: 5rem
+
+    // nota individual
+    .category-date
+        margin-top: 8rem
+        display: flex
+        flex-direction: column
+        .category
+            width: 102.52px
+            font-size: 15px !important
+        .date
+            font-size: 22px !important
+            margin-top: 1rem
+    
+    .nota-content
+        .tags
+            display: flex
+            flex-direction: column
+            .every-tag
+                display: block
+                margin-top: 1rem

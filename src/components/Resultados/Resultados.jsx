@@ -22,7 +22,7 @@ const Image = styled.img`
 const Resultados = ({ item }) => {
   return (
     <Fragment>
-      <Link to='/' className='results-card'>
+      <Link to={`/nota/${item.id}`} className='results-card'>
         <div>
           <Image src={item.thumbnail} alt={item.title} />
         </div>

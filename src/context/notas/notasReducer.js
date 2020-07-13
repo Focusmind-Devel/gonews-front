@@ -24,11 +24,13 @@ export default (state, action) => {
         ...state,
         notas: action.payload.results,
         count: action.payload.count,
+        loading: false,
       };
     case GET_NOTA:
       return {
         ...state,
         nota: action.payload,
+        loading: false,
       };
     default:
       return state;

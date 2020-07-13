@@ -13,9 +13,11 @@ const NotasState = (props) => {
   const initialState = {
     notas: [],
     nota: {},
+    loading: true,
     count: 0,
     next: null,
     previous: null,
+    categoryName: '',
   };
 
   const [state, dispatch] = useReducer(NotasReducer, initialState);
@@ -74,6 +76,8 @@ const NotasState = (props) => {
         notas: state.notas,
         count: state.count,
         nota: state.nota,
+        loading: state.loading,
+        categoryName: state.categoryName,
         getData,
         getCategory,
         searchNotes,
