@@ -33,10 +33,10 @@ const Resultados = ({ item }) => {
           </div>
           <div className='title-more'>
             <h3 style={{ textTransform: 'capitalize' }}>{item.title}</h3>
-            <Link to='/' className='leer_mas'>
+            <div to='/' className='leer_mas'>
               <img src={flecha} alt='icono flecha' />
               <span>Leer nota</span>
-            </Link>
+            </div>
           </div>
         </div>
       </Link>

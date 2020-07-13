@@ -2,11 +2,17 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import NotasContext from './notasContext';
 import NotasReducer from './notasReducer';
-import { GET_NOTAS, GET_CATEGORY_NOTES, SEARCH_NOTES } from '../types';
+import {
+  GET_NOTAS,
+  GET_CATEGORY_NOTES,
+  SEARCH_NOTES,
+  GET_NOTA,
+} from '../types';
 
 const NotasState = (props) => {
   const initialState = {
     notas: [],
+    nota: {},
     count: 0,
     next: null,
     previous: null,
@@ -50,14 +56,28 @@ const NotasState = (props) => {
     });
   };
 
+  // get individual note
+  const getNote = async (noteID) => {
+    const res = await axios.get(
+      `https://gonews-back-develop.herokuapp.com/note/${noteID}`
+    );
+
+    dispatch({
+      type: GET_NOTA,
+      payload: res.data,
+    });
+  };
+
   return (
     <NotasContext.Provider
       value={{
         notas: state.notas,
         count: state.count,
+        nota: state.nota,
         getData,
         getCategory,
         searchNotes,
+        getNote,
       }}
     >
       {props.children}

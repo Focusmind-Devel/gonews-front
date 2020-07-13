@@ -34,10 +34,10 @@ const Header = () => {
           <div className='info-destacada'>
             <div className='container'>
               <span className='category'>{notaDestacada.category}</span>
-              <Link to='/actualidad' className='title'>
+              <Link to={`/nota/${notaDestacada.id}`} className='title'>
                 {notaDestacada.title}
               </Link>
-              <Link to='/' className='leer_mas'>
+              <Link to={`/nota/${notaDestacada.id}`} className='leer_mas'>
                 <img src={flecha} alt='icono flecha' />
                 <span>Leer nota</span>
               </Link>

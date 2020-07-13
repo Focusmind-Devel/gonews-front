@@ -1,4 +1,9 @@
-import { GET_NOTAS, SEARCH_NOTES, GET_CATEGORY_NOTES } from '../types';
+import {
+  GET_NOTAS,
+  SEARCH_NOTES,
+  GET_CATEGORY_NOTES,
+  GET_NOTA,
+} from '../types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -19,6 +24,11 @@ export default (state, action) => {
         ...state,
         notas: action.payload.results,
         count: action.payload.count,
+      };
+    case GET_NOTA:
+      return {
+        ...state,
+        nota: action.payload,
       };
     default:
       return state;

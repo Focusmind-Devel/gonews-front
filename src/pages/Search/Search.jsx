@@ -46,7 +46,7 @@ const Search = ({ match }) => {
               .filter(
                 (item) =>
                   item.title.toLowerCase().includes(text.toLowerCase()) ||
-                  item.tags.includes(text.toLowerCase()) ||
+                  item.tags.indexOf(text) ||
                   item.content.toLowerCase().includes(text.toLowerCase())
               )
               .map((filtered) => (
