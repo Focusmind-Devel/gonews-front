@@ -18,7 +18,7 @@ const Category = ({ match }) => {
       <div className='container' id='sec_category'>
         <div className='categoria'>
           <div className='notas_categoria'>
-            {notas.results
+            {notas
               .filter((item) => item.category === category)
               .map((filtered) => (
                 <Card key={filtered.id} item={filtered} />

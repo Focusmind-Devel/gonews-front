@@ -34,7 +34,7 @@ const NotasState = (props) => {
 
     dispatch({
       type: GET_CATEGORY_NOTES,
-      payload: res.data.results,
+      payload: res.data,
     });
   };
 

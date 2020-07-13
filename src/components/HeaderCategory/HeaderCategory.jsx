@@ -20,7 +20,7 @@ const HeaderCategory = ({ category }) => {
 
   const { notas } = notasContext;
 
-  const result = notas.results.filter((item) => item.category === category);
+  const result = notas.filter((item) => item.category === category);
 
   const notaDestacada = result[result.length - 1];
 

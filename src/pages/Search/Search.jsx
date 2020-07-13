@@ -3,6 +3,13 @@ import NotasContext from '../../context/notas/notasContext';
 import Busqueda from '../../components/Busqueda/Busqueda';
 import './Search.sass';
 import Resultados from '../../components/Resultados/Resultados';
+import styled from 'styled-components';
+
+const NotFoundResult = styled.div`
+  color: #e71d36;
+  font-size: 21px;
+  padding: 2rem 0 10rem 0;
+`;
 
 const Search = ({ match }) => {
   const notasContext = useContext(NotasContext);
@@ -28,18 +35,32 @@ const Search = ({ match }) => {
           <Busqueda />
         </div>
       </div>
-      <div className='container'>
-        <p>
-          {count} resultados encontrados para {text}
-        </p>
-        <div className='resultados'>
-          {notas
-            .filter((item) => item.title.includes(text))
-            .map((filtered) => (
-              <Resultados key={filtered.id} item={filtered} />
-            ))}
+      {count >= 1 ? (
+        <div className='container'>
+          <p>
+            {count} resultados encontrados para {text}
+          </p>
+          <div className='resultados'>
+            {notas
+              .reverse()
+              .filter(
+                (item) =>
+                  item.title.toLowerCase().includes(text.toLowerCase()) ||
+                  item.tags.includes(text.toLowerCase()) ||
+                  item.content.toLowerCase().includes(text.toLowerCase())
+              )
+              .map((filtered) => (
+                <Resultados key={filtered.id} item={filtered} />
+              ))}
+          </div>
         </div>
-      </div>
+      ) : (
+        <NotFoundResult className='container'>
+          <h4 style={{ width: '595px' }}>
+            Lo sentimos, no encontramos resultados para la búsqueda de {text}
+          </h4>
+        </NotFoundResult>
+      )}
     </Fragment>
   );
 };
