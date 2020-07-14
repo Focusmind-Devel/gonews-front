@@ -75,10 +75,7 @@ function Politica({ notas }) {
             {activeSlide2 === 0 ||
             activeSlide2 === 1 ||
             activeSlide2 === 2 ||
-            activeSlide2 === 3 ||
-            activeSlide2 === 4 ||
-            activeSlide2 === 5 ||
-            activeSlide2 === 6 ? (
+            activeSlide2 === 3 ? (
               <span className='numerador'>
                 <span>{activeSlide2 + 1}</span> / 3
               </span>

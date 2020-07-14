@@ -75,12 +75,9 @@ function Actualidad({ notas }) {
             {activeSlide === 0 ||
             activeSlide === 1 ||
             activeSlide === 2 ||
-            activeSlide === 3 ||
-            activeSlide === 4 ||
-            activeSlide === 5 ||
-            activeSlide === 6 ? (
+            activeSlide === 3 ? (
               <span className='numerador'>
-                <span>{activeSlide + 1}</span> / 3
+                <span>{activeSlide + 1}</span> / {notas.slice(0, 3).length}
               </span>
             ) : (
               <span className='numerador'>{activeSlide - 1} / 3</span>

@@ -63,10 +63,12 @@ const UltimasNoticias = () => {
             activeSlide === 5 ||
             activeSlide === 6 ? (
               <span className='numerador'>
-                <span>{activeSlide + 1}</span> / 6
+                <span>{activeSlide + 1}</span> / {notas.slice(0, 6).length}
               </span>
             ) : (
-              <span className='numerador'>{activeSlide - 1} / 6</span>
+              <span className='numerador'>
+                {activeSlide - 1} / {notas.slice(0, 6).length}
+              </span>
             )}
           </Fragment>
         )}

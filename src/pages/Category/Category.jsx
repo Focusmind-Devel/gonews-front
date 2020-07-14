@@ -11,7 +11,7 @@ const Category = ({ match }) => {
 
   const notasContext = useContext(NotasContext);
 
-  const { notas, getCategory, loading } = notasContext;
+  const { categoryNotes, getCategory, loading } = notasContext;
 
   useEffect(() => {
     getCategory(1);
@@ -37,7 +37,7 @@ const Category = ({ match }) => {
         <div className='container' id='sec_category'>
           <div className='categoria'>
             <div className='notas_categoria'>
-              {notas.map((filtered) => (
+              {categoryNotes.map((filtered) => (
                 <Card key={filtered.id} item={filtered} />
               ))}
             </div>

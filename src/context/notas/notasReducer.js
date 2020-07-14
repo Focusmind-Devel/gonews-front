@@ -22,9 +22,11 @@ export default (state, action) => {
     case GET_CATEGORY_NOTES:
       return {
         ...state,
-        notas: action.payload.results,
+        categoryNotes: action.payload.results,
         count: action.payload.count,
         loading: false,
+        next: action.payload.next,
+        previous: action.payload.previous,
       };
     case GET_NOTA:
       return {

@@ -18,9 +18,9 @@ const HeaderBg = styled.div`
 const HeaderCategory = ({ category }) => {
   const notasContext = useContext(NotasContext);
 
-  const { notas } = notasContext;
+  const { categoryNotes } = notasContext;
 
-  const notaDestacada = notas[notas.length - 1];
+  const notaDestacada = categoryNotes[categoryNotes.length - 1];
 
   if (!category) {
     return (

@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, Fragment } from 'react';
 import NotasContext from '../../context/notas/notasContext';
 import styled from 'styled-components';
-import Resultados from '../../components/Resultados/Resultados';
+// import Resultados from '../../components/Resultados/Resultados';
 // share buttons
 import facebookShare from '../../assets/images/facebook-share.png';
 import twitterShare from '../../assets/images/twitter-share.png';
@@ -10,7 +10,7 @@ import linkShare from '../../assets/images/link-share.png';
 import commentShare from '../../assets/images/comment-share.png';
 import Spinner from '../../assets/images/spinner.gif';
 // styles
-import Notas from './Notas.sass';
+import './Notas.sass';
 
 const NotaIndividual = styled.div`
   margin: 4rem 0;
@@ -48,9 +48,11 @@ const HeaderSpace = styled.div`
 const Nota = ({ match }) => {
   const notasContext = useContext(NotasContext);
 
-  const { getNote, nota, notas, loading } = notasContext;
+  const { getNote, nota, loading } = notasContext;
 
-  let lastScrollY = 0;
+  // let lastScrollY = 0;
+
+  let postUrl = encodeURI(document.location.href);
 
   useEffect(() => {
     getNote(match.params.notaID);
@@ -72,6 +74,21 @@ const Nota = ({ match }) => {
     };*/
     //eslint-disable-next-line
   }, []);
+
+  const shareBtn = () => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: nota.title,
+          text: nota.content,
+          url: postUrl,
+        })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+    } else {
+      console.log('Web Share API is not supported in your browser.');
+    }
+  };
 
   if (loading) {
     return (
@@ -102,27 +119,41 @@ const Nota = ({ match }) => {
                   />
                   <ShareButtons id='share'>
                     <i>
-                      <a href='/'>
+                      <a
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${postUrl}`}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
                         <img src={facebookShare} alt='Share to facebook' />
                       </a>
                     </i>
                     <i>
-                      <a href='/'>
+                      <a
+                        href={`https://twitter.com/share?url=${postUrl}&text=${nota.title}`}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
                         <img src={twitterShare} alt='Share to twitter' />
                       </a>
                     </i>
                     <i>
-                      <a href='/'>
-                        <img src={mailShare} alt='Share via mail' />
+                      <a
+                        href={`mailto:?subject=${nota.title}&body=Esto%20te%20puede%20interesar%20 ${postUrl}`}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        <img src={mailShare} alt='Share via Email' />
                       </a>
                     </i>
-                    <i>
-                      <a href='/'>
-                        <img src={linkShare} alt='Share link' />
-                      </a>
+                    <i style={{ cursor: 'pointer' }} onClick={shareBtn}>
+                      <img src={linkShare} alt='Share link' />
                     </i>
                     <i>
-                      <a href='/'>
+                      <a
+                        href={`sms:?body=${postUrl}`}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
                         <img src={commentShare} alt='Share comment' />
                       </a>
                     </i>
