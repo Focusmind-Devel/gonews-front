@@ -47,7 +47,7 @@ const MainMenu = ({ menuOpen, isOpen }) => {
         nav.classList.add('sticky');
         menu.classList.remove('container');
         mainMenu.style.gridColumn = '2/12';
-        logo.style.display = 'blo+ck';
+        logo.style.display = 'block';
         busqueda.style.display = 'flex';
         if (headerText !== true) {
           setHeaderText(true);
