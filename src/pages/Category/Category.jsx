@@ -3,6 +3,8 @@ import './Category.sass';
 import NotasContext from '../../context/notas/notasContext';
 import Card from '../../components/Card/Card';
 import HeaderCategory from '../../components/HeaderCategory/HeaderCategory';
+import Spinner from '../../assets/images/spinner.gif';
+import styled from 'styled-components';
 
 const Category = ({ match }) => {
   const category = match.params.category;
@@ -16,10 +18,17 @@ const Category = ({ match }) => {
     //eslint-disable-next-line
   }, []);
 
-  console.log(notas);
+  const HeaderSpace = styled.div`
+    height: 650px;
+    text-align: center;
+  `;
 
   if (loading) {
-    return <h1>Cargando</h1>;
+    return (
+      <HeaderSpace>
+        <img src={Spinner} alt='' />
+      </HeaderSpace>
+    );
   } else {
     return (
       <Fragment>

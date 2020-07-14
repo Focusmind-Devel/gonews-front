@@ -42,7 +42,7 @@ const HeaderCategory = ({ category }) => {
             <Link to={`/nota/${notaDestacada.id}`} className='title'>
               {notaDestacada.title}
             </Link>
-            <Link to='/' className='leer_mas'>
+            <Link to={`/nota/${notaDestacada.id}`} className='leer_mas'>
               <img src={flecha} alt='icono flecha' />
               <span>Leer nota</span>
             </Link>

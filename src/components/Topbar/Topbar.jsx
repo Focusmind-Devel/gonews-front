@@ -7,6 +7,7 @@ import burguerMenu from '../../assets/images/menu-plegado.png';
 import burguerMenuOpen from '../../assets/images/menu-desplegado.png';
 // estilos
 import './Topbar.sass';
+import { Link } from 'react-router-dom';
 
 const Topbar = ({ isOpen, menuOpen }) => {
   const [burguer, setBurguer] = useState(false);
@@ -40,9 +41,9 @@ const Topbar = ({ isOpen, menuOpen }) => {
           />
         )}
         <div id='logo'>
-          <a href='/'>
+          <Link to='/'>
             <img src={mainlogo} alt='go news logo' />
-          </a>
+          </Link>
         </div>
         <SocialLinks />
         <Busqueda />

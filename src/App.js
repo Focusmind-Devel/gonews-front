@@ -12,6 +12,7 @@ import './LargeScreen.sass';
 import 'animate.css';
 import Search from './pages/Search/Search';
 import Nota from './pages/Nota/Nota';
+import ScrollToTop from './components/ScrollToTop/ScrollTopTop';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <Fragment>
+      <ScrollToTop />
       <TopBar isOpen={isOpen} menuOpen={menuOpen} />
       <MainMenu menuOpen={menuOpen} isOpen={isOpen} />
       <Switch>

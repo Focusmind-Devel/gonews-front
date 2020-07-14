@@ -2,6 +2,7 @@ import React, { useContext, Fragment } from 'react';
 import './Header.sass';
 // icono
 import flecha from '../../assets/images/flecha.png';
+import Spinner from '../../assets/images/spinner.gif';
 import NotasContext from '../../context/notas/notasContext';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -15,6 +16,11 @@ const HeaderBg = styled.div`
   height: 650px;
 `;
 
+const HeaderSpace = styled.div`
+  height: 650px;
+  text-align: center;
+`;
+
 const Header = () => {
   const notasContext = useContext(NotasContext);
 
@@ -23,7 +29,11 @@ const Header = () => {
   const notaDestacada = notas[notas.length - 1];
 
   if (notas <= 0) {
-    return <p>Cargando</p>;
+    return (
+      <HeaderSpace>
+        <img src={Spinner} alt='' />
+      </HeaderSpace>
+    );
   } else {
     return (
       <Fragment>

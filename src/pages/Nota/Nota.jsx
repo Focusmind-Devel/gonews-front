@@ -8,6 +8,7 @@ import twitterShare from '../../assets/images/twitter-share.png';
 import mailShare from '../../assets/images/mail-share.png';
 import linkShare from '../../assets/images/link-share.png';
 import commentShare from '../../assets/images/comment-share.png';
+import Spinner from '../../assets/images/spinner.gif';
 // styles
 import Notas from './Notas.sass';
 
@@ -37,6 +38,11 @@ const ImgAndShare = styled.div`
   @media (max-width: 620px) {
     flex-direction: column;
   }
+`;
+
+const HeaderSpace = styled.div`
+  height: 650px;
+  text-align: center;
 `;
 
 const Nota = ({ match }) => {
@@ -69,9 +75,9 @@ const Nota = ({ match }) => {
 
   if (loading) {
     return (
-      <div className='container'>
-        <h1 style={{ textAlign: 'center' }}>Cargando</h1>
-      </div>
+      <HeaderSpace>
+        <img src={Spinner} alt='' />
+      </HeaderSpace>
     );
   } else {
     return (
