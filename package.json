@@ -17,7 +17,8 @@
     "react-scripts": "3.4.1",
     "react-slick": "^0.26.1",
     "serve": "^11.3.2",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "user-instagram-profile": "^1.0.0"
   },
   "scripts": {
     "start": "serve -s build",

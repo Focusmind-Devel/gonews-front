@@ -1,0 +1,42 @@
+.instagram-post
+    width: 314px
+    background: #fff
+    transition: transform 0.3s ease-in-out
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25)
+    margin-top: 1rem
+    &:hover
+        transform: scale(1.03)
+    a
+        text-decoration: none
+        color: #4F4F4F
+    img
+        width: 100%
+        height: 100%
+        max-height: 270px
+        max-width: 314px
+    .post-body
+        padding: 1rem
+    .profile-info
+        display: flex
+        align-items: center
+        .profile
+            max-width: 35px
+            height: 35px
+            border-radius: 50%
+        .user-info
+            margin-left: 1rem
+        p
+            margin: 0
+            font-size: 15px
+        .fullName
+            color: #02182B
+            font-family: 'Muli-Bold'
+    .caption
+        font-size: 13px
+        margin-top: 1rem
+        text-overflow: ellipsis
+        display: -webkit-box
+        -webkit-line-clamp: 3 // number of lines to show
+        -webkit-box-orient: vertical
+        overflow: hidden
+        

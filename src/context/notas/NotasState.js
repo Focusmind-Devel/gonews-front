@@ -62,7 +62,7 @@ const NotasState = (props) => {
   // get Next Search Page
   const getNextPage = async (pageNumber = 2, text) => {
     let res = await axios.get(
-      `https://gonews-back-develop.herokuapp.com/notes/?page=${pageNumber}&page=${text}`
+      `https://gonews-back-develop.herokuapp.com/notes/?page=${pageNumber}&search=${text}`
     );
 
     dispatch({
@@ -106,6 +106,7 @@ const NotasState = (props) => {
         next: state.next,
         previous: state.previous,
         currentPage: state.currentPage,
+        searchText: state.searchText,
         getData,
         getCategory,
         searchNotes,
