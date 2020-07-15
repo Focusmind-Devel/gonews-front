@@ -4,6 +4,11 @@ import Busqueda from '../../components/Busqueda/Busqueda';
 import './Search.sass';
 import Resultados from '../../components/Resultados/Resultados';
 import styled from 'styled-components';
+import Paginacion from 'react-js-pagination';
+import { ReactComponent as FirstPage } from '../../assets/images/first-page.svg';
+import { ReactComponent as LastPage } from '../../assets/images/last-page.svg';
+import { ReactComponent as NextPage } from '../../assets/images/next-page.svg';
+import { ReactComponent as PrevPage } from '../../assets/images/prev-page.svg';
 
 const NotFoundResult = styled.div`
   color: #e71d36;
@@ -16,16 +21,16 @@ const Search = ({ match }) => {
 
   const text = match.params.text;
 
-  const { notas, count } = notasContext;
-
-  console.log(notas);
-  console.log(count);
+  const { notas, count, getNextPage, currentPage } = notasContext;
 
   const encabezadoStyle = {
     backgroundColor: '#02182B',
     color: '#f2f2f2',
     padding: '4rem 0',
   };
+
+  const numberOfPages = Math.ceil(count / 9);
+  console.log(numberOfPages);
 
   return (
     <Fragment>
@@ -37,7 +42,7 @@ const Search = ({ match }) => {
       </div>
       {count >= 1 ? (
         <div className='container'>
-          <p>
+          <p className='total-resultados'>
             {count} resultados encontrados para {text}
           </p>
           <div className='resultados'>
@@ -53,6 +58,17 @@ const Search = ({ match }) => {
                 <Resultados key={filtered.id} item={filtered} />
               ))}
           </div>
+          <Paginacion
+            activePage={currentPage}
+            totalItemsCount={count}
+            itemsCountPerPage={9}
+            pageRangeDisplayed={5}
+            onChange={(pageNumber) => getNextPage(pageNumber, 'nota')}
+            firstPageText={<FirstPage />}
+            lastPageText={<LastPage />}
+            prevPageText={<PrevPage />}
+            nextPageText={<NextPage />}
+          />
         </div>
       ) : (
         <NotFoundResult className='container'>

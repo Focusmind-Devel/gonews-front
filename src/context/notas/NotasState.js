@@ -18,6 +18,7 @@ const NotasState = (props) => {
     count: 0,
     next: null,
     previous: null,
+    currentPage: 1,
   };
 
   const [state, dispatch] = useReducer(NotasReducer, initialState);
@@ -58,6 +59,30 @@ const NotasState = (props) => {
     });
   };
 
+  // get Next Search Page
+  const getNextPage = async (pageNumber = 2, text) => {
+    let res = await axios.get(
+      `https://gonews-back-develop.herokuapp.com/notes/?page=${pageNumber}&page=${text}`
+    );
+
+    dispatch({
+      type: SEARCH_NOTES,
+      payload: res.data,
+    });
+  };
+
+  // get Next Category Page
+  const getNextPageCat = async (pageNumber = 2, category) => {
+    let res = await axios.get(
+      `https://gonews-back-develop.herokuapp.com/notes/?category=${category}&page=${pageNumber}`
+    );
+
+    dispatch({
+      type: GET_CATEGORY_NOTES,
+      payload: res.data,
+    });
+  };
+
   // get individual note
   const getNote = async (noteID) => {
     const res = await axios.get(
@@ -80,10 +105,13 @@ const NotasState = (props) => {
         categoryNotes: state.categoryNotes,
         next: state.next,
         previous: state.previous,
+        currentPage: state.currentPage,
         getData,
         getCategory,
         searchNotes,
         getNote,
+        getNextPage,
+        getNextPageCat,
       }}
     >
       {props.children}

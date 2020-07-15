@@ -5,3 +5,32 @@
         input
             width: 550px !important
             height: 26px
+.total-resultados
+    font-family: 'Muli-Semi-Bold-Italic'
+    font-size: 17px
+    margin: 2.5rem 0
+.resultados
+    hr:last-child
+        visibility: hidden !important
+.pagination
+    list-style-type: none
+    display: flex
+    justify-content: center
+    li.active a
+        color: #E71D36
+        font-family: 'Muli-Black'
+    li.disabled a path, li.disabled a rect
+        fill: none
+        overflow: visible
+    li a path, li a rect
+        fill: #02182B
+        overflow: visible
+    a
+        text-decoration: none
+        margin: 0 1rem
+        font-family: 'Muli-Semi-Bold'
+        cursor: pointer
+        color: #02182B
+        font-size: 20px
+        &:hover
+            color: #E71D36
