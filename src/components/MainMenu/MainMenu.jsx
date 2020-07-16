@@ -94,13 +94,13 @@ const MainMenu = ({ menuOpen, isOpen }) => {
       <nav id='navigation'>
         <div id='menu' className='container'>
           <div id='logo'>
-            <a href='/'>
+            <Link to='/'>
               <img
                 className='animate__animated animate__fadeInLeft animate__faster'
                 src={logoFixed}
                 alt='go news logo'
               />
-            </a>
+            </Link>
           </div>
           <ul id='main_menu'>
             <li className='menu_item'>

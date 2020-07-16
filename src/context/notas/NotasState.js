@@ -36,9 +36,9 @@ const NotasState = (props) => {
   };
 
   //get category
-  const getCategory = async (categoryID) => {
+  const getCategory = async (category) => {
     const res = await axios.get(
-      `https://gonews-back-develop.herokuapp.com/notes/?category=${categoryID}`
+      `https://gonews-back-develop.herokuapp.com/notes/?category=${category}`
     );
 
     dispatch({
@@ -65,6 +65,8 @@ const NotasState = (props) => {
       `https://gonews-back-develop.herokuapp.com/notes/?page=${pageNumber}&search=${text}`
     );
 
+    window.scrollTo({ top: '200', behavior: 'smooth' });
+
     dispatch({
       type: SEARCH_NOTES,
       payload: res.data,
@@ -76,6 +78,8 @@ const NotasState = (props) => {
     let res = await axios.get(
       `https://gonews-back-develop.herokuapp.com/notes/?category=${category}&page=${pageNumber}`
     );
+
+    window.scrollTo({ top: '600', behavior: 'smooth' });
 
     dispatch({
       type: GET_CATEGORY_NOTES,

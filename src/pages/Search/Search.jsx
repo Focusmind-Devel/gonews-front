@@ -29,7 +29,7 @@ const Search = ({ match }) => {
     padding: '4rem 0',
   };
 
-  const numberOfPages = Math.ceil(count / 9);
+  const numberOfPages = Math.ceil(count / 6);
   console.log(numberOfPages);
 
   return (
@@ -61,9 +61,9 @@ const Search = ({ match }) => {
           <Paginacion
             activePage={currentPage}
             totalItemsCount={count}
-            itemsCountPerPage={9}
+            itemsCountPerPage={6}
             pageRangeDisplayed={5}
-            onChange={(pageNumber) => getNextPage(pageNumber, 'nota')}
+            onChange={(pageNumber) => getNextPage(pageNumber, text)}
             firstPageText={<FirstPage />}
             lastPageText={<LastPage />}
             prevPageText={<PrevPage />}

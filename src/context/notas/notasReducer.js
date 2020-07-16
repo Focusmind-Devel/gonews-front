@@ -18,6 +18,7 @@ export default (state, action) => {
         ...state,
         notas: action.payload.results,
         count: action.payload.count,
+        currentPage: action.payload.current,
       };
     case GET_CATEGORY_NOTES:
       return {
@@ -25,6 +26,7 @@ export default (state, action) => {
         categoryNotes: action.payload.results,
         count: action.payload.count,
         loading: false,
+        currentPage: action.payload.current,
       };
     case GET_NOTA:
       return {

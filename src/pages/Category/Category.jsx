@@ -26,11 +26,11 @@ const Category = ({ match }) => {
   } = notasContext;
 
   useEffect(() => {
-    getCategory(1);
+    getCategory(category);
     //eslint-disable-next-line
   }, []);
 
-  const numberOfPages = Math.ceil(count / 9);
+  const numberOfPages = Math.ceil(count / 6);
   console.log(numberOfPages);
 
   const HeaderSpace = styled.div`
@@ -60,9 +60,9 @@ const Category = ({ match }) => {
           <Paginacion
             activePage={currentPage}
             totalItemsCount={count}
-            itemsCountPerPage={9}
+            itemsCountPerPage={6}
             pageRangeDisplayed={5}
-            onChange={(pageNumber) => getNextPageCat(pageNumber, 1)}
+            onChange={(pageNumber) => getNextPageCat(pageNumber, category)}
             firstPageText={<FirstPage />}
             lastPageText={<LastPage />}
             prevPageText={<PrevPage />}
