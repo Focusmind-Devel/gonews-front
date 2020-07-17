@@ -192,7 +192,7 @@ const Nota = ({ match }) => {
                   <h2>Tambien Puede Interesarte:</h2>
                 </div>
                 <hr />
-                <FbComment />
+                <FbComment slug={nota.slug} />
               </div>
             </RenderNote>
           </NotaIndividual>
