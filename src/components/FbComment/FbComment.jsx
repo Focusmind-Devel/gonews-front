@@ -10,7 +10,7 @@ const FbComment = ({ slug }) => {
         class='fb-comments'
         data-href={`https://gonews-front.herokuapp.com/${slug}`}
         data-numposts='5'
-        data-width=''
+        data-width='100%'
       ></div>
     </div>
   );
