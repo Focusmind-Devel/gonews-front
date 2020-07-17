@@ -16,6 +16,16 @@ const NotFoundResult = styled.div`
   padding: 2rem 0 10rem 0;
 `;
 
+const EncabezadoStyle = styled.div`
+  background-color: #02182b;
+  color: #f2f2f2;
+  padding: 4rem 0;
+  @media (max-width: 620px) {
+    background-color: #e0e0e0;
+    color: #02182b;
+    padding-top: 5rem;
+  }
+`;
 const Search = ({ match }) => {
   const notasContext = useContext(NotasContext);
 
@@ -23,23 +33,14 @@ const Search = ({ match }) => {
 
   const { notas, count, getNextPage, currentPage } = notasContext;
 
-  const encabezadoStyle = {
-    backgroundColor: '#02182B',
-    color: '#f2f2f2',
-    padding: '4rem 0',
-  };
-
-  const numberOfPages = Math.ceil(count / 6);
-  console.log(numberOfPages);
-
   return (
     <Fragment>
-      <div style={encabezadoStyle} className='search-header'>
+      <EncabezadoStyle className='search-header'>
         <div className='container'>
           <h3>Resultados de la búsqueda</h3>
           <Busqueda />
         </div>
-      </div>
+      </EncabezadoStyle>
       {count >= 1 ? (
         <div className='container'>
           <p className='total-resultados'>
@@ -72,7 +73,7 @@ const Search = ({ match }) => {
         </div>
       ) : (
         <NotFoundResult className='container'>
-          <h4 style={{ width: '595px' }}>
+          <h4 style={{ width: '100%' }}>
             Lo sentimos, no encontramos resultados para la búsqueda de {text}
           </h4>
         </NotFoundResult>

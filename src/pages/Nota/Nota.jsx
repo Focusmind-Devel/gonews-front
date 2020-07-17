@@ -55,10 +55,9 @@ const Nota = ({ match }) => {
   let postUrl = encodeURI(document.location.href);
 
   useEffect(() => {
-    getNote(match.params.notaID);
+    getNote(match.params.nota);
 
-    const share = document.getElementById('stick');
-    console.log(share);
+    // const share = document.getElementById('stick');
 
     /*
     const scrollCallBack = window.addEventListener('scroll', () => {
@@ -114,7 +113,7 @@ const Nota = ({ match }) => {
                 <ImgAndShare>
                   <img
                     style={{ width: '100%', maxWidth: '1000px' }}
-                    src={nota.headerImage}
+                    src={nota.thumbnail}
                     alt={nota.title}
                   />
                   <ShareButtons id='share'>

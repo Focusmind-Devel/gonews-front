@@ -38,7 +38,7 @@ const NotasState = (props) => {
   //get category
   const getCategory = async (category) => {
     const res = await axios.get(
-      `https://gonews-back-develop.herokuapp.com/notes/?category=${category}`
+      `https://gonews-back-develop.herokuapp.com/notes/?category__slug=${category}`
     );
 
     dispatch({
@@ -88,9 +88,9 @@ const NotasState = (props) => {
   };
 
   // get individual note
-  const getNote = async (noteID) => {
+  const getNote = async (text) => {
     const res = await axios.get(
-      `https://gonews-back-develop.herokuapp.com/note/${noteID}`
+      `https://gonews-back-develop.herokuapp.com/note/${text}`
     );
 
     dispatch({

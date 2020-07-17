@@ -6,7 +6,7 @@ import buscar from '../../assets/images/busqueda.png';
 // estilos
 import './Busqueda.sass';
 
-const Busqueda = () => {
+const Busqueda = ({ isOpen }) => {
   let history = useHistory();
 
   // context
@@ -28,10 +28,16 @@ const Busqueda = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (text === '') {
-      alert('Please fill the form', 'light');
+      alert('Por favor rellene el formulario de busqueda', 'light');
     } else {
       notasContext.searchNotes(text);
       history.push(`/resultado/${text}`);
+      e.target.search.blur();
+      if (isOpen) {
+        isOpen(isActive ? false : true);
+      } else {
+        return false;
+      }
     }
   };
 

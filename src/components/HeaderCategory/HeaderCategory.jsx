@@ -22,7 +22,7 @@ const HeaderCategory = ({ category }) => {
 
   const notaDestacada = categoryNotes[categoryNotes.length - 1];
 
-  if (!category) {
+  if (category.length <= 0) {
     return (
       <div
         className='container'
@@ -35,7 +35,7 @@ const HeaderCategory = ({ category }) => {
     return (
       <HeaderBg
         className='mobileHeader'
-        style={{ backgroundImage: `url(${notaDestacada.headerImage})` }}
+        style={{ backgroundImage: `url(${notaDestacada.thumbnail})` }}
       >
         <div className='info-destacada'>
           <div className='container'>

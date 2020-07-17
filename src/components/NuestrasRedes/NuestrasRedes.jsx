@@ -16,6 +16,7 @@ import styled from 'styled-components';
 const DisplayFlex = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 const NuestrasRedes = () => {
@@ -64,7 +65,7 @@ const NuestrasRedes = () => {
           </DisplayFlex>
         </div>
         <div className='container'>
-          <Facebook />
+          <Facebook dataset={dataName} />
         </div>
       </div>
     );

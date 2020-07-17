@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import instagram from 'user-instagram-profile';
 import styled from 'styled-components';
 import './Media.sass';
+import Spinner from '../../../assets/images/spinner.gif';
 
 const InstagramPosts = styled.ul`
   display: flex;
@@ -31,11 +32,13 @@ const Instagram = () => {
     <React.Fragment>
       <InstagramPosts>
         {posts.length === 0 ? (
-          <p>Cargando</p>
+          <div style={{ textAlign: 'center', height: '300px', width: '100%' }}>
+            <h2>Cargando</h2>
+          </div>
         ) : (
           posts.slice(0, 3).map((post) => (
             <div className='instagram-post' key={post.id}>
-              <a href={post.link}>
+              <a href={post.link} target='_blank' rel='noopener noreferrer'>
                 <img src={post.picture.thumbnail_320} alt='' />
                 <div className='post-body'>
                   <div className='profile-info'>

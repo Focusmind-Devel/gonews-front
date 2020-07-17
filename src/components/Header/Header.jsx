@@ -39,7 +39,7 @@ const Header = () => {
       <Fragment>
         <HeaderBg
           className='mobileHeader'
-          style={{ backgroundImage: `url(${notaDestacada.headerImage})` }}
+          style={{ backgroundImage: `url(${notaDestacada.thumbnail})` }}
         >
           <div className='info-destacada'>
             <div className='container'>

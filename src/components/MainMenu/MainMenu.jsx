@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './MainMenu.sass';
 import logoFixed from '../../assets/images/Logo-fixed.png';
 import Busqueda from '../Busqueda/Busqueda';
@@ -72,7 +72,7 @@ const MainMenu = ({ menuOpen, isOpen }) => {
   }, []);
 
   const hideOnClick = (e) => {
-    if (e.target.classList.contains('click')) {
+    if (e.target.classList.contains('click') || !isOpen) {
       const element =
         e.target.parentElement.parentElement.parentElement.parentElement;
 
@@ -82,8 +82,6 @@ const MainMenu = ({ menuOpen, isOpen }) => {
 
       element.classList.remove('animate__fadeInLeft');
       element.classList.add('animate__fadeOutLeft');
-
-      console.log(element);
 
       isOpen(true);
     }
@@ -107,13 +105,13 @@ const MainMenu = ({ menuOpen, isOpen }) => {
               <Link to={'/actualidad'}>Actualidad</Link>
             </li>
             <li className='menu_item'>
-              <Link to={'/economía'}>Economía</Link>
+              <Link to={'/economia'}>Economía</Link>
             </li>
             <li className='menu_item principal animate__animated animate__fadeInLeft animate__faster'>
-              <Link to={'/política'}>Política</Link>
+              <Link to={'/politica'}>Política</Link>
             </li>
             <li className='menu_item principal animate__animated animate__fadeInLeft animate__faster'>
-              <Link to={'/espectáculos'}>Espectáculos</Link>
+              <Link to={'/espectaculos'}>Espectáculos</Link>
             </li>
             <li className='menu_item principal animate__animated animate__fadeInLeft animate__faster'>
               <Link to={'/deportes'}>Deportes</Link>
@@ -137,7 +135,7 @@ const MainMenu = ({ menuOpen, isOpen }) => {
               <Link to={'/comidas'}>Comidas</Link>
             </li>
             <li className='menu_item adicional animate__animated animate__fadeInRight animate__faster'>
-              <Link to={'/opinión'}>Opinión</Link>
+              <Link to={'/opinion'}>Opinión</Link>
             </li>
             <li className='menu_item adicional animate__animated animate__fadeInRight animate__faster'>
               <Link to={'/reportaje'}>Reportaje</Link>
@@ -153,7 +151,7 @@ const MainMenu = ({ menuOpen, isOpen }) => {
           className='animate__animated animate__fadeInLeft animate__faster'
         >
           <div id='menu' className='container'>
-            <Busqueda />
+            <Busqueda isOpen={isOpen} />
             <ul id='main_menu'>
               <li className='menu_item'>
                 <Link className='click' to={'/actualidad'}>
@@ -161,17 +159,17 @@ const MainMenu = ({ menuOpen, isOpen }) => {
                 </Link>
               </li>
               <li className='menu_item'>
-                <Link className='click' to={'/economía'}>
+                <Link className='click' to={'/economia'}>
                   Economía
                 </Link>
               </li>
               <li className='menu_item'>
-                <Link className='click' to={'/política'}>
+                <Link className='click' to={'/politica'}>
                   Política
                 </Link>
               </li>
               <li className='menu_item'>
-                <Link className='click' to={'/espectáculos'}>
+                <Link className='click' to={'/espectaculos'}>
                   Espectáculos
                 </Link>
               </li>
@@ -197,7 +195,7 @@ const MainMenu = ({ menuOpen, isOpen }) => {
                 </Link>
               </li>
               <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
-                <Link className='click' to={'/opinión'}>
+                <Link className='click' to={'/opinion'}>
                   Opinión
                 </Link>
               </li>
@@ -225,17 +223,17 @@ const MainMenu = ({ menuOpen, isOpen }) => {
                 </Link>
               </li>
               <li className='menu_item'>
-                <Link className='click' to={'/economía'}>
+                <Link className='click' to={'/economia'}>
                   Economía
                 </Link>
               </li>
               <li className='menu_item'>
-                <Link className='click' to={'/política'}>
+                <Link className='click' to={'/politica'}>
                   Política
                 </Link>
               </li>
               <li className='menu_item'>
-                <Link className='click' to={'/espectáculos'}>
+                <Link className='click' to={'/especticulos'}>
                   Espectáculos
                 </Link>
               </li>
@@ -261,7 +259,7 @@ const MainMenu = ({ menuOpen, isOpen }) => {
                 </Link>
               </li>
               <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
-                <Link className='click' to={'/opinión'}>
+                <Link className='click' to={'/opinion'}>
                   Opinión
                 </Link>
               </li>
@@ -279,4 +277,4 @@ const MainMenu = ({ menuOpen, isOpen }) => {
   );
 };
 
-export default MainMenu;
+export default withRouter(MainMenu);

@@ -1,4 +1,5 @@
 import React, { Fragment, useContext, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import './Category.sass';
 import NotasContext from '../../context/notas/notasContext';
 import Card from '../../components/Card/Card';
@@ -11,9 +12,13 @@ import { ReactComponent as LastPage } from '../../assets/images/last-page.svg';
 import { ReactComponent as NextPage } from '../../assets/images/next-page.svg';
 import { ReactComponent as PrevPage } from '../../assets/images/prev-page.svg';
 
+const HeaderSpace = styled.div`
+  height: 650px;
+  text-align: center;
+`;
+
 const Category = ({ match }) => {
   const category = match.params.category;
-
   const notasContext = useContext(NotasContext);
 
   const {
@@ -30,14 +35,6 @@ const Category = ({ match }) => {
     //eslint-disable-next-line
   }, []);
 
-  const numberOfPages = Math.ceil(count / 6);
-  console.log(numberOfPages);
-
-  const HeaderSpace = styled.div`
-    height: 650px;
-    text-align: center;
-  `;
-
   if (loading) {
     return (
       <HeaderSpace>
@@ -48,7 +45,7 @@ const Category = ({ match }) => {
     return (
       <Fragment>
         <h1 className='category_name'>{category}</h1>
-        <HeaderCategory category={category} />
+        <HeaderCategory category={categoryNotes} />
         <div className='container' id='sec_category'>
           <div className='categoria'>
             <div className='notas_categoria'>
@@ -74,4 +71,4 @@ const Category = ({ match }) => {
   }
 };
 
-export default Category;
+export default withRouter(Category);

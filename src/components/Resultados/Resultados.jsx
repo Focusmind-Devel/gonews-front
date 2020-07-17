@@ -11,6 +11,9 @@ const Category = styled.span`
   padding: 5px 10px;
   border-radius: 7px;
   text-transform: uppercase;
+  @media (max-width: 620px) {
+    display: inline;
+  }
 `;
 
 const Image = styled.img`
@@ -22,14 +25,14 @@ const Image = styled.img`
 const Resultados = ({ item }) => {
   return (
     <Fragment>
-      <Link to={`/nota/${item.id}`} className='results-card'>
-        <div>
+      <Link to={`/nota/${item.slug}`} className='results-card'>
+        <div style={{ alignSelf: 'center' }}>
           <Image src={item.thumbnail} alt={item.title} />
         </div>
         <div className='card-body'>
           <div className='category-date'>
             <Category>{item.category}</Category>
-            <span>{item.publisedAt}</span>
+            <span className='fecha'>{item.publisedAt}</span>
           </div>
           <div className='title-more'>
             <h3 style={{ textTransform: 'capitalize' }}>{item.title}</h3>

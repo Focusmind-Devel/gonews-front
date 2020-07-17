@@ -72,15 +72,19 @@ function Actualidad({ notas }) {
                   <Card key={filtered.id} item={filtered} />
                 ))}
             </Slider>
-            {activeSlide === 0 ||
-            activeSlide === 1 ||
-            activeSlide === 2 ||
-            activeSlide === 3 ? (
-              <span className='numerador'>
-                <span>{activeSlide + 1}</span> / {notas.slice(0, 3).length}
-              </span>
+            {activeSlide2 ? (
+              activeSlide === 0 ||
+              activeSlide === 1 ||
+              activeSlide === 2 ||
+              activeSlide === 3 ? (
+                <span className='numerador'>
+                  <span>{activeSlide + 1}</span> / {notas.slice(0, 3).length}
+                </span>
+              ) : (
+                <span className='numerador'>{activeSlide - 1} / 3</span>
+              )
             ) : (
-              <span className='numerador'>{activeSlide - 1} / 3</span>
+              false
             )}
           </Fragment>
         )}

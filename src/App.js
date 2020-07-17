@@ -33,8 +33,14 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/resultado/:text' component={Search} />
-        <Route path='/nota/:notaID' component={Nota} />
-        <Route path='/:category' component={Category} />
+        <Route
+          path='/nota/:nota'
+          render={(props) => <Nota key={Date.now()} {...props} />}
+        />
+        <Route
+          path='/:category'
+          render={(props) => <Category key={Date.now()} {...props} />}
+        />
       </Switch>
       <Footer />
     </Fragment>
