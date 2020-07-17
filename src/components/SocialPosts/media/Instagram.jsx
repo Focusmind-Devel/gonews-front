@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import instagram from 'user-instagram-profile';
 import styled from 'styled-components';
 import './Media.sass';
-import Spinner from '../../../assets/images/spinner.gif';
 
 const InstagramPosts = styled.ul`
   display: flex;

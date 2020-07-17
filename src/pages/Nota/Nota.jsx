@@ -11,6 +11,7 @@ import commentShare from '../../assets/images/comment-share.png';
 import Spinner from '../../assets/images/spinner.gif';
 // styles
 import './Notas.sass';
+import FbComment from '../../components/FbComment/FbComment';
 
 const NotaIndividual = styled.div`
   margin: 4rem 0;
@@ -191,6 +192,7 @@ const Nota = ({ match }) => {
                   <h2>Tambien Puede Interesarte:</h2>
                 </div>
                 <hr />
+                <FbComment />
               </div>
             </RenderNote>
           </NotaIndividual>
