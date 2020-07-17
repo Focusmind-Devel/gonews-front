@@ -9,6 +9,7 @@ import { ReactComponent as FirstPage } from '../../assets/images/first-page.svg'
 import { ReactComponent as LastPage } from '../../assets/images/last-page.svg';
 import { ReactComponent as NextPage } from '../../assets/images/next-page.svg';
 import { ReactComponent as PrevPage } from '../../assets/images/prev-page.svg';
+import Spinner from '../../assets/images/spinner.gif';
 
 const NotFoundResult = styled.div`
   color: #e71d36;
@@ -31,7 +32,7 @@ const Search = ({ match }) => {
 
   const text = match.params.text;
 
-  const { notas, count, getNextPage, currentPage } = notasContext;
+  const { notas, count, getNextPage, currentPage, loading } = notasContext;
 
   return (
     <Fragment>
@@ -41,7 +42,9 @@ const Search = ({ match }) => {
           <Busqueda />
         </div>
       </EncabezadoStyle>
-      {count >= 1 ? (
+      {loading ? (
+        <img src={Spinner} alt='loading' />
+      ) : count >= 1 ? (
         <div className='container'>
           <p className='total-resultados'>
             {count} resultados encontrados para {text}

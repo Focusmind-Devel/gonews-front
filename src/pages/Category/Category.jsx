@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import './Category.sass';
 import NotasContext from '../../context/notas/notasContext';
@@ -30,10 +30,17 @@ const Category = ({ match }) => {
     currentPage,
   } = notasContext;
 
+  const [categoryName, setcategoryName] = useState('');
+
   useEffect(() => {
     getCategory(category);
+
     //eslint-disable-next-line
   }, []);
+
+  const referencia = () => {
+    setcategoryName(categoryNotes[0].category);
+  };
 
   if (loading) {
     return (
@@ -44,8 +51,10 @@ const Category = ({ match }) => {
   } else {
     return (
       <Fragment>
-        <h1 className='category_name'>{category}</h1>
-        <HeaderCategory category={categoryNotes} />
+        <h1 ref={referencia} className='category_name'>
+          {categoryName}
+        </h1>
+        <HeaderCategory category={category} />
         <div className='container' id='sec_category'>
           <div className='categoria'>
             <div className='notas_categoria'>

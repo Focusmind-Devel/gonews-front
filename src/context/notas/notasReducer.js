@@ -3,10 +3,17 @@ import {
   SEARCH_NOTES,
   GET_CATEGORY_NOTES,
   GET_NOTA,
+  GET_MENU,
 } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
+    case GET_MENU:
+      return {
+        ...state,
+        main: action.payload.main,
+        second: action.payload.second,
+      };
     case GET_NOTAS:
       return {
         ...state,
@@ -19,6 +26,7 @@ export default (state, action) => {
         notas: action.payload.results,
         count: action.payload.count,
         currentPage: action.payload.current,
+        loading: false,
       };
     case GET_CATEGORY_NOTES:
       return {

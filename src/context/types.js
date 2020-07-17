@@ -4,3 +4,4 @@ export const GET_CATEGORY_NOTES = 'GET_CATEGORY_NOTES';
 export const SEARCH_NOTES = 'SEARCH_NOTES';
 export const GET_NOTA = 'GET_NOTA';
 export const NEXT_PAGE = 'NEXT_PAGE';
+export const GET_MENU = 'GET_MENU';

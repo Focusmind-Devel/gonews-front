@@ -1,27 +1,52 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Fragment, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import './MainMenu.sass';
 import logoFixed from '../../assets/images/Logo-fixed.png';
 import Busqueda from '../Busqueda/Busqueda';
 import SocialLinks from '../SocialLinks/SocialLinks';
+import NotasContext from '../../context/notas/notasContext';
 
 const MainMenu = ({ menuOpen, isOpen }) => {
+  const notasContext = useContext(NotasContext);
+
+  const { main, second, getMenu } = notasContext;
+
   const [hideMenu, setHideMenu] = useState(true);
 
   const showMenu = () => {
     const principal = document.querySelectorAll('.principal');
     const adicional = document.querySelectorAll('.adicional');
+    const i = document.querySelectorAll('#navigation .menu_item');
+
+    console.log(i[0]);
 
     if (hideMenu === true) {
       setHideMenu(false);
-      for (let item of principal) {
-        item.style.display = 'none';
+      if (second.length <= 1) {
+        for (let item of principal) {
+          item.style.display = 'none';
+          i[4].style.display = 'none';
+        }
+      } else {
+        for (let item of principal) {
+          item.style.display = 'none';
+          i[2].style.display = 'none';
+          i[3].style.display = 'none';
+          i[4].style.display = 'none';
+        }
       }
       for (let item of adicional) {
         item.style.display = 'block';
       }
     } else {
       setHideMenu(true);
+      if (second.length <= 1) {
+        i[4].style.display = 'block';
+      } else {
+        i[2].style.display = 'block';
+        i[3].style.display = 'block';
+        i[4].style.display = 'block';
+      }
       for (let item of principal) {
         item.classList.add =
           'animate__animated animate__backInLeft animate__faster';
@@ -36,6 +61,8 @@ const MainMenu = ({ menuOpen, isOpen }) => {
   const [headerText, setHeaderText] = useState(false);
 
   useEffect(() => {
+    getMenu();
+
     const nav = document.getElementById('navigation');
     const menu = document.getElementById('menu');
     const mainMenu = document.getElementById('main_menu');
@@ -101,45 +128,43 @@ const MainMenu = ({ menuOpen, isOpen }) => {
             </Link>
           </div>
           <ul id='main_menu'>
-            <li className='menu_item'>
-              <Link to={'/actualidad'}>Actualidad</Link>
-            </li>
-            <li className='menu_item'>
-              <Link to={'/economia'}>Economía</Link>
-            </li>
-            <li className='menu_item principal animate__animated animate__fadeInLeft animate__faster'>
-              <Link to={'/politica'}>Política</Link>
-            </li>
-            <li className='menu_item principal animate__animated animate__fadeInLeft animate__faster'>
-              <Link to={'/espectaculos'}>Espectáculos</Link>
-            </li>
-            <li className='menu_item principal animate__animated animate__fadeInLeft animate__faster'>
-              <Link to={'/deportes'}>Deportes</Link>
-            </li>
-            <li
-              className='menu_item principal animate__animated animate__fadeInLeft animate__faster'
-              onClick={showMenu}
-            >
-              Mas +
-            </li>
-            <li
-              className='menu_item adicional animate__animated animate__fadeInRight animate__faster menos'
-              onClick={showMenu}
-            >
-              Menos -
-            </li>
-            <li className='menu_item adicional animate__animated animate__fadeInRight animate__faster'>
-              <Link to={'/lifestyle'}>Lifestyle</Link>
-            </li>
-            <li className='menu_item adicional animate__animated animate__fadeInRight animate__faster'>
-              <Link to={'/comidas'}>Comidas</Link>
-            </li>
-            <li className='menu_item adicional animate__animated animate__fadeInRight animate__faster'>
-              <Link to={'/opinion'}>Opinión</Link>
-            </li>
-            <li className='menu_item adicional animate__animated animate__fadeInRight animate__faster'>
-              <Link to={'/reportaje'}>Reportaje</Link>
-            </li>
+            {main.length >= 1
+              ? main.map((item, index) => (
+                  <li key={index} className='menu_item'>
+                    <Link className='click' to={`${item.slug}`}>
+                      {item.name}
+                    </Link>
+                  </li>
+                ))
+              : false}
+            {second.length >= 1 ? (
+              <Fragment>
+                <li
+                  className='menu_item principal animate__animated animate__fadeInLeft animate__faster'
+                  onClick={showMenu}
+                >
+                  Mas +
+                </li>
+                <li
+                  className='menu_item adicional animate__animated animate__fadeInRight animate__faster menos'
+                  onClick={showMenu}
+                >
+                  Menos -
+                </li>
+                {second.map((item, index) => (
+                  <li
+                    key={index}
+                    className='menu_item adicional animate__animated animate__fadeInRight animate__faster'
+                  >
+                    <Link className='click' to={`${item.slug}`}>
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </Fragment>
+            ) : (
+              false
+            )}
           </ul>
           <Busqueda />
         </div>
@@ -153,57 +178,37 @@ const MainMenu = ({ menuOpen, isOpen }) => {
           <div id='menu' className='container'>
             <Busqueda isOpen={isOpen} />
             <ul id='main_menu'>
-              <li className='menu_item'>
-                <Link className='click' to={'/actualidad'}>
-                  Actualidad
-                </Link>
-              </li>
-              <li className='menu_item'>
-                <Link className='click' to={'/economia'}>
-                  Economía
-                </Link>
-              </li>
-              <li className='menu_item'>
-                <Link className='click' to={'/politica'}>
-                  Política
-                </Link>
-              </li>
-              <li className='menu_item'>
-                <Link className='click' to={'/espectaculos'}>
-                  Espectáculos
-                </Link>
-              </li>
-              <li className='menu_item'>
-                <Link className='click' to={'/deportes'}>
-                  Deportes
-                </Link>
-              </li>
-              <li className='menu_item principal' onClick={showMenu}>
-                Mas +
-              </li>
-              <li className='menu_item adicional menos' onClick={showMenu}>
-                Menos -
-              </li>
-              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
-                <Link className='click' to={'/lifestyle'}>
-                  Lifestyle
-                </Link>
-              </li>
-              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
-                <Link className='click' to={'/comidas'}>
-                  Comidas
-                </Link>
-              </li>
-              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
-                <Link className='click' to={'/opinion'}>
-                  Opinión
-                </Link>
-              </li>
-              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
-                <Link className='click' to={'/reportaje'}>
-                  Reportaje
-                </Link>
-              </li>
+              {main.length >= 1
+                ? main.map((item) => (
+                    <li key={item.id} className='menu_item'>
+                      <Link className='click' to={`${item.slug}`}>
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))
+                : false}
+              {second.length >= 1 ? (
+                <Fragment>
+                  <li className='menu_item principal' onClick={showMenu}>
+                    Mas +
+                  </li>
+                  <li className='menu_item adicional menos' onClick={showMenu}>
+                    Menos -
+                  </li>
+                  {second.map((item) => (
+                    <li
+                      key={item.id}
+                      className='menu_item adicional animate__animated animate__fadeInDown animate__faster'
+                    >
+                      <Link className='click' to={`${item.slug}`}>
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </Fragment>
+              ) : (
+                false
+              )}
             </ul>
             <SocialLinks />
           </div>
@@ -213,65 +218,7 @@ const MainMenu = ({ menuOpen, isOpen }) => {
           id='navigation2'
           onClick={hideOnClick}
           className='animate__animated animate__fadeOutLeft animate__faster'
-        >
-          <div id='menu' className='container'>
-            <Busqueda />
-            <ul id='main_menu'>
-              <li className='menu_item'>
-                <Link className='click' to={'/actualidad'}>
-                  Actualidad
-                </Link>
-              </li>
-              <li className='menu_item'>
-                <Link className='click' to={'/economia'}>
-                  Economía
-                </Link>
-              </li>
-              <li className='menu_item'>
-                <Link className='click' to={'/politica'}>
-                  Política
-                </Link>
-              </li>
-              <li className='menu_item'>
-                <Link className='click' to={'/especticulos'}>
-                  Espectáculos
-                </Link>
-              </li>
-              <li className='menu_item'>
-                <Link className='click' to={'/deportes'}>
-                  Deportes
-                </Link>
-              </li>
-              <li className='menu_item principal' onClick={showMenu}>
-                Mas +
-              </li>
-              <li className='menu_item adicional menos' onClick={showMenu}>
-                Menos -
-              </li>
-              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
-                <Link className='click' to={'/lifestyle'}>
-                  Lifestyle
-                </Link>
-              </li>
-              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
-                <Link className='click' to={'/comidas'}>
-                  Comidas
-                </Link>
-              </li>
-              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
-                <Link className='click' to={'/opinion'}>
-                  Opinión
-                </Link>
-              </li>
-              <li className='menu_item adicional animate__animated animate__fadeInDown animate__faster'>
-                <Link className='click' to={'/reportaje'}>
-                  Reportaje
-                </Link>
-              </li>
-            </ul>
-            <SocialLinks />
-          </div>
-        </nav>
+        ></nav>
       )}
     </Fragment>
   );

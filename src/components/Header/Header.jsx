@@ -13,7 +13,23 @@ const HeaderBg = styled.div`
   background-repeat: no-repeat;
   background-color: #02182b;
   background-position: center;
-  height: 650px;
+  height: 550px;
+  @media (max-width: 620px) {
+    &:after {
+      content: '';
+      height: 0.2rem;
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      botton: 38%;
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 455, 0.5) 100%
+      );
+    }
+  }
 `;
 
 const HeaderSpace = styled.div`

@@ -23,13 +23,18 @@
     li.disabled a path, li.disabled a rect
         fill: none
         overflow: visible
-    li a path, li a rect
-        fill: #02182B
-        overflow: visible
+    li a
+        path, rect
+            fill: #02182B
+            overflow: visible
         &:hover
-            fill: #E71D36
+            path, rect
+                fill: #E71D36
     li.disabled a
         cursor: unset
+        &:hover
+            path, rect
+                fill: none
     a
         text-decoration: none
         margin: 0 1rem

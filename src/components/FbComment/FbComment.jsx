@@ -7,7 +7,7 @@ const FbComment = ({ slug }) => {
   return (
     <div>
       <div
-        class='fb-comments'
+        className='fb-comments'
         data-href={`https://gonews-front.herokuapp.com/${slug}`}
         data-numposts='5'
         data-width='100%'

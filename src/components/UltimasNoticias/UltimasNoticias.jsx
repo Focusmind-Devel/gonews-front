@@ -27,7 +27,7 @@ const UltimasNoticias = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: '40px',
+    centerPadding: '25px',
     arrows: false,
     beforeChange: (current, next) => {
       setOldSlide(current);

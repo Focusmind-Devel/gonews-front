@@ -7,6 +7,7 @@ import {
   GET_CATEGORY_NOTES,
   SEARCH_NOTES,
   GET_NOTA,
+  GET_MENU,
 } from '../types';
 
 const NotasState = (props) => {
@@ -19,9 +20,23 @@ const NotasState = (props) => {
     next: null,
     previous: null,
     currentPage: 1,
+    main: [],
+    second: [],
   };
 
   const [state, dispatch] = useReducer(NotasReducer, initialState);
+
+  // get menu items
+  const getMenu = async () => {
+    const res = await axios.get(
+      'https://gonews-back-develop.herokuapp.com/menu/'
+    );
+
+    dispatch({
+      type: GET_MENU,
+      payload: res.data,
+    });
+  };
 
   // get data
   const getData = async () => {
@@ -49,6 +64,7 @@ const NotasState = (props) => {
 
   // search notes
   const searchNotes = async (text) => {
+    initialState.loading = true;
     const res = await axios.get(
       `https://gonews-back-develop.herokuapp.com/notes/?search=${text}`
     );
@@ -111,6 +127,9 @@ const NotasState = (props) => {
         previous: state.previous,
         currentPage: state.currentPage,
         searchText: state.searchText,
+        main: state.main,
+        second: state.second,
+        getMenu,
         getData,
         getCategory,
         searchNotes,
