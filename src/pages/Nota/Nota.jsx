@@ -58,7 +58,7 @@ const HeaderSpace = styled.div`
 const Nota = ({ match }) => {
   const notasContext = useContext(NotasContext);
 
-  const { getNote, nota, loading } = notasContext;
+  const { getNote, nota, loading, show_signed, enable_comments } = notasContext;
 
   let history = useHistory();
 
@@ -190,9 +190,13 @@ const Nota = ({ match }) => {
                   style={{ width: '100%', maxWidth: '1000px' }}
                   dangerouslySetInnerHTML={{ __html: nota.body }}
                 />
-                <p>
-                  Escrito por <span className='author'>{nota.author}</span>{' '}
-                </p>
+                {show_signed ? (
+                  <p>
+                    Escrito por <span className='author'>{nota.author}</span>{' '}
+                  </p>
+                ) : (
+                  false
+                )}
                 <hr />
                 <div className='tags'>
                   <span
@@ -225,8 +229,14 @@ const Nota = ({ match }) => {
                 </div>
                 <hr />
                 <div className='relacionados'>
-                  <h2>Comentarios:</h2>
-                  <FbComment slug={nota.slug} />
+                  {enable_comments ? (
+                    <Fragment>
+                      <h2>Comentarios:</h2>
+                      <FbComment slug={nota.slug} />
+                    </Fragment>
+                  ) : (
+                    false
+                  )}
                 </div>
               </div>
             </RenderNote>

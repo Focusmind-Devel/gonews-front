@@ -49,6 +49,8 @@ export default (state, action) => {
         ...state,
         nota: action.payload,
         loading: false,
+        show_signed: action.payload.show_signed,
+        enable_comments: action.payload.enable_comments,
       };
     default:
       return state;
