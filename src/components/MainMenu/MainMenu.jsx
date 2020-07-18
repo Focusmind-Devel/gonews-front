@@ -130,7 +130,7 @@ const MainMenu = ({ menuOpen, isOpen }) => {
             {main.length >= 1
               ? main.map((item, index) => (
                   <li key={index} className='menu_item'>
-                    <Link className='click' to={`${item.slug}`}>
+                    <Link className='click' to={`/${item.slug}`}>
                       {item.name}
                     </Link>
                   </li>
