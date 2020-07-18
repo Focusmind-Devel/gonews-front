@@ -11,6 +11,8 @@ const Category = styled.span`
   padding: 5px 10px;
   border-radius: 7px;
   text-transform: uppercase;
+  font-size: 15px;
+  font-family: 'Muli-Bold-Italic';
   @media (max-width: 620px) {
     display: inline;
   }
@@ -36,7 +38,7 @@ const Resultados = ({ item }) => {
           </div>
           <div className='title-more'>
             <h3 style={{ textTransform: 'capitalize' }}>{item.title}</h3>
-            <div to='/' className='leer_mas'>
+            <div className='leer_mas'>
               <img src={flecha} alt='icono flecha' />
               <span>Leer nota</span>
             </div>

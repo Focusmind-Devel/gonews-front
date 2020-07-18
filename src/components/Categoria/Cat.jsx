@@ -1,19 +1,15 @@
-import React, { useContext, useEffect, useState, Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
+import flecha from '../../assets/images/flecha.png';
+import { Link } from 'react-router-dom';
 import Card from '../Card/Card';
-import './UltimasNoticias.sass';
-import NotasContext from '../../context/notas/notasContext';
 import Slider from 'react-slick';
 
-const UltimasNoticias = () => {
-  const notasContext = useContext(NotasContext);
-
+const Cat = ({ item }) => {
   //eslint-disable-next-line
   let [oldSlide, setOldSlide] = useState(0);
   let [activeSlide, setActiveSlide] = useState(0);
   //eslint-disable-next-line
   let [activeSlide2, setActiveSlide2] = useState(0);
-
-  const { latests } = notasContext;
 
   const [screenSize, setscreenSize] = useState(window.innerWidth);
 
@@ -27,7 +23,7 @@ const UltimasNoticias = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: '25px',
+    centerPadding: '40px',
     arrows: false,
     beforeChange: (current, next) => {
       setOldSlide(current);
@@ -39,42 +35,42 @@ const UltimasNoticias = () => {
   };
 
   return (
-    <section id='ultimas-notas'>
-      <div className='container'>
-        <h1>Últimas Noticias</h1>
+    <Fragment>
+      <div className='categoria'>
+        <div className='titulo'>
+          <img src={flecha} alt='icono flecha' />
+          <Link to='/actualidad'>{item[0]}</Link>
+        </div>
         {screenSize >= 415 ? (
-          <div className='ultimas_notas'>
-            {latests.map((item) => (
+          <div className='notas_categoria'>
+            {item[1].map((item) => (
               <Card key={item.id} item={item} />
             ))}
           </div>
         ) : (
           <Fragment>
             <Slider {...settings} className='carousel'>
-              {latests.map((item) => (
+              {item[1].map((item) => (
                 <Card key={item.id} item={item} />
               ))}
             </Slider>
             {activeSlide === 0 ||
             activeSlide === 1 ||
             activeSlide === 2 ||
-            activeSlide === 3 ||
-            activeSlide === 4 ||
-            activeSlide === 5 ||
-            activeSlide === 6 ? (
+            activeSlide === 3 ? (
               <span className='numerador'>
-                <span>{activeSlide + 1}</span> / {latests.length}
+                <span>{activeSlide + 1}</span> / {item[1].length}
               </span>
             ) : (
               <span className='numerador'>
-                {activeSlide - 1} / {latests.length}
+                {activeSlide - 1} / {item[1].length}
               </span>
             )}
           </Fragment>
         )}
       </div>
-    </section>
+    </Fragment>
   );
 };
 
-export default UltimasNoticias;
+export default Cat;

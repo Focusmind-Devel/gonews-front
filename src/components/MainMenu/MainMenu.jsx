@@ -5,6 +5,7 @@ import logoFixed from '../../assets/images/Logo-fixed.png';
 import Busqueda from '../Busqueda/Busqueda';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import NotasContext from '../../context/notas/notasContext';
+import BusquedaEstatica from '../BusquedaEstatica/BusquedaEstatica';
 
 const MainMenu = ({ menuOpen, isOpen }) => {
   const notasContext = useContext(NotasContext);
@@ -17,8 +18,6 @@ const MainMenu = ({ menuOpen, isOpen }) => {
     const principal = document.querySelectorAll('.principal');
     const adicional = document.querySelectorAll('.adicional');
     const i = document.querySelectorAll('#navigation .menu_item');
-
-    console.log(i[0]);
 
     if (hideMenu === true) {
       setHideMenu(false);
@@ -176,12 +175,12 @@ const MainMenu = ({ menuOpen, isOpen }) => {
           className='animate__animated animate__fadeInLeft animate__faster'
         >
           <div id='menu' className='container'>
-            <Busqueda isOpen={isOpen} />
+            <BusquedaEstatica isOpen={isOpen} />
             <ul id='main_menu'>
               {main.length >= 1
-                ? main.map((item) => (
-                    <li key={item.id} className='menu_item'>
-                      <Link className='click' to={`${item.slug}`}>
+                ? main.map((item, index) => (
+                    <li key={index} className='menu_item'>
+                      <Link className='click' to={`/${item.slug}`}>
                         {item.name}
                       </Link>
                     </li>
@@ -195,12 +194,12 @@ const MainMenu = ({ menuOpen, isOpen }) => {
                   <li className='menu_item adicional menos' onClick={showMenu}>
                     Menos -
                   </li>
-                  {second.map((item) => (
+                  {second.map((item, index) => (
                     <li
-                      key={item.id}
+                      key={index}
                       className='menu_item adicional animate__animated animate__fadeInDown animate__faster'
                     >
-                      <Link className='click' to={`${item.slug}`}>
+                      <Link className='click' to={`/${item.slug}`}>
                         {item.name}
                       </Link>
                     </li>
@@ -216,7 +215,6 @@ const MainMenu = ({ menuOpen, isOpen }) => {
       ) : (
         <nav
           id='navigation2'
-          onClick={hideOnClick}
           className='animate__animated animate__fadeOutLeft animate__faster'
         ></nav>
       )}

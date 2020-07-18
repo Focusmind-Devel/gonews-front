@@ -15,10 +15,17 @@
 .nota-content
     font-size: 18px
     font-family: 'Muli'
+    margin-top: 2rem
     .title
         font-family: 'Muli-Black'
         font-size: 49px
         text-transform: capitalize
+    p
+        cite
+            color: #E71D36
+            font-size: 33px
+            font-family: 'Muli-Black'
+            font-style: normal
     .author
         font-weight: bold
         text-transform: capitalize
@@ -39,3 +46,13 @@
             font-family: 'Muli-Extra-Bold'
             color: #E71D36
             font-size: 25px
+    
+#share
+    svg g
+        clip-path: none
+    svg rect
+        fill: #E71D36
+    a, i
+        &:hover
+            svg rect
+                fill: #02182B

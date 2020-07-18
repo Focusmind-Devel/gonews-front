@@ -4,10 +4,18 @@ import {
   GET_CATEGORY_NOTES,
   GET_NOTA,
   GET_MENU,
+  GET_HOME_ITEMS,
 } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
+    case GET_HOME_ITEMS:
+      return {
+        ...state,
+        mainHome: action.payload.main,
+        categories: action.payload.categories,
+        latests: action.payload.latests,
+      };
     case GET_MENU:
       return {
         ...state,

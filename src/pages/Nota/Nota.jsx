@@ -1,14 +1,15 @@
 import React, { useEffect, useContext, Fragment } from 'react';
 import NotasContext from '../../context/notas/notasContext';
 import styled from 'styled-components';
-// import Resultados from '../../components/Resultados/Resultados';
+import { useHistory } from 'react-router-dom';
 // share buttons
-import facebookShare from '../../assets/images/facebook-share.png';
-import twitterShare from '../../assets/images/twitter-share.png';
-import mailShare from '../../assets/images/mail-share.png';
-import linkShare from '../../assets/images/link-share.png';
-import commentShare from '../../assets/images/comment-share.png';
+import { ReactComponent as ShareFacebook } from '../../assets/images/share-facebook.svg';
+import { ReactComponent as ShareTwitter } from '../../assets/images/share-twitter.svg';
+import { ReactComponent as ShareMail } from '../../assets/images/share-mail.svg';
+import { ReactComponent as ShareLink } from '../../assets/images/share-link.svg';
+import { ReactComponent as ShareComment } from '../../assets/images/share-comment.svg';
 import Spinner from '../../assets/images/spinner.gif';
+import Quote from '../../assets/images/quote.png';
 // styles
 import './Notas.sass';
 import FbComment from '../../components/FbComment/FbComment';
@@ -17,6 +18,7 @@ const NotaIndividual = styled.div`
   margin: 4rem 0;
   position: relative;
   color: #02182b;
+  overflow: hidden;
 `;
 
 const RenderNote = styled.div`
@@ -26,16 +28,23 @@ const RenderNote = styled.div`
 const ShareButtons = styled.div`
   display: flex;
   flex-direction: column;
+  position: fixed;
+  right: 10%;
+  z-index: 10;
   @media (max-width: 620px) {
     flex-direction: row;
     justify-content: space-around;
     margin-top: 1rem;
+    position: static;
+    z-index: 1;
   }
 `;
 
 const ImgAndShare = styled.div`
   display: flex;
   justify-content: space-between;
+  position: relative;
+  width: 100%;
   @media (max-width: 620px) {
     flex-direction: column;
   }
@@ -51,27 +60,32 @@ const Nota = ({ match }) => {
 
   const { getNote, nota, loading } = notasContext;
 
+  let history = useHistory();
+
   // let lastScrollY = 0;
 
   let postUrl = encodeURI(document.location.href);
 
+  const content = () => {
+    if (window.document.querySelector('cite')) {
+      const cita = document.querySelector('cite');
+
+      cita.innerHTML += `
+          <img style='width: 70px; height: 60px; margin-right: 1rem' src=${Quote} alt='frase' />
+        `;
+
+      cita.style.display = 'flex';
+      cita.style.flexDirection = 'row-reverse';
+      cita.style.alignItems = 'center';
+      cita.style.margin = '4rem 0';
+    } else {
+      console.log('adios');
+    }
+  };
+
   useEffect(() => {
     getNote(match.params.nota);
 
-    // const share = document.getElementById('stick');
-
-    /*
-    const scrollCallBack = window.addEventListener('scroll', () => {
-      if (window.pageXOffset > stickTo) {
-        console.log('hola');
-      } else {
-        console.log('adios');
-      }
-    });
-
-    return () => {
-      window.removeEventListener('scroll', scrollCallBack);
-    };*/
     //eslint-disable-next-line
   }, []);
 
@@ -113,7 +127,11 @@ const Nota = ({ match }) => {
                 </p>
                 <ImgAndShare>
                   <img
-                    style={{ width: '100%', maxWidth: '1000px' }}
+                    style={{
+                      width: '100%',
+                      maxWidth: '1000px',
+                      margin: '2rem 0',
+                    }}
                     src={nota.thumbnail}
                     alt={nota.title}
                   />
@@ -124,7 +142,7 @@ const Nota = ({ match }) => {
                         target='_blank'
                         rel='noopener noreferrer'
                       >
-                        <img src={facebookShare} alt='Share to facebook' />
+                        <ShareFacebook />
                       </a>
                     </i>
                     <i>
@@ -133,7 +151,7 @@ const Nota = ({ match }) => {
                         target='_blank'
                         rel='noopener noreferrer'
                       >
-                        <img src={twitterShare} alt='Share to twitter' />
+                        <ShareTwitter />
                       </a>
                     </i>
                     <i>
@@ -142,11 +160,11 @@ const Nota = ({ match }) => {
                         target='_blank'
                         rel='noopener noreferrer'
                       >
-                        <img src={mailShare} alt='Share via Email' />
+                        <ShareMail />
                       </a>
                     </i>
                     <i style={{ cursor: 'pointer' }} onClick={shareBtn}>
-                      <img src={linkShare} alt='Share link' />
+                      <ShareLink />
                     </i>
                     <i>
                       <a
@@ -154,12 +172,13 @@ const Nota = ({ match }) => {
                         target='_blank'
                         rel='noopener noreferrer'
                       >
-                        <img src={commentShare} alt='Share comment' />
+                        <ShareComment />
                       </a>
                     </i>
                   </ShareButtons>
                 </ImgAndShare>
                 <div
+                  ref={content}
                   style={{ width: '100%', maxWidth: '1000px' }}
                   dangerouslySetInnerHTML={{ __html: nota.body }}
                 />
@@ -180,7 +199,12 @@ const Nota = ({ match }) => {
                   <div className='every-tag'>
                     {nota.tags
                       ? nota.tags.map((tag, index) => (
-                          <span className='tag' key={index}>
+                          <span
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => history.push(`/resultado/${tag}`)}
+                            className='tag'
+                            key={index}
+                          >
                             {tag}
                           </span>
                         ))

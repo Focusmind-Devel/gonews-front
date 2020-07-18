@@ -8,10 +8,11 @@ import NotasContext from '../../context/notas/notasContext';
 const Home = () => {
   const notasContext = useContext(NotasContext);
 
-  const { getData } = notasContext;
+  const { getData, getHomeItems } = notasContext;
 
   useEffect(() => {
     getData();
+    getHomeItems();
     //eslint-disable-next-line
   }, []);
 

@@ -18,7 +18,6 @@ const Busqueda = ({ isOpen }) => {
   // toggle search field
   const toggleActive = () => {
     setIsActive(!isActive);
-    console.log(isActive);
   };
 
   // set search text value
@@ -27,39 +26,51 @@ const Busqueda = ({ isOpen }) => {
   // Search Note
   const onSubmit = (e) => {
     e.preventDefault();
-    if (text === '') {
-      alert('Por favor rellene el formulario de busqueda', 'light');
+
+    if (isActive === false) {
+      toggleActive();
     } else {
-      notasContext.searchNotes(text);
-      history.push(`/resultado/${text}`);
-      e.target.search.blur();
-      if (isOpen) {
-        isOpen(isActive ? false : true);
+      if (text === '') {
+        alert('Por favor rellene el formulario de busqueda', 'light');
       } else {
-        return false;
+        notasContext.searchNotes(text);
+        history.push(`/resultado/${text}`);
+        e.target.search.blur();
+        setText('');
+        toggleActive();
       }
     }
   };
 
+  const tar = window.document.querySelector('#top');
+
+  window.document.addEventListener('click', (e) => {
+    if (e.target === tar) {
+      toggleActive();
+    }
+  });
+
   return (
-    <div id='busqueda' className={`form ${isActive ? 'active' : ''}`}>
-      <form onSubmit={onSubmit}>
-        <input
-          className={`form ${isActive ? 'active' : ''}`}
-          id='search'
-          type='search'
-          placeholder={`${text ? text : 'Buscar'}`}
-          value={text}
-          onChange={onChange}
-        />
-      </form>
+    <form
+      id='busqueda'
+      className={`form ${isActive ? 'active' : ''}`}
+      onSubmit={onSubmit}
+    >
+      <input
+        className={`form ${isActive ? 'active' : ''}`}
+        id='search'
+        type='search'
+        placeholder={`${text ? text : 'Buscar'}`}
+        value={text}
+        onChange={onChange}
+      />
       <button
         className={`search_btn ${isActive ? 'active' : ''}`}
-        onClick={toggleActive}
+        type='submit'
       >
         <img src={buscar} alt='icono buscar' />
       </button>
-    </div>
+    </form>
   );
 };
 

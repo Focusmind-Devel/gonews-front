@@ -40,14 +40,12 @@ const HeaderSpace = styled.div`
 const Header = () => {
   const notasContext = useContext(NotasContext);
 
-  const { notas } = notasContext;
+  const { mainHome } = notasContext;
 
-  const notaDestacada = notas[notas.length - 1];
-
-  if (notas <= 0) {
+  if (!mainHome) {
     return (
       <HeaderSpace>
-        <img src={Spinner} alt='' />
+        <img src={Spinner} alt='cargando' />
       </HeaderSpace>
     );
   } else {
@@ -55,15 +53,15 @@ const Header = () => {
       <Fragment>
         <HeaderBg
           className='mobileHeader'
-          style={{ backgroundImage: `url(${notaDestacada.thumbnail})` }}
+          style={{ backgroundImage: `url(${mainHome.headerImage})` }}
         >
           <div className='info-destacada'>
             <div className='container'>
-              <span className='category'>{notaDestacada.category}</span>
-              <Link to={`/nota/${notaDestacada.id}`} className='title'>
-                {notaDestacada.title}
+              <span className='category'>{mainHome.category}</span>
+              <Link to={`/nota/${mainHome.slug}`} className='title'>
+                {mainHome.title}
               </Link>
-              <Link to={`/nota/${notaDestacada.id}`} className='leer_mas'>
+              <Link to={`/nota/${mainHome.slug}`} className='leer_mas'>
                 <img src={flecha} alt='icono flecha' />
                 <span>Leer nota</span>
               </Link>

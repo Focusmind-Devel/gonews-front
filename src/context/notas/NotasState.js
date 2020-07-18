@@ -8,6 +8,7 @@ import {
   SEARCH_NOTES,
   GET_NOTA,
   GET_MENU,
+  GET_HOME_ITEMS,
 } from '../types';
 
 const NotasState = (props) => {
@@ -22,9 +23,23 @@ const NotasState = (props) => {
     currentPage: 1,
     main: [],
     second: [],
+    mainHome: {},
+    latests: [],
+    categories: {},
   };
 
   const [state, dispatch] = useReducer(NotasReducer, initialState);
+
+  // homeitems
+  const getHomeItems = async () => {
+    const res = await axios.get(
+      'https://gonews-back-develop.herokuapp.com/home/'
+    );
+    dispatch({
+      type: GET_HOME_ITEMS,
+      payload: res.data,
+    });
+  };
 
   // get menu items
   const getMenu = async () => {
@@ -129,6 +144,10 @@ const NotasState = (props) => {
         searchText: state.searchText,
         main: state.main,
         second: state.second,
+        mainHome: state.mainHome,
+        latests: state.latests,
+        categories: state.categories,
+        getHomeItems,
         getMenu,
         getData,
         getCategory,

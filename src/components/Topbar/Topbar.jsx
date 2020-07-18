@@ -24,7 +24,7 @@ const Topbar = ({ isOpen, menuOpen }) => {
 
   return (
     <div className='top_nav'>
-      <div className='main_top'>
+      <div className='main_top' id='top'>
         {menuOpen ? (
           <img
             className='burguer'

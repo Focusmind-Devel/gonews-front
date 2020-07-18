@@ -1,17 +1,24 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import './Categoria.sass';
-import Actualidad from './Cat/Actualidad';
-import Politica from './Cat/Politica';
-import Espectaculos from './Cat/Espectaculos';
+import NotasContext from '../../context/notas/notasContext';
+import Cat from './Cat';
 
 function Categoria({ notas }) {
-  return (
-    <Fragment>
-      <Actualidad notas={notas} />
-      <Politica notas={notas} />
-      <Espectaculos notas={notas} />
-    </Fragment>
-  );
+  const notasContext = useContext(NotasContext);
+
+  const { categories } = notasContext;
+
+  if (!categories) {
+    return <h1>Cargando</h1>;
+  } else {
+    return (
+      <Fragment>
+        {Object.entries(categories).map((item, index) => (
+          <Cat key={index} item={item} />
+        ))}
+      </Fragment>
+    );
+  }
 }
 
 export default Categoria;

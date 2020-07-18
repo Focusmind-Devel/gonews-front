@@ -1,6 +1,5 @@
 import React, { Fragment, useContext } from 'react';
 import NotasContext from '../../context/notas/notasContext';
-import Busqueda from '../../components/Busqueda/Busqueda';
 import './Search.sass';
 import Resultados from '../../components/Resultados/Resultados';
 import styled from 'styled-components';
@@ -10,6 +9,8 @@ import { ReactComponent as LastPage } from '../../assets/images/last-page.svg';
 import { ReactComponent as NextPage } from '../../assets/images/next-page.svg';
 import { ReactComponent as PrevPage } from '../../assets/images/prev-page.svg';
 import Spinner from '../../assets/images/spinner.gif';
+import BusquedaEstatica from '../../components/BusquedaEstatica/BusquedaEstatica';
+import { useEffect } from 'react';
 
 const NotFoundResult = styled.div`
   color: #e71d36;
@@ -32,14 +33,26 @@ const Search = ({ match }) => {
 
   const text = match.params.text;
 
-  const { notas, count, getNextPage, currentPage, loading } = notasContext;
+  const {
+    notas,
+    count,
+    getNextPage,
+    currentPage,
+    loading,
+    searchNotes,
+  } = notasContext;
+
+  useEffect(() => {
+    searchNotes(text);
+    //eslint-disable-next-line
+  }, []);
 
   return (
     <Fragment>
       <EncabezadoStyle className='search-header'>
         <div className='container'>
           <h3>Resultados de la búsqueda</h3>
-          <Busqueda />
+          <BusquedaEstatica />
         </div>
       </EncabezadoStyle>
       {loading ? (
@@ -47,7 +60,8 @@ const Search = ({ match }) => {
       ) : count >= 1 ? (
         <div className='container'>
           <p className='total-resultados'>
-            {count} resultados encontrados para {text}
+            {count} resultados encontrados para{' '}
+            <span style={{ textTransform: 'uppercase' }}>{text}</span>
           </p>
           <div className='resultados'>
             {notas
