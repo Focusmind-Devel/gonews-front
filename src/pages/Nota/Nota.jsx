@@ -78,8 +78,16 @@ const Nota = ({ match }) => {
       cita.style.flexDirection = 'row-reverse';
       cita.style.alignItems = 'center';
       cita.style.margin = '4rem 0';
+
+      if (window.innerWidth < 620) {
+        cita.style.display = 'flex';
+        cita.style.flexDirection = 'column-reverse';
+        cita.style.alignItems = 'start';
+        cita.style.margin = '4rem 0';
+        cita.style.fontSize = '25px';
+      }
     } else {
-      console.log('adios');
+      return false;
     }
   };
 
