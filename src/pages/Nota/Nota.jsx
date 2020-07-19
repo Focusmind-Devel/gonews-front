@@ -2,6 +2,7 @@ import React, { useEffect, useContext, Fragment } from 'react';
 import NotasContext from '../../context/notas/notasContext';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 // share buttons
 import { ReactComponent as ShareFacebook } from '../../assets/images/share-facebook.svg';
 import { ReactComponent as ShareTwitter } from '../../assets/images/share-twitter.svg';
@@ -93,7 +94,6 @@ const Nota = ({ match }) => {
 
   useEffect(() => {
     getNote(match.params.nota);
-
     //eslint-disable-next-line
   }, []);
 
@@ -121,6 +121,10 @@ const Nota = ({ match }) => {
   } else {
     return (
       <Fragment>
+        <Helmet>
+          <title>{nota.title} | GoNews</title>
+          <meta name='description' content={nota.content} />
+        </Helmet>
         <div className='container'>
           <NotaIndividual>
             <RenderNote>
