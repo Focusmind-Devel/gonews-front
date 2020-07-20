@@ -63,8 +63,6 @@ const Nota = ({ match }) => {
 
   let history = useHistory();
 
-  // let lastScrollY = 0;
-
   let postUrl = encodeURI(document.location.href);
 
   const content = () => {
@@ -96,6 +94,31 @@ const Nota = ({ match }) => {
     getNote(match.params.nota);
     //eslint-disable-next-line
   }, []);
+
+  const myManifest = window.document.getElementById('my-manifest');
+
+  var myDynamicManifest = {
+    name: `${nota.title} | GoNews`,
+    // "short_name": "Site",
+    description: `${nota.content}`,
+    start_url: '<your-url>',
+    background_color: '#000000',
+    theme_color: '#0f4a73',
+    icons: [
+      {
+        src: 'whatever.png',
+        sizes: '256x256',
+        type: 'image/png',
+      },
+    ],
+  };
+
+  const stringManifest = JSON.stringify(myDynamicManifest);
+  const blob = new Blob([stringManifest], { type: 'application/json' });
+  const manifestURL = URL.createObjectURL(blob);
+  myManifest.setAttribute('href', manifestURL);
+
+  console.log(myManifest);
 
   const shareBtn = () => {
     if (navigator.share) {
