@@ -101,7 +101,7 @@ const Nota = ({ match }) => {
     name: `${nota.title} | GoNews`,
     // "short_name": "Site",
     description: `${nota.content}`,
-    start_url: '.',
+    start_url: 'https://gonews-front.herokuapp.com/',
     background_color: '#000000',
     theme_color: '#02182B',
     icons: [
@@ -145,8 +145,8 @@ const Nota = ({ match }) => {
     return (
       <Fragment>
         <Helmet>
-          <title>{nota.title} | GoNews</title>
           <meta name='description' content={nota.content} />
+          <title>{nota.title} | GoNews</title>
         </Helmet>
         <div className='container'>
           <NotaIndividual>
