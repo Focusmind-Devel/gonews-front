@@ -101,9 +101,9 @@ const Nota = ({ match }) => {
     name: `${nota.title} | GoNews`,
     // "short_name": "Site",
     description: `${nota.content}`,
-    start_url: '<your-url>',
+    start_url: '.',
     background_color: '#000000',
-    theme_color: '#0f4a73',
+    theme_color: '#02182B',
     icons: [
       {
         src: 'whatever.png',
