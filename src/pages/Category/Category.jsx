@@ -130,7 +130,7 @@ const Category = ({ match }) => {
                 ))}
               </div>
             </div>
-            <div style={{ position: 'absolute', right: 0, margin: '5%' }}>
+            <div style={{ position: 'absolute', right: 0, margin: '0 1%' }}>
               <a href='/'>
                 <img style={{ width: '100%' }} src={Skycraper} alt='anuncio' />
               </a>
