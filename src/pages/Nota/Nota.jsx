@@ -184,10 +184,14 @@ const Nota = ({ match }) => {
             </a>
           </PopupDiv>
         </PopupWrapper>
-        <Helmet>
-          <meta name='description' content={nota.content} />
-          <title>{nota.title} | GoNews</title>
-        </Helmet>
+        {nota ? (
+          <Helmet>
+            <meta name='description' content={nota.content} />
+            <title>{nota.title} | GoNews</title>
+          </Helmet>
+        ) : (
+          false
+        )}
         <div className='container'>
           <div
             className='leadboard'
@@ -332,11 +336,12 @@ const Nota = ({ match }) => {
             </NotaIndividual>
           </div>
           <div
-            class='skycrapper'
+            className='skycrapper'
             style={{
               position: 'absolute',
               right: 0,
-              margin: '50% 5%',
+              margin: '0 5%',
+              marginTop: '40%',
             }}
           >
             <a href='/'>
