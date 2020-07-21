@@ -11,6 +11,10 @@ import { ReactComponent as ShareLink } from '../../assets/images/share-link.svg'
 import { ReactComponent as ShareComment } from '../../assets/images/share-comment.svg';
 import Spinner from '../../assets/images/spinner.gif';
 import Quote from '../../assets/images/quote.png';
+import Leaderboard from '../../assets/images/leaderboard.png';
+import AnuncioPie from '../../assets/images/pie.png';
+import Skycraper from '../../assets/images/skycraper.png';
+import Popup from '../../assets/images/pop-up.png';
 // styles
 import './Notas.sass';
 import FbComment from '../../components/FbComment/FbComment';
@@ -54,6 +58,24 @@ const ImgAndShare = styled.div`
 const HeaderSpace = styled.div`
   height: 650px;
   text-align: center;
+`;
+
+const PopupWrapper = styled.div`
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: none;
+`;
+
+const PopupDiv = styled.div`
+  width: 100%;
+  max-width: 500px;
+  margin: 10% auto;
+  position: relative;
 `;
 
 const Nota = ({ match }) => {
@@ -119,10 +141,41 @@ const Nota = ({ match }) => {
   } else {
     return (
       <Fragment>
+        <PopupWrapper
+          ref={(e) =>
+            e === null
+              ? false
+              : setTimeout(function () {
+                  e.style.display = 'block';
+                }, 5000)
+          }
+          onClick={(e) =>
+            e.target.style.display === 'block'
+              ? (e.target.style.display = 'none')
+              : false
+          }
+        >
+          <PopupDiv>
+            <a href='/'>
+              <img src={Popup} alt='anuncio emergente' />
+            </a>
+          </PopupDiv>
+        </PopupWrapper>
         <Helmet>
           <meta name='description' content={nota.content} />
           <title>{nota.title} | GoNews</title>
         </Helmet>
+        <div className='container'>
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <a href='/'>
+              <img
+                style={{ width: '100%' }}
+                src={Leaderboard}
+                alt='anuncio 1'
+              />
+            </a>
+          </div>
+        </div>
         <div className='container'>
           <NotaIndividual>
             <RenderNote>
@@ -243,6 +296,13 @@ const Nota = ({ match }) => {
               </div>
             </RenderNote>
           </NotaIndividual>
+        </div>
+        <div className='container'>
+          <div style={{ textAlign: 'center' }}>
+            <a href='/'>
+              <img style={{ width: '100%' }} src={AnuncioPie} alt='anuncio 1' />
+            </a>
+          </div>
         </div>
       </Fragment>
     );
