@@ -1,5 +1,6 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import './Category.sass';
 import NotasContext from '../../context/notas/notasContext';
 import Card from '../../components/Card/Card';
@@ -33,10 +34,22 @@ const PopupWrapper = styled.div`
 `;
 
 const PopupDiv = styled.div`
+  margin: 10% auto;
   width: 100%;
   max-width: 500px;
-  margin: 10% auto;
-  position: relative;
+  img {
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+  }
+  @media (max-width: 620px) {
+    margin: 50% auto;
+    display: flex;
+    justify-content: center;
+    img {
+      max-width: 300px;
+    }
+  }
 `;
 
 const Category = ({ match }) => {
@@ -87,7 +100,13 @@ const Category = ({ match }) => {
           </PopupDiv>
         </PopupWrapper>
         {categoryNotes.length >= 1 ? (
-          <h1 className='category_name'>{categoryNotes[0].category}</h1>
+          <Fragment>
+            <Helmet>
+              <meta name='description' content='Categoria de GoNews' />
+              <title>{categoryNotes[0].category} | GoNews</title>
+            </Helmet>
+            <h1 className='category_name'>{categoryNotes[0].category}</h1>
+          </Fragment>
         ) : (
           false
         )}
@@ -103,11 +122,18 @@ const Category = ({ match }) => {
             </a>
           </div>
 
-          <div className='categoria'>
-            <div className='notas_categoria'>
-              {categoryNotes.map((filtered) => (
-                <Card key={filtered.id} item={filtered} />
-              ))}
+          <div style={{ display: 'flex' }}>
+            <div className='categoria' style={{ width: '100%' }}>
+              <div className='notas_categoria'>
+                {categoryNotes.map((filtered) => (
+                  <Card key={filtered.id} item={filtered} />
+                ))}
+              </div>
+            </div>
+            <div style={{ position: 'absolute', right: 0, margin: '5%' }}>
+              <a href='/'>
+                <img style={{ width: '100%' }} src={Skycraper} alt='anuncio' />
+              </a>
             </div>
           </div>
           <Paginacion

@@ -28,6 +28,7 @@ const NotasState = (props) => {
     categories: {},
     show_signed: false,
     enable_comments: false,
+    related_notes: [],
   };
 
   const [state, dispatch] = useReducer(NotasReducer, initialState);
@@ -151,6 +152,7 @@ const NotasState = (props) => {
         categories: state.categories,
         show_signed: state.show_signed,
         enable_comments: state.enable_comments,
+        related_notes: state.related_notes,
         getHomeItems,
         getMenu,
         getData,

@@ -51,6 +51,7 @@ export default (state, action) => {
         loading: false,
         show_signed: action.payload.show_signed,
         enable_comments: action.payload.enable_comments,
+        related_notes: action.payload.related_notes,
       };
     default:
       return state;

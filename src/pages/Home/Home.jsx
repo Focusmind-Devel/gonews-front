@@ -1,4 +1,5 @@
 import React, { Fragment, useContext, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import Header from '../../components/Header/Header';
 import UltimasNoticias from '../../components/UltimasNoticias/UltimasNoticias';
 import TresCategorias from '../../components/TresCategorias/TresCategorias';
@@ -18,6 +19,10 @@ const Home = () => {
 
   return (
     <Fragment>
+      <Helmet>
+        <meta name='description' content='Sitio de noticias, GoNews' />
+        <title>GoNews</title>
+      </Helmet>
       <Header />
       <UltimasNoticias />
       <TresCategorias />
