@@ -17,6 +17,8 @@ const BusquedaEstatica = ({ isOpen }) => {
   // set search text value
   const onChange = (e) => setText(e.target.value);
 
+  console.log(text);
+
   // Search Note
   const onSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +28,7 @@ const BusquedaEstatica = ({ isOpen }) => {
       notasContext.searchNotes(text);
       history.push(`/resultado/${text}`);
       e.target.search.blur();
-      setText('');
+      setText(text);
 
       if (isOpen) {
         isOpen(false);
