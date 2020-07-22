@@ -104,6 +104,8 @@ const Nota = ({ match }) => {
     show_signed,
     enable_comments,
     related_notes,
+    getAdsNote,
+    ads_notes,
   } = notasContext;
 
   let history = useHistory();
@@ -137,6 +139,7 @@ const Nota = ({ match }) => {
 
   useEffect(() => {
     getNote(match.params.nota);
+    getAdsNote();
     //eslint-disable-next-line
   }, []);
 
@@ -178,11 +181,15 @@ const Nota = ({ match }) => {
               : false
           }
         >
-          <PopupDiv>
-            <a href='/'>
-              <img src={Popup} alt='anuncio emergente' />
-            </a>
-          </PopupDiv>
+          {ads_notes ? (
+            <PopupDiv>
+              <a href={ads_notes.popup_link}>
+                <img src={ads_notes.popup_image} alt='anuncio emergente' />
+              </a>
+            </PopupDiv>
+          ) : (
+            false
+          )}
         </PopupWrapper>
         {nota ? (
           <Helmet>
@@ -197,13 +204,17 @@ const Nota = ({ match }) => {
             className='leadboard'
             style={{ textAlign: 'center', marginTop: '2rem' }}
           >
-            <a href='/'>
-              <img
-                style={{ width: '100%' }}
-                src={Leaderboard}
-                alt='anuncio 1'
-              />
-            </a>
+            {ads_notes ? (
+              <a href={ads_notes.leaderboard_link}>
+                <img
+                  style={{ width: '100%', height: '150px' }}
+                  src={ads_notes.leaderboard_image}
+                  alt='anuncio top'
+                />
+              </a>
+            ) : (
+              false
+            )}
           </div>
         </div>
         <div style={{ display: 'flex' }}>
@@ -226,7 +237,7 @@ const Nota = ({ match }) => {
                         maxWidth: '1000px',
                         margin: '2rem 0',
                       }}
-                      src={nota.thumbnail}
+                      src={nota.headerImage}
                       alt={nota.title}
                     />
                     <ShareButtons id='share'>
@@ -344,16 +355,32 @@ const Nota = ({ match }) => {
               marginTop: '40%',
             }}
           >
-            <a href='/'>
-              <img style={{ width: '100%' }} src={Skycraper} alt='anuncio' />
-            </a>
+            {ads_notes ? (
+              <a href={ads_notes.skyscraper_link}>
+                <img
+                  style={{ width: '100%', maxWidth: '160px', height: '600px' }}
+                  src={ads_notes.skyscraper_image}
+                  alt='anuncio barra lateral'
+                />
+              </a>
+            ) : (
+              false
+            )}
           </div>
         </div>
         <div className='container'>
           <div style={{ textAlign: 'center' }}>
-            <a href='/'>
-              <img style={{ width: '100%' }} src={AnuncioPie} alt='anuncio 1' />
-            </a>
+            {ads_notes ? (
+              <a href={ads_notes.footbuttom_link}>
+                <img
+                  style={{ width: '100%', height: '150px' }}
+                  src={ads_notes.footbuttom_image}
+                  alt='anuncio pie de pagina'
+                />
+              </a>
+            ) : (
+              false
+            )}
           </div>
         </div>
       </Fragment>

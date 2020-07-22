@@ -9,6 +9,7 @@ import {
   GET_NOTA,
   GET_MENU,
   GET_HOME_ITEMS,
+  GET_ADS_NOTA,
 } from '../types';
 
 const NotasState = (props) => {
@@ -29,6 +30,7 @@ const NotasState = (props) => {
     show_signed: false,
     enable_comments: false,
     related_notes: [],
+    ads_notes: {},
   };
 
   const [state, dispatch] = useReducer(NotasReducer, initialState);
@@ -133,6 +135,18 @@ const NotasState = (props) => {
     });
   };
 
+  //get ads nota individual
+  const getAdsNote = async () => {
+    const res = await axios.get(
+      'https://gonews-back-develop.herokuapp.com/banner/'
+    );
+
+    dispatch({
+      type: GET_ADS_NOTA,
+      payload: res.data,
+    });
+  };
+
   return (
     <NotasContext.Provider
       value={{
@@ -153,6 +167,7 @@ const NotasState = (props) => {
         show_signed: state.show_signed,
         enable_comments: state.enable_comments,
         related_notes: state.related_notes,
+        ads_notes: state.ads_notes,
         getHomeItems,
         getMenu,
         getData,
@@ -161,6 +176,7 @@ const NotasState = (props) => {
         getNote,
         getNextPage,
         getNextPageCat,
+        getAdsNote,
       }}
     >
       {props.children}

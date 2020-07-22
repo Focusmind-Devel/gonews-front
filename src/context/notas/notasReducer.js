@@ -5,6 +5,7 @@ import {
   GET_NOTA,
   GET_MENU,
   GET_HOME_ITEMS,
+  GET_ADS_NOTA,
 } from '../types';
 
 export default (state, action) => {
@@ -52,6 +53,11 @@ export default (state, action) => {
         show_signed: action.payload.show_signed,
         enable_comments: action.payload.enable_comments,
         related_notes: action.payload.related_notes,
+      };
+    case GET_ADS_NOTA:
+      return {
+        ...state,
+        ads_notes: action.payload,
       };
     default:
       return state;
