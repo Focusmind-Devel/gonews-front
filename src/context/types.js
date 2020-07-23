@@ -7,3 +7,5 @@ export const NEXT_PAGE = 'NEXT_PAGE';
 export const GET_MENU = 'GET_MENU';
 export const GET_HOME_ITEMS = 'GET_HOME_ITEMS';
 export const GET_ADS_NOTA = 'GET_ADS_NOTA';
+export const GET_ADS_CATEGORY = 'GET_ADS_CATEGORY';
+export const SET_LOADING = 'SET_LOADING';

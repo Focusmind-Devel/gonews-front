@@ -10,6 +10,8 @@ import {
   GET_MENU,
   GET_HOME_ITEMS,
   GET_ADS_NOTA,
+  GET_ADS_CATEGORY,
+  SET_LOADING,
 } from '../types';
 
 const NotasState = (props) => {
@@ -17,7 +19,7 @@ const NotasState = (props) => {
     notas: [],
     categoryNotes: [],
     nota: {},
-    loading: true,
+    loading: false,
     count: 0,
     next: null,
     previous: null,
@@ -31,9 +33,13 @@ const NotasState = (props) => {
     enable_comments: false,
     related_notes: [],
     ads_notes: {},
+    ads_category: {},
   };
 
   const [state, dispatch] = useReducer(NotasReducer, initialState);
+
+  //set loading
+  const setLoading = () => dispatch({ type: SET_LOADING });
 
   // homeitems
   const getHomeItems = async () => {
@@ -147,6 +153,19 @@ const NotasState = (props) => {
     });
   };
 
+  //get ads by category
+  const getAdsByCategory = async (category) => {
+    setLoading();
+    const res = await axios.get(
+      `https://gonews-back-develop.herokuapp.com/banner/${category}`
+    );
+
+    dispatch({
+      type: GET_ADS_CATEGORY,
+      payload: res.data,
+    });
+  };
+
   return (
     <NotasContext.Provider
       value={{
@@ -168,6 +187,7 @@ const NotasState = (props) => {
         enable_comments: state.enable_comments,
         related_notes: state.related_notes,
         ads_notes: state.ads_notes,
+        ads_category: state.ads_category,
         getHomeItems,
         getMenu,
         getData,
@@ -177,6 +197,7 @@ const NotasState = (props) => {
         getNextPage,
         getNextPageCat,
         getAdsNote,
+        getAdsByCategory,
       }}
     >
       {props.children}

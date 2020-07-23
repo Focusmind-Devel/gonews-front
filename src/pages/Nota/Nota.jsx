@@ -11,11 +11,6 @@ import { ReactComponent as ShareLink } from '../../assets/images/share-link.svg'
 import { ReactComponent as ShareComment } from '../../assets/images/share-comment.svg';
 import Spinner from '../../assets/images/spinner.gif';
 import Quote from '../../assets/images/quote.png';
-import Leaderboard from '../../assets/images/leaderboard.png';
-import AnuncioPie from '../../assets/images/pie.png';
-import Skycraper from '../../assets/images/skycraper.png';
-import Popup from '../../assets/images/pop-up.png';
-// styles
 import './Notas.sass';
 import FbComment from '../../components/FbComment/FbComment';
 import Resultados from '../../components/Resultados/Resultados';
@@ -183,7 +178,11 @@ const Nota = ({ match }) => {
         >
           {ads_notes ? (
             <PopupDiv>
-              <a href={ads_notes.popup_link}>
+              <a
+                href={ads_notes.popup_link}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 <img src={ads_notes.popup_image} alt='anuncio emergente' />
               </a>
             </PopupDiv>
@@ -205,9 +204,13 @@ const Nota = ({ match }) => {
             style={{ textAlign: 'center', marginTop: '2rem' }}
           >
             {ads_notes ? (
-              <a href={ads_notes.leaderboard_link}>
+              <a
+                href={ads_notes.leaderboard_link}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 <img
-                  style={{ width: '100%', height: '150px' }}
+                  style={{ width: '60%' }}
                   src={ads_notes.leaderboard_image}
                   alt='anuncio top'
                 />
@@ -356,7 +359,11 @@ const Nota = ({ match }) => {
             }}
           >
             {ads_notes ? (
-              <a href={ads_notes.skyscraper_link}>
+              <a
+                href={ads_notes.skyscraper_link}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 <img
                   style={{ width: '100%', maxWidth: '160px', height: '600px' }}
                   src={ads_notes.skyscraper_image}
@@ -371,9 +378,13 @@ const Nota = ({ match }) => {
         <div className='container'>
           <div style={{ textAlign: 'center' }}>
             {ads_notes ? (
-              <a href={ads_notes.footbuttom_link}>
+              <a
+                href={ads_notes.footbuttom_link}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 <img
-                  style={{ width: '100%', height: '150px' }}
+                  style={{ width: '60%' }}
                   src={ads_notes.footbuttom_image}
                   alt='anuncio pie de pagina'
                 />

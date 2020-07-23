@@ -6,6 +6,8 @@ import {
   GET_MENU,
   GET_HOME_ITEMS,
   GET_ADS_NOTA,
+  GET_ADS_CATEGORY,
+  SET_LOADING,
 } from '../types';
 
 export default (state, action) => {
@@ -58,6 +60,17 @@ export default (state, action) => {
       return {
         ...state,
         ads_notes: action.payload,
+      };
+    case GET_ADS_CATEGORY:
+      return {
+        ...state,
+        ads_category: action.payload,
+        loading: false,
+      };
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: true,
       };
     default:
       return state;

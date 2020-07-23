@@ -12,10 +12,6 @@ import { ReactComponent as FirstPage } from '../../assets/images/first-page.svg'
 import { ReactComponent as LastPage } from '../../assets/images/last-page.svg';
 import { ReactComponent as NextPage } from '../../assets/images/next-page.svg';
 import { ReactComponent as PrevPage } from '../../assets/images/prev-page.svg';
-import Leaderboard from '../../assets/images/leaderboard.png';
-import AnuncioPie from '../../assets/images/pie.png';
-import Skycraper from '../../assets/images/skycraper.png';
-import Popup from '../../assets/images/pop-up.png';
 
 const HeaderSpace = styled.div`
   height: 650px;
@@ -62,15 +58,30 @@ const Category = ({ match }) => {
     count,
     getNextPageCat,
     currentPage,
+    getAdsByCategory,
+    ads_category,
+    loading,
   } = notasContext;
 
   useEffect(() => {
+    getAdsByCategory(category);
     getCategory(category);
-
     //eslint-disable-next-line
   }, []);
 
-  if (!categoryNotes) {
+  const popUpState = (e) => {
+    if (e === null) {
+      return false;
+    } else {
+      return setTimeout(function () {
+        e.style.display = 'block';
+      }, 5000);
+    }
+  };
+
+  console.log(ads_category);
+
+  if (loading) {
     return (
       <HeaderSpace>
         <img src={Spinner} alt='' />
@@ -79,26 +90,26 @@ const Category = ({ match }) => {
   } else {
     return (
       <Fragment>
-        <PopupWrapper
-          ref={(e) =>
-            e === null
-              ? false
-              : setTimeout(function () {
-                  e.style.display = 'block';
-                }, 5000)
-          }
-          onClick={(e) =>
-            e.target.style.display === 'block'
-              ? (e.target.style.display = 'none')
-              : false
-          }
-        >
-          <PopupDiv>
-            <a href='/'>
-              <img src={Popup} alt='anuncio emergente' />
-            </a>
-          </PopupDiv>
-        </PopupWrapper>
+        {ads_category.popup_link === undefined ||
+        ads_category.popup_link === null ? (
+          false
+        ) : (
+          <PopupWrapper
+            ref={popUpState}
+            onClick={(e) =>
+              e.target.style.display === 'block'
+                ? (e.target.style.display = 'none')
+                : false
+            }
+          >
+            <PopupDiv>
+              <a href={ads_category.popup_link}>
+                <img src={ads_category.popup_image} alt='anuncio emergente' />
+              </a>
+            </PopupDiv>
+          </PopupWrapper>
+        )}
+
         {categoryNotes.length >= 1 ? (
           <Fragment>
             <Helmet>
@@ -112,15 +123,24 @@ const Category = ({ match }) => {
         )}
         <HeaderCategory category={category} />
         <div className='container' id='sec_category'>
-          <div style={{ textAlign: 'center' }}>
-            <a href='/'>
-              <img
-                style={{ width: '100%' }}
-                src={Leaderboard}
-                alt='anuncio 1'
-              />
-            </a>
-          </div>
+          {ads_category.popup_image === undefined ||
+          ads_category.popup_image === null ? (
+            false
+          ) : (
+            <div style={{ textAlign: 'center' }}>
+              {ads_category ? (
+                <a href={ads_category.leaderboard_link}>
+                  <img
+                    style={{ width: '100%', height: '150px' }}
+                    src={ads_category.leaderboard_image}
+                    alt='anuncio top'
+                  />
+                </a>
+              ) : (
+                false
+              )}
+            </div>
+          )}
 
           <div style={{ display: 'flex' }}>
             <div className='categoria' style={{ width: '100%' }}>
@@ -130,11 +150,24 @@ const Category = ({ match }) => {
                 ))}
               </div>
             </div>
-            <div style={{ position: 'absolute', right: 0, margin: '0 1%' }}>
-              <a href='/'>
-                <img style={{ width: '100%' }} src={Skycraper} alt='anuncio' />
-              </a>
-            </div>
+            {ads_category.skyscraper_link === null ||
+            ads_category.skyscraper_link === undefined ? (
+              false
+            ) : (
+              <div style={{ position: 'absolute', right: 0, margin: '0 1%' }}>
+                <a href={ads_category.skyscraper_link}>
+                  <img
+                    style={{
+                      width: '100%',
+                      maxWidth: '160px',
+                      height: '600px',
+                    }}
+                    src={ads_category.skyscraper_image}
+                    alt='anuncio barra lateral'
+                  />
+                </a>
+              </div>
+            )}
           </div>
           <Paginacion
             activePage={currentPage}
@@ -147,11 +180,20 @@ const Category = ({ match }) => {
             prevPageText={<PrevPage />}
             nextPageText={<NextPage />}
           />
-          <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-            <a href='/'>
-              <img style={{ width: '100%' }} src={AnuncioPie} alt='anuncio 1' />
-            </a>
-          </div>
+          {ads_category.footbuttom_link === null ||
+          ads_category.footbuttom_link === undefined ? (
+            false
+          ) : (
+            <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+              <a href={ads_category.footbuttom_link}>
+                <img
+                  style={{ width: '100%', height: '150px' }}
+                  src={ads_category.footbuttom_image}
+                  alt='anuncio pie de pagina'
+                />
+              </a>
+            </div>
+          )}
         </div>
       </Fragment>
     );
