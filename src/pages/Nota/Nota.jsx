@@ -190,13 +190,14 @@ const Nota = ({ match }) => {
             false
           )}
         </PopupWrapper>
-        {nota ? (
+        {nota === undefined ? (
+          false
+        ) : (
+          /*  */
           <Helmet>
             <meta name='description' content={nota.content} />
-            <title>{nota.title} | GoNews</title>
+            <title>{`${nota.title} | GoNews`}</title>
           </Helmet>
-        ) : (
-          false
         )}
         <div className='container'>
           <div

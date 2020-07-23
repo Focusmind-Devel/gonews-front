@@ -103,7 +103,11 @@ const Category = ({ match }) => {
             }
           >
             <PopupDiv>
-              <a href={ads_category.popup_link}>
+              <a
+                href={ads_category.popup_link}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 <img src={ads_category.popup_image} alt='anuncio emergente' />
               </a>
             </PopupDiv>
@@ -114,7 +118,7 @@ const Category = ({ match }) => {
           <Fragment>
             <Helmet>
               <meta name='description' content='Categoria de GoNews' />
-              <title>{categoryNotes[0].category} | GoNews</title>
+              <title>{`${categoryNotes[0].category} | GoNews`}</title>
             </Helmet>
             <h1 className='category_name'>{categoryNotes[0].category}</h1>
           </Fragment>
@@ -129,7 +133,11 @@ const Category = ({ match }) => {
           ) : (
             <div style={{ textAlign: 'center' }}>
               {ads_category ? (
-                <a href={ads_category.leaderboard_link}>
+                <a
+                  href={ads_category.leaderboard_link}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <img
                     style={{ width: '100%', height: '150px' }}
                     src={ads_category.leaderboard_image}
@@ -155,7 +163,11 @@ const Category = ({ match }) => {
               false
             ) : (
               <div style={{ position: 'absolute', right: 0, margin: '0 1%' }}>
-                <a href={ads_category.skyscraper_link}>
+                <a
+                  href={ads_category.skyscraper_link}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <img
                     style={{
                       width: '100%',
@@ -185,7 +197,11 @@ const Category = ({ match }) => {
             false
           ) : (
             <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-              <a href={ads_category.footbuttom_link}>
+              <a
+                href={ads_category.footbuttom_link}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 <img
                   style={{ width: '100%', height: '150px' }}
                   src={ads_category.footbuttom_image}

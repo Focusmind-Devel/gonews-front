@@ -155,9 +155,9 @@ const MainMenu = ({ menuOpen, isOpen }) => {
                     key={index}
                     className='menu_item adicional animate__animated animate__fadeInRight animate__faster'
                   >
-                    <a className='click' href={`/${item.slug}`}>
+                    <Link className='click' to={`/${item.slug}`}>
                       {item.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </Fragment>
