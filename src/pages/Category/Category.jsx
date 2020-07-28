@@ -167,7 +167,10 @@ const Category = ({ match }) => {
 						ads_category.skyscraper_link === undefined ? (
 							false
 						) : (
-							<div style={{ position: 'absolute', right: 0, margin: '0 1%' }}>
+							<div
+								className='skycrapper'
+								style={{ position: 'absolute', right: 0, margin: '0 1%' }}
+							>
 								<a
 									href={ads_category.skyscraper_link}
 									target='_blank'

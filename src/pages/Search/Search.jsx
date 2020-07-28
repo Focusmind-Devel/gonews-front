@@ -57,7 +57,7 @@ const Search = ({ match }) => {
 			<EncabezadoStyle className='search-header'>
 				<div className='container'>
 					<h3>Resultados de la búsqueda</h3>
-					<BusquedaEstatica />
+					<BusquedaEstatica searchText={text} />
 				</div>
 			</EncabezadoStyle>
 			{loading ? (
