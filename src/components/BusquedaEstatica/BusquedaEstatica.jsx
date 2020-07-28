@@ -48,9 +48,9 @@ const BusquedaEstatica = ({ isOpen, searchText }) => {
 				<input
 					id='search'
 					type='search'
-					placeholder={`${searchText ? searchText : 'Buscar'}`}
+					placeholder='Buscar'
 					onChange={onChange}
-					value={text}
+					defaultValue={searchText}
 				/>
 				<button className='search_btn' type='submit'>
 					<img src={buscar} alt='icono buscar' />
