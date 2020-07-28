@@ -41,12 +41,16 @@ const ShareButtons = styled.div`
 	margin: 0 15%;
 	z-index: 10;
 	top: 60%;
-	@media (max-width: 620px) {
+	@media (max-width: 1190px) {
 		flex-direction: row;
 		justify-content: space-around;
 		margin: 0;
 		position: static;
 		z-index: 1;
+		margin: 0;
+	}
+	@media (max-width: 1366px) {
+		margin: 0 11%;
 	}
 `;
 
@@ -55,7 +59,7 @@ const ImgAndShare = styled.div`
 	justify-content: space-between;
 	position: relative;
 	width: 100%;
-	@media (max-width: 620px) {
+	@media (max-width: 1190px) {
 		flex-direction: column;
 	}
 `;

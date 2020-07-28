@@ -1,7 +1,15 @@
 @media screen and ( min-width: 851px ) and (max-width: 1190px)
     .top_nav
+        overflow: 
+        position: fixed
+        width: 100%
+        z-index: 21
+        top: 0
         .main_top
             grid-template-columns: repeat(3, 1fr)
+            .burguer
+                align-self: center
+                display: block
             #logo
                 grid-column: 2/2
                 justify-self: center
@@ -10,18 +18,29 @@
                     height: 36px
             #social_icons_top
                 display: none
+            #busqueda
+                display: none
     // navegacion
     #navigation
         display: none
     // header
     .mobileHeader
         height: 412px !important
+    .mobileHeaderCategory
+        height: 300px !important
     .info-destacada
         a.title
             font-size: 28px
+        a.leer_mas
+            visibility: hidden
         .category
             font-size: 15px
-            width: 15%
+            width: 30%
+        .container
+            margin-bottom: 2rem
+    #navigation2
+        top: 0
+        z-index: 20
     // Ultimas Noticias
     #ultimas-notas
         h1
@@ -36,10 +55,17 @@
             -webkit-overflow-scrolling: touch
             scroll-snap-points-x: repeat(300px)
             scroll-snap-type: mandatory
+            column-gap: 15px
             .card
-                flex-shrink: 0
-                margin-left: 1rem
-                width: 313.78px
+                width: 250px
+                height: 310px 
+                img
+                    width: 250px !important
+                .title
+                    font-size: 20px
+                .card_body
+                    &::before
+                        bottom: 40%
             &::-webkit-scrollbar
                 visibility: hidden
     // Tres Categorias
@@ -54,16 +80,23 @@
             -webkit-overflow-scrolling: touch
             scroll-snap-points-x: repeat(300px)
             scroll-snap-type: mandatory
+            column-gap: 15px
             .card
-                flex-shrink: 0
-                margin-left: 1rem
-                width: 313.78px
+                width: 314px
+                height: 350px
+                .title
+                    font-size: 20px
+                .card_body
+                    &::before
+                        bottom: 33%
             &::-webkit-scrollbar
                 visibility: hidden
     // Notas Categoria
     #sec_category
+        &.container
+            max-width: 100%
         .notas_categoria
-            grid-template-columns: repeat(2, 1fr)
+            grid-template-columns: 1fr
     // Footer
     #footer_menu
         .container
@@ -99,5 +132,74 @@
             text-align: center
             p
                 font-size: 15px
+            span
+                display: none
         #social_icons_top
             display: none
+    .category_name
+        padding-top: 5rem
+
+    // nota individual
+    .category-date
+        margin-top: 0.5rem
+        display: flex
+        flex-direction: column
+        .category
+            width: 102.52px
+            font-size: 15px !important
+        .date
+            font-size: 18px !important
+            margin-top: 1rem
+    
+    .nota-content
+        .title
+            font-size: 28px !important
+        .tags
+            display: flex
+            flex-direction: column
+            .every-tag
+                display: block
+                margin-top: 1rem
+    // search page
+    .search-header
+        #busqueda
+            background: #ffffff
+            width: 300px !important
+            input
+                width: 270px !important
+                height: 26px
+    .results-card
+        width: 320px !important
+        height: 130px !important
+        grid-template-columns: 134px 1fr !important
+        gap: 1rem !important
+        img
+            max-height: 105px !important
+            max-width: 134px !important
+            align-self: center !important
+        .card-body
+            .category-date
+                margin-top: 0
+                span
+                    font-size: 13px
+                    margin: 0.5rem 0
+                .fecha
+                    display: none
+            .title-more
+                h3
+                    margin: 0
+                    font-size: 20px
+                .leer_mas
+                    display: none !important
+
+    .skycrapper
+        display: none
+    .leadboard
+        margin-top: 8rem !important
+    
+    // social media
+    .social_media
+        .titulo
+            font-size: 27px
+        .social-btn
+            margin-bottom: 1rem
