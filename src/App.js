@@ -22,10 +22,8 @@ function App() {
 
 	const isOpen = (openMenu) => {
 		if (openMenu) {
-			console.log('Menu is Closed');
 			setMenuOpen(false);
 		} else {
-			console.log('Menu is Open');
 			setMenuOpen(true);
 		}
 	};
