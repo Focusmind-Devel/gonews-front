@@ -14,7 +14,6 @@ import { ReactComponent as ShareMail } from '../../assets/images/share-mail.svg'
 import { ReactComponent as ShareLink } from '../../assets/images/share-link.svg';
 import { ReactComponent as ShareComment } from '../../assets/images/share-comment.svg';
 import Spinner from '../../assets/images/spinner.gif';
-import Quote from '../../assets/images/quote.png';
 
 // styles
 import './Notas.sass';
@@ -132,8 +131,10 @@ const Nota = ({ match }) => {
 	// show pop up 5 seconds after loading
 	const popUpState = () => {
 		if (document.querySelector('#pop-up') === null) {
+			console.log('adios');
 			return false;
 		} else {
+			console.log('hola');
 			document.querySelector('#pop-up').style.display = 'block';
 		}
 	};
@@ -167,6 +168,7 @@ const Nota = ({ match }) => {
 					false
 				) : (
 					<PopupWrapper
+						id='pop-up'
 						onClick={(e) =>
 							e.target.style.display === 'block'
 								? (e.target.style.display = 'none')
