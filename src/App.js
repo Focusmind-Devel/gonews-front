@@ -21,7 +21,7 @@ function App() {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	const isOpen = (openMenu) => {
-		if (openMenu) {
+		if (menuOpen) {
 			setMenuOpen(false);
 		} else {
 			setMenuOpen(true);

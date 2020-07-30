@@ -19,6 +19,10 @@ const Topbar = ({ isOpen, menuOpen }) => {
 			setBurguer(true);
 		}
 
+		if (isOpen === true) {
+			setBurguer(false);
+		}
+
 		isOpen(burguer);
 	};
 
