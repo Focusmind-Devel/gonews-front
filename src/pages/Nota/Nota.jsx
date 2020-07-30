@@ -117,46 +117,24 @@ const Nota = ({ match }) => {
 
 	let postUrl = encodeURI(document.location.href);
 
-	// fotmat CITE tag
-	const content = () => {
-		if (window.document.querySelector('cite')) {
-			const cita = document.querySelector('cite');
-
-			cita.innerHTML += `
-          <img style='width: 70px; height: 60px; margin-right: 1rem' src=${Quote} alt='frase' />
-        `;
-
-			cita.style.display = 'flex';
-			cita.style.flexDirection = 'row-reverse';
-			cita.style.alignItems = 'center';
-			cita.style.margin = '4rem 0';
-
-			if (window.innerWidth < 620) {
-				cita.style.display = 'flex';
-				cita.style.flexDirection = 'column-reverse';
-				cita.style.alignItems = 'start';
-				cita.style.margin = '4rem 0';
-				cita.style.fontSize = '25px';
-			}
-		} else {
-			return false;
-		}
-	};
-
 	useEffect(() => {
 		getNote(match.params.nota);
 		getAdsNote();
+
+		const showPopUP = setTimeout(() => {
+			popUpState();
+		}, 5000);
+		return () => clearTimeout(showPopUP);
+
 		//eslint-disable-next-line
 	}, []);
 
 	// show pop up 5 seconds after loading
-	const popUpState = (e) => {
-		if (e === null) {
+	const popUpState = () => {
+		if (document.querySelector('#pop-up') === null) {
 			return false;
 		} else {
-			return setTimeout(function () {
-				e.style.display = 'block';
-			}, 5000);
+			document.querySelector('#pop-up').style.display = 'block';
 		}
 	};
 
@@ -189,7 +167,6 @@ const Nota = ({ match }) => {
 					false
 				) : (
 					<PopupWrapper
-						ref={popUpState}
 						onClick={(e) =>
 							e.target.style.display === 'block'
 								? (e.target.style.display = 'none')
@@ -303,7 +280,6 @@ const Nota = ({ match }) => {
 										</ShareButtons>
 									</ImgAndShare>
 									<div
-										ref={content}
 										style={{ width: '100%', maxWidth: '1000px' }}
 										dangerouslySetInnerHTML={{ __html: nota.body }}
 									/>

@@ -73,16 +73,19 @@ const Category = ({ match }) => {
 	useEffect(() => {
 		getAdsByCategory(category);
 		getCategory(category);
+
+		const showPopUP = setTimeout(() => {
+			popUpState();
+		}, 5000);
+		return () => clearTimeout(showPopUP);
 		//eslint-disable-next-line
 	}, []);
 
-	const popUpState = (e) => {
-		if (e === null) {
+	const popUpState = () => {
+		if (document.querySelector('#pop-up') === null) {
 			return false;
 		} else {
-			return setTimeout(function () {
-				e.style.display = 'block';
-			}, 5000);
+			document.querySelector('#pop-up').style.display = 'block';
 		}
 	};
 
@@ -100,7 +103,7 @@ const Category = ({ match }) => {
 					false
 				) : (
 					<PopupWrapper
-						ref={popUpState}
+						id='pop-up'
 						onClick={(e) =>
 							e.target.style.display === 'block'
 								? (e.target.style.display = 'none')
