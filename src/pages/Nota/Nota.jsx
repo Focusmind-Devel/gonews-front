@@ -24,8 +24,10 @@ const NotaIndividual = styled.div`
 	margin: 4rem 0;
 	position: relative;
 	color: #02182b;
-	overflow: hidden;
 	display: flex;
+	@media (min-width: 1190px) and (max-width: 1444px) {
+		width: 80%;
+	}
 `;
 
 const RenderNote = styled.div`
@@ -35,11 +37,9 @@ const RenderNote = styled.div`
 const ShareButtons = styled.div`
 	display: flex;
 	flex-direction: column;
-	position: fixed;
-	right: 0;
-	margin: 0 15%;
+	margin-top: 5%;
+	margin-right: 4%;
 	z-index: 10;
-	top: 60%;
 	@media (max-width: 1190px) {
 		flex-direction: row;
 		justify-content: space-around;
@@ -48,8 +48,9 @@ const ShareButtons = styled.div`
 		z-index: 1;
 		margin: 0;
 	}
-	@media (max-width: 1366px) {
-		margin: 0 11%;
+	@media (max-width: 1444px) {
+		margin-top: 5%;
+		margin-left: 8.5%;
 	}
 `;
 
@@ -117,16 +118,33 @@ const Nota = ({ match }) => {
 	let postUrl = encodeURI(document.location.href);
 
 	useEffect(() => {
+		const scrolled = window.addEventListener('scroll', handleScroll);
+
 		getNote(match.params.nota);
 		getAdsNote();
 
 		const showPopUP = setTimeout(() => {
 			popUpState();
 		}, 5000);
-		return () => clearTimeout(showPopUP);
+
+		return () => {
+			clearTimeout(showPopUP);
+			window.removeEventListener('scroll', scrolled);
+		};
 
 		//eslint-disable-next-line
 	}, []);
+
+	const handleScroll = () => {
+		const share = document.getElementById('share');
+		if (window.pageYOffset >= 600) {
+			share.style.position = 'fixed';
+			share.style.top = '5%';
+			share.style.right = '12.5%';
+		} else {
+			share.style.position = 'static';
+		}
+	};
 
 	// show pop up 5 seconds after loading
 	const popUpState = () => {
@@ -134,25 +152,16 @@ const Nota = ({ match }) => {
 			console.log('adios');
 			return false;
 		} else {
-			console.log('hola');
 			document.querySelector('#pop-up').style.display = 'block';
 		}
 	};
 
 	// share the note on click in android phones
 	const shareBtn = () => {
-		if (navigator.share) {
-			navigator
-				.share({
-					title: nota.title,
-					text: nota.content,
-					url: postUrl,
-				})
-				.then(() => console.log('Successful share'))
-				.catch((error) => console.log('Error sharing', error));
-		} else {
-			console.log('Web Share API is not supported in your browser.');
-		}
+		const text = window.location.href;
+
+		window.navigator.clipboard.writeText(text);
+		alert('Url Copiada');
 	};
 
 	if (loading) {
@@ -270,14 +279,14 @@ const Nota = ({ match }) => {
 											<i style={{ cursor: 'pointer' }} onClick={shareBtn}>
 												<ShareLink />
 											</i>
-											<i>
-												<a
-													href={`sms:?body=${postUrl}`}
-													target='_blank'
-													rel='noopener noreferrer'
-												>
-													<ShareComment />
-												</a>
+											<i
+												onClick={() =>
+													document
+														.getElementById('comentarios')
+														.scrollIntoView()
+												}
+											>
+												<ShareComment />
 											</i>
 										</ShareButtons>
 									</ImgAndShare>
@@ -330,7 +339,7 @@ const Nota = ({ match }) => {
 										false
 									)}
 									<hr />
-									<div className='relacionados'>
+									<div className='relacionados' id='comentarios'>
 										{enable_comments ? (
 											<Fragment>
 												<h2>Comentarios:</h2>

@@ -16,21 +16,22 @@
         column-gap: 60px
 // slick slider
 .slick-list
-    padding: 10px 10px !important
+    // padding: 10px 10px !important
 .slick-track
     width: 90000px !important
 .slick-slide
     background-color: #fff
-    width: 260px !important
+    width: 100% !important
+    max-width: 260px
     height: 350px
-    justify-self: center
-    position: relative
+    // justify-self: center
+    // position: relative
     margin-bottom: 2rem
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25)
     text-decoration: none
     transition: transform 0.3s ease-in-out
     font-size: 23px
-    margin: 0 5px
+    margin: 0 15px
     .card
         .category
             margin-top: 15px
@@ -42,3 +43,19 @@
     font-family: 'Muli-Bold'
     span
         color: #E71D36
+
+@media (max-width: 414px)
+    .slick-slide
+        max-width: 300px
+
+@media (max-width: 375px)
+    .slick-slide
+        max-width: 280px
+
+@media (max-width: 360px)
+    .slick-slide
+        max-width: 270px
+
+@media (max-width: 320px)
+    .slick-slide
+        max-width: 250px
