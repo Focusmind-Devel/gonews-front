@@ -280,6 +280,7 @@ const Nota = ({ match }) => {
 												<ShareLink />
 											</i>
 											<i
+												style={{ cursor: 'pointer' }}
 												onClick={() =>
 													document
 														.getElementById('comentarios')
