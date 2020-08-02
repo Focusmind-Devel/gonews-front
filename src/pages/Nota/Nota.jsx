@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, Fragment } from 'react';
+import React, { useEffect, useContext, Fragment, useRef } from 'react';
 import NotasContext from '../../context/notas/notasContext';
 import { useHistory } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -18,6 +18,7 @@ import Spinner from '../../assets/images/spinner.gif';
 // styles
 import './Notas.sass';
 import styled from 'styled-components';
+// import { useState } from 'react';
 
 // Styled components
 const NotaIndividual = styled.div`
@@ -50,7 +51,7 @@ const ShareButtons = styled.div`
 	}
 	@media (max-width: 1444px) {
 		margin-top: 5%;
-		margin-left: 8.5%;
+		margin-left: 7%;
 	}
 `;
 
@@ -117,9 +118,24 @@ const Nota = ({ match }) => {
 
 	let postUrl = encodeURI(document.location.href);
 
+	const myRef = useRef();
+
+	const handleScroll = () => {
+		if (myRef.current) {
+			if (window.pageYOffset >= 600 && window.innerWidth >= 1190) {
+				myRef.current.style.position = 'fixed';
+				myRef.current.style.top = '5%';
+				myRef.current.style.right = '12%';
+			} else {
+				myRef.current.style.position = 'static';
+			}
+		} else {
+			return false;
+		}
+	};
+
 	useEffect(() => {
 		const scrolled = window.addEventListener('scroll', handleScroll);
-
 		getNote(match.params.nota);
 		getAdsNote();
 
@@ -133,23 +149,11 @@ const Nota = ({ match }) => {
 		};
 
 		//eslint-disable-next-line
-	}, []);
-
-	const handleScroll = () => {
-		const share = document.getElementById('share');
-		if (window.pageYOffset >= 600) {
-			share.style.position = 'fixed';
-			share.style.top = '5%';
-			share.style.right = '12.5%';
-		} else {
-			share.style.position = 'static';
-		}
-	};
+	}, [myRef]);
 
 	// show pop up 5 seconds after loading
 	const popUpState = () => {
 		if (document.querySelector('#pop-up') === null) {
-			console.log('adios');
 			return false;
 		} else {
 			document.querySelector('#pop-up').style.display = 'block';
@@ -248,7 +252,7 @@ const Nota = ({ match }) => {
 											src={nota.headerImage}
 											alt={nota.title}
 										/>
-										<ShareButtons id='share'>
+										<ShareButtons id='share' ref={myRef}>
 											<i>
 												<a
 													href={`https://www.facebook.com/sharer/sharer.php?u=${postUrl}`}
