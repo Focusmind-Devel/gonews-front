@@ -7,71 +7,72 @@ import buscar from '../../assets/images/busqueda.png';
 import './Busqueda.sass';
 
 const Busqueda = ({ isOpen }) => {
-  let history = useHistory();
+	let history = useHistory();
 
-  // context
-  const notasContext = useContext(NotasContext);
+	// context
+	const notasContext = useContext(NotasContext);
 
-  const [text, setText] = useState('');
-  const [isActive, setIsActive] = useState(false);
+	const [text, setText] = useState('');
+	const [isActive, setIsActive] = useState(false);
 
-  // toggle search field
-  const toggleActive = () => {
-    setIsActive(!isActive);
-  };
+	// toggle search field
+	const toggleActive = () => {
+		setIsActive(!isActive);
+	};
 
-  // set search text value
-  const onChange = (e) => setText(e.target.value);
+	// set search text value
+	const onChange = (e) => setText(e.target.value);
 
-  // Search Note
-  const onSubmit = (e) => {
-    e.preventDefault();
+	// Search Note
+	const onSubmit = (e) => {
+		e.preventDefault();
 
-    if (isActive === false) {
-      toggleActive();
-    } else {
-      if (text === '') {
-        alert('Por favor rellene el formulario de busqueda', 'light');
-      } else {
-        notasContext.searchNotes(text);
-        history.push(`/resultado/${text}`);
-        e.target.search.blur();
-        setText('');
-        toggleActive();
-      }
-    }
-  };
+		if (isActive === false) {
+			setIsActive(true);
+		} else {
+			if (text === '') {
+				alert('Por favor rellene el formulario de busqueda', 'light');
+			} else {
+				notasContext.searchNotes(text);
+				history.push(`/resultado/${text}`);
+				e.target.search.blur();
+				setText('');
+				setIsActive(false);
+			}
+		}
+	};
 
-  const tar = window.document.querySelector('#top');
+	const tar = window.document.querySelector('#top');
+	const tar2 = window.document.querySelector('#menu');
 
-  window.document.addEventListener('click', (e) => {
-    if (e.target === tar) {
-      toggleActive();
-    }
-  });
+	window.document.addEventListener('click', (e) => {
+		if (e.target === tar || e.target === tar2) {
+			setIsActive(false);
+		}
+	});
 
-  return (
-    <form
-      id='busqueda'
-      className={`form ${isActive ? 'active' : ''}`}
-      onSubmit={onSubmit}
-    >
-      <input
-        className={`form ${isActive ? 'active' : ''}`}
-        id='search'
-        type='search'
-        placeholder={`${text ? text : 'Buscar'}`}
-        value={text}
-        onChange={onChange}
-      />
-      <button
-        className={`search_btn ${isActive ? 'active' : ''}`}
-        type='submit'
-      >
-        <img src={buscar} alt='icono buscar' />
-      </button>
-    </form>
-  );
+	return (
+		<form
+			id='busqueda'
+			className={`form ${isActive ? 'active' : ''}`}
+			onSubmit={onSubmit}
+		>
+			<input
+				className={`form ${isActive ? 'active' : ''}`}
+				id='search'
+				type='search'
+				placeholder={`${text ? text : 'Buscar'}`}
+				value={text}
+				onChange={onChange}
+			/>
+			<button
+				className={`search_btn ${isActive ? 'active' : ''}`}
+				type='submit'
+			>
+				<img src={buscar} alt='icono buscar' />
+			</button>
+		</form>
+	);
 };
 
 export default Busqueda;
