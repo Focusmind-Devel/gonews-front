@@ -122,10 +122,26 @@ const Nota = ({ match }) => {
 
 	const handleScroll = () => {
 		if (myRef.current) {
-			if (window.pageYOffset >= 600 && window.innerWidth >= 1190) {
+			if (
+				window.pageYOffset >= 600 &&
+				window.innerWidth >= 1190 &&
+				window.innerWidth <= 1444
+			) {
 				myRef.current.style.position = 'fixed';
 				myRef.current.style.top = '5%';
-				myRef.current.style.right = '12%';
+				myRef.current.style.left = '72%';
+			} else if (
+				window.pageYOffset >= 600 &&
+				window.innerWidth >= 1445 &&
+				window.innerWidth <= 1900
+			) {
+				myRef.current.style.position = 'fixed';
+				myRef.current.style.top = '2%';
+				myRef.current.style.left = '76.5%';
+			} else if (window.pageYOffset >= 600 && window.innerWidth >= 1901) {
+				myRef.current.style.position = 'fixed';
+				myRef.current.style.top = '2%';
+				myRef.current.style.left = '74%';
 			} else {
 				myRef.current.style.position = 'static';
 			}
