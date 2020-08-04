@@ -15,11 +15,6 @@ const Busqueda = ({ isOpen }) => {
 	const [text, setText] = useState('');
 	const [isActive, setIsActive] = useState(false);
 
-	// toggle search field
-	const toggleActive = () => {
-		setIsActive(!isActive);
-	};
-
 	// set search text value
 	const onChange = (e) => setText(e.target.value);
 

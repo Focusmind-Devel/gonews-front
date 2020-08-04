@@ -39,7 +39,6 @@ const ShareButtons = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-top: 5%;
-	margin-right: 4%;
 	z-index: 10;
 	@media (max-width: 1190px) {
 		flex-direction: row;
@@ -140,8 +139,7 @@ const Nota = ({ match }) => {
 				myRef.current.style.left = '76.5%';
 			} else if (window.pageYOffset >= 600 && window.innerWidth >= 1901) {
 				myRef.current.style.position = 'fixed';
-				myRef.current.style.top = '2%';
-				myRef.current.style.left = '74%';
+				myRef.current.style.left = '76.2%';
 			} else {
 				myRef.current.style.position = 'static';
 			}
@@ -322,7 +320,7 @@ const Nota = ({ match }) => {
 									) : (
 										false
 									)}
-									<hr />
+									<hr style={{ width: '80%' }} />
 									<div className='tags'>
 										<span
 											style={{
@@ -348,7 +346,7 @@ const Nota = ({ match }) => {
 												: false}
 										</div>
 									</div>
-									<hr />
+									<hr style={{ width: '80%' }} />
 									{related_notes.length >= 1 ? (
 										<div className='relacionados'>
 											<h2>Tambien Puede Interesarte:</h2>
