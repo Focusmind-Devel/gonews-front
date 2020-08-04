@@ -139,6 +139,7 @@ const Nota = ({ match }) => {
 				myRef.current.style.left = '76.5%';
 			} else if (window.pageYOffset >= 600 && window.innerWidth >= 1901) {
 				myRef.current.style.position = 'fixed';
+				myRef.current.style.top = '0';
 				myRef.current.style.left = '76.2%';
 			} else {
 				myRef.current.style.position = 'static';
