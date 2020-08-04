@@ -321,7 +321,7 @@ const Nota = ({ match }) => {
 									) : (
 										false
 									)}
-									<hr style={{ width: '80%' }} />
+									<hr style={{ width: '80%', marginLeft: '0' }} />
 									<div className='tags'>
 										<span
 											style={{
@@ -347,7 +347,7 @@ const Nota = ({ match }) => {
 												: false}
 										</div>
 									</div>
-									<hr style={{ width: '80%' }} />
+									<hr style={{ width: '80%', marginLeft: '0' }} />
 									{related_notes.length >= 1 ? (
 										<div className='relacionados'>
 											<h2>Tambien Puede Interesarte:</h2>
