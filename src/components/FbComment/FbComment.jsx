@@ -1,19 +1,20 @@
 import React, { useEffect } from 'react';
+import './FbComments.sass';
 
 const FbComment = ({ slug }) => {
-  useEffect(() => {
-    window.FB.XFBML.parse();
-  });
-  return (
-    <div>
-      <div
-        className='fb-comments'
-        data-href={`https://gonews-front.herokuapp.com/${slug}`}
-        data-numposts='5'
-        data-width='100%'
-      ></div>
-    </div>
-  );
+	useEffect(() => {
+		window.FB.XFBML.parse();
+	});
+	return (
+		<div className='ancho-comentario'>
+			<div
+				className='fb-comments'
+				data-href={`https://gonews-front.herokuapp.com/${slug}`}
+				data-numposts='5'
+				data-width='80%'
+			></div>
+		</div>
+	);
 };
 
 export default FbComment;
