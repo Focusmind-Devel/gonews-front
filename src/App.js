@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop/ScrollTopTop';
+import ReactGA from 'react-ga';
 
 // components and pages
 import TopBar from './components/Topbar/Topbar';
@@ -18,6 +19,9 @@ import './LargeScreen.sass';
 import 'animate.css';
 
 function App() {
+	ReactGA.initialize('UA-175442786-1');
+	ReactGA.pageview(window.location.pathname + window.location.search);
+
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	const isOpen = (openMenu) => {
