@@ -2,6 +2,7 @@ import React, { useEffect, useContext, Fragment, useRef } from 'react';
 import NotasContext from '../../context/notas/notasContext';
 import { useHistory } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import ReactGA from 'react-ga';
 
 // components
 import FbComment from '../../components/FbComment/FbComment';
@@ -204,13 +205,14 @@ const Nota = ({ match }) => {
 						}
 					>
 						<PopupDiv>
-							<a
-								href={ads_notes.popup_link}
+							<ReactGA.OutboundLink
+								eventLabel='popUpNote'
+								to={ads_notes.popup_link}
 								target='_blank'
 								rel='noopener noreferrer'
 							>
 								<img src={ads_notes.popup_image} alt='anuncio emergente' />
-							</a>
+							</ReactGA.OutboundLink>
 						</PopupDiv>
 					</PopupWrapper>
 				)}
@@ -228,7 +230,8 @@ const Nota = ({ match }) => {
 						style={{ textAlign: 'center', marginTop: '2rem' }}
 					>
 						{ads_notes ? (
-							<a
+							<ReactGA.OutboundLink
+								eventLabel='leadboardNote'
 								href={ads_notes.leaderboard_link}
 								target='_blank'
 								rel='noopener noreferrer'
@@ -238,7 +241,7 @@ const Nota = ({ match }) => {
 									src={ads_notes.leaderboard_image}
 									alt='anuncio top'
 								/>
-							</a>
+							</ReactGA.OutboundLink>
 						) : (
 							false
 						)}
@@ -395,8 +398,9 @@ const Nota = ({ match }) => {
 									margin: '0 1%',
 								}}
 							>
-								<a
-									href={ads_notes.skyscraper_link}
+								<ReactGA.OutboundLink
+									eventLabel='skyscraperCategory'
+									to={ads_notes.skyscraper_link}
 									target='_blank'
 									rel='noopener noreferrer'
 								>
@@ -409,7 +413,7 @@ const Nota = ({ match }) => {
 										src={ads_notes.skyscraper_image}
 										alt='anuncio barra lateral'
 									/>
-								</a>
+								</ReactGA.OutboundLink>
 							</div>
 						)}
 					</div>
@@ -421,8 +425,9 @@ const Nota = ({ match }) => {
 							false
 						) : (
 							<div style={{ textAlign: 'center', marginTop: '4rem' }}>
-								<a
-									href={ads_notes.footbuttom_link}
+								<ReactGA.OutboundLink
+									eventLabel='footerNote'
+									to={ads_notes.footbuttom_link}
 									target='_blank'
 									rel='noopener noreferrer'
 								>
@@ -431,7 +436,7 @@ const Nota = ({ match }) => {
 										src={ads_notes.footbuttom_image}
 										alt='anuncio pie de pagina'
 									/>
-								</a>
+								</ReactGA.OutboundLink>
 							</div>
 						)}
 					</div>

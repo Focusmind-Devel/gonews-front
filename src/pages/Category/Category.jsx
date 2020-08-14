@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Paginacion from 'react-js-pagination';
+import ReactGA from 'react-ga';
 
 // components
 import NotasContext from '../../context/notas/notasContext';
@@ -111,13 +112,14 @@ const Category = ({ match }) => {
 						}
 					>
 						<PopupDiv>
-							<a
-								href={ads_category.popup_link}
+							<ReactGA.OutboundLink
+								eventLabel='popUpCategory'
+								to={ads_category.popup_link}
 								target='_blank'
 								rel='noopener noreferrer'
 							>
 								<img src={ads_category.popup_image} alt='anuncio emergente' />
-							</a>
+							</ReactGA.OutboundLink>
 						</PopupDiv>
 					</PopupWrapper>
 				)}
@@ -141,8 +143,9 @@ const Category = ({ match }) => {
 					) : (
 						<div style={{ textAlign: 'center' }}>
 							{ads_category ? (
-								<a
-									href={ads_category.leaderboard_link}
+								<ReactGA.OutboundLink
+									eventLabel='leadboardCategory'
+									to={ads_category.leaderboard_link}
 									target='_blank'
 									rel='noopener noreferrer'
 								>
@@ -151,7 +154,7 @@ const Category = ({ match }) => {
 										src={ads_category.leaderboard_image}
 										alt='anuncio top'
 									/>
-								</a>
+								</ReactGA.OutboundLink>
 							) : (
 								false
 							)}
@@ -174,8 +177,9 @@ const Category = ({ match }) => {
 								className='skycrapper'
 								style={{ position: 'absolute', right: 0, margin: '0 1%' }}
 							>
-								<a
-									href={ads_category.skyscraper_link}
+								<ReactGA.OutboundLink
+									eventLabel='skyscraperCategory'
+									to={ads_category.skyscraper_link}
 									target='_blank'
 									rel='noopener noreferrer'
 								>
@@ -188,7 +192,7 @@ const Category = ({ match }) => {
 										src={ads_category.skyscraper_image}
 										alt='anuncio barra lateral'
 									/>
-								</a>
+								</ReactGA.OutboundLink>
 							</div>
 						)}
 					</div>
@@ -208,8 +212,9 @@ const Category = ({ match }) => {
 						false
 					) : (
 						<div style={{ textAlign: 'center', marginTop: '4rem' }}>
-							<a
-								href={ads_category.footbuttom_link}
+							<ReactGA.OutboundLink
+								eventLabel='footerCategory'
+								to={ads_category.footbuttom_link}
 								target='_blank'
 								rel='noopener noreferrer'
 							>
@@ -218,7 +223,7 @@ const Category = ({ match }) => {
 									src={ads_category.footbuttom_image}
 									alt='anuncio pie de pagina'
 								/>
-							</a>
+							</ReactGA.OutboundLink>
 						</div>
 					)}
 				</div>
