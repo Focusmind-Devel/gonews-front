@@ -399,7 +399,7 @@ const Nota = ({ match }) => {
 								}}
 							>
 								<ReactGA.OutboundLink
-									eventLabel='skyscraperCategory'
+									eventLabel='skyscraperNote'
 									to={ads_notes.skyscraper_link}
 									target='_blank'
 									rel='noopener noreferrer'
