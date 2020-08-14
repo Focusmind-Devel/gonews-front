@@ -19,6 +19,7 @@ import './LargeScreen.sass';
 import 'animate.css';
 
 function App() {
+	// google analytics
 	ReactGA.initialize(`${process.env.REACT_APP_ID_ANALYTICS}`);
 	ReactGA.pageview(window.location.pathname + window.location.search);
 
