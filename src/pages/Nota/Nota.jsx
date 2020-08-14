@@ -206,7 +206,7 @@ const Nota = ({ match }) => {
 					>
 						<PopupDiv>
 							<ReactGA.OutboundLink
-								eventLabel='popUpNote'
+								eventLabel='popUpNota'
 								to={ads_notes.popup_link}
 								target='_blank'
 								rel='noopener noreferrer'
@@ -231,7 +231,7 @@ const Nota = ({ match }) => {
 					>
 						{ads_notes ? (
 							<ReactGA.OutboundLink
-								eventLabel='leadboardNote'
+								eventLabel='leadboardNota'
 								to={ads_notes.leaderboard_link}
 								target='_blank'
 								rel='noopener noreferrer'
@@ -399,7 +399,7 @@ const Nota = ({ match }) => {
 								}}
 							>
 								<ReactGA.OutboundLink
-									eventLabel='skyscraperNote'
+									eventLabel='skyscraperNota'
 									to={ads_notes.skyscraper_link}
 									target='_blank'
 									rel='noopener noreferrer'
@@ -426,7 +426,7 @@ const Nota = ({ match }) => {
 						) : (
 							<div style={{ textAlign: 'center', marginTop: '4rem' }}>
 								<ReactGA.OutboundLink
-									eventLabel='footerNote'
+									eventLabel='footerNota'
 									to={ads_notes.footbuttom_link}
 									target='_blank'
 									rel='noopener noreferrer'
