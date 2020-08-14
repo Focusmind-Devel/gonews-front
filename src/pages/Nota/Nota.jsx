@@ -232,7 +232,7 @@ const Nota = ({ match }) => {
 						{ads_notes ? (
 							<ReactGA.OutboundLink
 								eventLabel='leadboardNote'
-								href={ads_notes.leaderboard_link}
+								to={ads_notes.leaderboard_link}
 								target='_blank'
 								rel='noopener noreferrer'
 							>

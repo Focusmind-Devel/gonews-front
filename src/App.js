@@ -19,7 +19,7 @@ import './LargeScreen.sass';
 import 'animate.css';
 
 function App() {
-	ReactGA.initialize('UA-175442786-1');
+	ReactGA.initialize(`${process.env.REACT_APP_ID_ANALYTICS}`);
 	ReactGA.pageview(window.location.pathname + window.location.search);
 
 	const [menuOpen, setMenuOpen] = useState(false);
