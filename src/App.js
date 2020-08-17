@@ -20,7 +20,8 @@ import 'animate.css';
 
 function App() {
 	// google analytics
-	ReactGA.initialize(`${process.env.REACT_APP_ID_ANALYTICS}`);
+	//ReactGA.initialize(`${process.e.REACT_APP_ID_ANALYTICS}`);
+	ReactGA.initialize('UA-175557311-1');
 	ReactGA.pageview(window.location.pathname + window.location.search);
 
 	const [menuOpen, setMenuOpen] = useState(false);
