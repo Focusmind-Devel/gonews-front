@@ -222,6 +222,12 @@ const Nota = ({ match }) => {
 					<Helmet>
 						<meta name='description' content={nota.content} />
 						<title>{`${nota.title} | GoNews`}</title>
+
+						{/* <!-- Twitter Meta Tags --> */}
+						<meta name='twitter:card' content='summary_large_image' />
+						<meta name='twitter:title' content={nota.title} />
+						<meta name='twitter:description' content={nota.content} />
+						<meta name='twitter:image' content={nota.headerImage} />
 					</Helmet>
 				)}
 				<div className='container'>
