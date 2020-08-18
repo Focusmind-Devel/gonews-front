@@ -219,6 +219,7 @@ const Nota = ({ match }) => {
 				{nota === undefined ? (
 					false
 				) : (
+					// para meta tags de la pagina
 					<Helmet>
 						<meta name='description' content={nota.content} />
 						<title>{`${nota.title} | GoNews`}</title>
