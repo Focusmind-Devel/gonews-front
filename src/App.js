@@ -1,7 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop/ScrollTopTop';
 import ReactGA from 'react-ga';
+import { createBrowserHistory } from 'history';
 
 // components and pages
 import TopBar from './components/Topbar/Topbar';
@@ -21,7 +22,14 @@ import 'animate.css';
 function App() {
 	// google analytics
 	ReactGA.initialize(`${process.env.REACT_APP_ID_ANALYTICS}`);
-	ReactGA.pageview(window.location.pathname + window.location.search);
+	const browserHistory = createBrowserHistory();
+	browserHistory.listen((location, action) => {
+		ReactGA.pageview(window.location.pathname + window.location.search);
+	});
+
+	useEffect(() => {
+		ReactGA.pageview(window.location.pathname + window.location.search);
+	}, []);
 
 	const [menuOpen, setMenuOpen] = useState(false);
 
