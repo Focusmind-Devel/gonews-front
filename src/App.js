@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop/ScrollTopTop';
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
+import { useLocation } from 'react-router-dom';
 
 // components and pages
 import TopBar from './components/Topbar/Topbar';
@@ -19,18 +20,20 @@ import './TabletView.sass';
 import './LargeScreen.sass';
 import 'animate.css';
 
+// google analytics
+ReactGA.initialize(`${process.env.REACT_APP_ID_ANALYTICS}`);
+const browserHistory = createBrowserHistory();
+browserHistory.listen((location, action) => {
+	ReactGA.pageview(window.location.pathname + window.location.search);
+});
+
 function App() {
-	// google analytics
-	ReactGA.initialize(`${process.env.REACT_APP_ID_ANALYTICS}`);
-	const browserHistory = createBrowserHistory();
-	browserHistory.listen((location, action) => {
-		ReactGA.pageview(window.location.pathname + window.location.search);
-	});
+	const location = useLocation();
 
 	useEffect(() => {
 		//initial mount of the analytics
 		ReactGA.pageview(window.location.pathname + window.location.search);
-	}, []);
+	}, [location]);
 
 	const [menuOpen, setMenuOpen] = useState(false);
 
