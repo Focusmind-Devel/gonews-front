@@ -28,6 +28,7 @@ function App() {
 	});
 
 	useEffect(() => {
+		//initial mount of the analytics
 		ReactGA.pageview(window.location.pathname + window.location.search);
 	}, []);
 
