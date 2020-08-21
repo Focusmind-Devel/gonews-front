@@ -16,7 +16,7 @@ const Facebook = () => {
 			<FacebookDiv>
 				<div
 					className='fb-page'
-					data-href='https://www.facebook.com/gonews_ok/'
+					data-href='https://www.facebook.com/CNNee/'
 					data-tabs='timeline'
 					data-width='300'
 					data-height=''

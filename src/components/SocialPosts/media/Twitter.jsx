@@ -24,7 +24,7 @@ const Twitter = () => {
 						data-lang='es'
 						data-height='500'
 						data-theme='dark'
-						href='https://twitter.com/gonews_ok?ref_src=twsrc%5Etfw'
+						href='https://twitter.com/CNNEE?ref_src=twsrc%5Etfw'
 					>
 						Tweets por CNNEE
 					</a>

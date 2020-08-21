@@ -289,10 +289,15 @@ const Nota = ({ match }) => {
 											</i>
 											<i>
 												<a
-													href={`https://twitter.com/share?url=${postUrl}&text=${nota.title}`}
+													href={`https://twitter.com/intent/tweet?url=${postUrl}&text=${nota.title}&image=${nota.headerImage}`}
+												>
+													{/* 
+												<a
+													href={`https://twitter.com/share?url=${postUrl}&text=${nota.title}%20pic.twitter.com/${nota.headerImage}`}
 													target='_blank'
 													rel='noopener noreferrer'
 												>
+												*/}
 													<ShareTwitter />
 												</a>
 											</i>

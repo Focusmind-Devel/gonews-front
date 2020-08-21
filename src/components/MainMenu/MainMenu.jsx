@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import './MainMenu.sass';
-import logoFixed from '../../assets/images/Logo-fixed.png';
+import { ReactComponent as LogoFixed } from '../../assets/images/Logo-fixed.svg';
 import Busqueda from '../Busqueda/Busqueda';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import NotasContext from '../../context/notas/notasContext';
@@ -115,9 +115,8 @@ const MainMenu = ({ menuOpen, isOpen }) => {
 				<div id='menu' className='container'>
 					<div id='logo'>
 						<Link to='/'>
-							<img
+							<LogoFixed
 								className='animate__animated animate__fadeInLeft animate__faster'
-								src={logoFixed}
 								alt='go news logo'
 							/>
 						</Link>

@@ -24,7 +24,9 @@ const HeaderCategory = ({ category }) => {
 	const result2 = second.filter((item) => item.slug === category);
 
 	if (result.length >= 1) {
-		return (
+		return result[0].destacada === null ? (
+			false
+		) : (
 			<HeaderBg
 				className='mobileHeaderCategory'
 				style={{ backgroundImage: `url(${result[0].destacada.headerImage})` }}
@@ -44,7 +46,9 @@ const HeaderCategory = ({ category }) => {
 			</HeaderBg>
 		);
 	} else if (result2.length >= 1) {
-		return (
+		return result2[0].destacada === null ? (
+			false
+		) : (
 			<HeaderBg
 				className='mobileHeaderCategory'
 				style={{
@@ -68,6 +72,31 @@ const HeaderCategory = ({ category }) => {
 				</div>
 			</HeaderBg>
 		);
+
+		/*
+			<HeaderBg
+				className='mobileHeaderCategory'
+				style={{
+					backgroundImage: `url(${result2[0].destacada.headerImage})`,
+				}}
+			>
+				<div className='info-destacada'>
+					<div className='container'>
+						<span className='category'>{result2[0].destacada.category}</span>
+						<Link to={`/nota/${result2[0].destacada.slug}`} className='title'>
+							{result2[0].destacada.title}
+						</Link>
+						<Link
+							to={`/nota/${result2[0].destacada.slug}`}
+							className='leer_mas'
+						>
+							<img src={flecha} alt='icono flecha' />
+							<span>Leer nota</span>
+						</Link>
+					</div>
+				</div>
+			</HeaderBg>
+			*/
 	} else {
 		return false;
 	}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import Busqueda from '../Busqueda/Busqueda';
 // logo
-import mainlogo from '../../assets/images/Logo.png';
+import { ReactComponent as MainLogo } from '../../assets/images/Logo.svg';
 import burguerMenu from '../../assets/images/menu-plegado.png';
 import burguerMenuOpen from '../../assets/images/menu-desplegado.png';
 // estilos
@@ -46,7 +46,7 @@ const Topbar = ({ isOpen, menuOpen }) => {
 				)}
 				<div id='logo'>
 					<Link to='/'>
-						<img src={mainlogo} alt='go news logo' />
+						<MainLogo alt='go news logo' />
 					</Link>
 				</div>
 				<SocialLinks />

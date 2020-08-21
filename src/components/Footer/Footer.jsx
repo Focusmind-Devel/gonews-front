@@ -1,7 +1,8 @@
 import React, { Fragment, useContext } from 'react';
 import './Footer.sass';
 import SocialLinks from '../SocialLinks/SocialLinks';
-import logo from '../../assets/images/Logo.png';
+// import logo from '../../assets/images/Logo.png';
+import { ReactComponent as MainLogo } from '../../assets/images/Logo.svg';
 import arrowUp from '../../assets/images/arrowUp.png';
 import mailIcon from '../../assets/images/mail.png';
 import { Link } from 'react-router-dom';
@@ -21,7 +22,7 @@ function Footer() {
 			<div id='footer_menu'>
 				<div className='container'>
 					<a href='/' className='logo'>
-						<img src={logo} alt='logo' />
+						<MainLogo alt='logo' />
 					</a>
 					{/* Menu Patte 1 */}
 					<div className='bottom_menu'>
