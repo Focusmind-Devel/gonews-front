@@ -61,7 +61,7 @@
 			"--no-sandbox",
 			"--disable-setuid-sandbox"
 		],
-		"puppeteerExecutablePath": "/usr/bin/chromium-browser"
+		"puppeteerExecutablePath": "/usr/bin/google-chrome-unstable"
 	},
 	"puppeteer": {
 		"cache": false
