@@ -40,7 +40,6 @@ const ShareButtons = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-top: 5%;
-	z-index: 10;
 	@media (max-width: 1190px) {
 		flex-direction: row;
 		justify-content: space-around;
@@ -120,6 +119,7 @@ const Nota = ({ match }) => {
 
 	const myRef = useRef();
 
+	/*
 	const handleScroll = () => {
 		if (myRef.current) {
 			if (
@@ -149,9 +149,10 @@ const Nota = ({ match }) => {
 			return false;
 		}
 	};
+	*/
 
 	useEffect(() => {
-		const scrolled = window.addEventListener('scroll', handleScroll);
+		// const scrolled = window.addEventListener('scroll', handleScroll);
 		getNote(match.params.nota);
 		getAdsNote();
 
@@ -161,7 +162,7 @@ const Nota = ({ match }) => {
 
 		return () => {
 			clearTimeout(showPopUP);
-			window.removeEventListener('scroll', scrolled);
+			// window.removeEventListener('scroll', scrolled);
 		};
 
 		//eslint-disable-next-line
@@ -236,7 +237,13 @@ const Nota = ({ match }) => {
 						className='leadboard'
 						style={{ textAlign: 'center', marginTop: '2rem' }}
 					>
-						{ads_notes ? (
+						{loading ? (
+							<HeaderSpace>
+								<img src={Spinner} alt='' />
+							</HeaderSpace>
+						) : !ads_notes ? (
+							false
+						) : (
 							<ReactGA.OutboundLink
 								eventLabel='leadboardNota'
 								to={ads_notes.leaderboard_link}
@@ -249,8 +256,6 @@ const Nota = ({ match }) => {
 									alt='anuncio top'
 								/>
 							</ReactGA.OutboundLink>
-						) : (
-							false
 						)}
 					</div>
 				</div>
@@ -270,6 +275,7 @@ const Nota = ({ match }) => {
 									<ImgAndShare>
 										<img
 											style={{
+												display: 'block',
 												width: '100%',
 												maxWidth: '1000px',
 												margin: '2rem 0',

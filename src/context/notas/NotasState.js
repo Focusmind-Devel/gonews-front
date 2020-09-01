@@ -125,6 +125,7 @@ const NotasState = (props) => {
 
 	// get individual note
 	const getNote = async (text) => {
+		initialState.loading = true;
 		const res = await axios.get(
 			`${process.env.REACT_APP_API_GONEWS}/note/${text}`
 		);
@@ -137,6 +138,7 @@ const NotasState = (props) => {
 
 	//get ads nota individual
 	const getAdsNote = async () => {
+		initialState.loading = true;
 		const res = await axios.get(`${process.env.REACT_APP_API_GONEWS}/banner/`);
 
 		dispatch({
