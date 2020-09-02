@@ -236,7 +236,7 @@ const Nota = ({ match }) => {
 						className='leadboard'
 						style={{ textAlign: 'center', marginTop: '2rem' }}
 					>
-						{ads_notes ? (
+						{ads_notes.leaderboard_link ? (
 							<ReactGA.OutboundLink
 								eventLabel='leadboardNota'
 								to={ads_notes.leaderboard_link}

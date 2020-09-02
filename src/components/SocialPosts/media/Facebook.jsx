@@ -16,7 +16,7 @@ const Facebook = () => {
 			<FacebookDiv>
 				<div
 					className='fb-page'
-					data-href='https://www.facebook.com/CNNee/'
+					data-href='https://www.facebook.com/gonews_ok/'
 					data-tabs='timeline'
 					data-width='300'
 					data-height=''
@@ -52,7 +52,7 @@ const Facebook = () => {
 						cite='https://www.facebook.com/gonews_ok/'
 						className='fb-xfbml-parse-ignore'
 					>
-						<a href='https://www.facebook.com/gonews_ok/'>CNN en Español</a>
+						<a href='https://www.facebook.com/gonews_ok/'>GoNews</a>
 					</blockquote>
 				</div>
 			</FacebookDiv>

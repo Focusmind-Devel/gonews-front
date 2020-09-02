@@ -16,7 +16,7 @@ const Instagram = () => {
 	let [posts, setPosts] = useState([]);
 
 	useEffect(() => {
-		instagram('https://www.instagram.com/cnnee/')
+		instagram('https://www.instagram.com/gonews_ok/')
 			.then((data) => {
 				setdatosIG(data);
 				setPosts(data.posts);
