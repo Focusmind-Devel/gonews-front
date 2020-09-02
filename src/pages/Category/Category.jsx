@@ -152,7 +152,7 @@ const Category = ({ match }) => {
 									<img
 										style={{ width: '100%', height: '150px' }}
 										src={ads_category.leaderboard_image}
-										alt='anuncio top'
+										alt=''
 									/>
 								</ReactGA.OutboundLink>
 							) : (

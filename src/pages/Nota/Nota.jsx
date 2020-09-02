@@ -253,7 +253,7 @@ const Nota = ({ match }) => {
 								<img
 									style={{ width: '60%' }}
 									src={ads_notes.leaderboard_image}
-									alt='anuncio top'
+									alt=''
 								/>
 							</ReactGA.OutboundLink>
 						)}

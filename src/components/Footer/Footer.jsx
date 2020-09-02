@@ -60,9 +60,9 @@ function Footer() {
 						false
 					)}
 					<SocialLinks />
-					<a className='email' href='mailto:hola@gonews.com'>
+					<a className='email' href='mailto:hola@gonews.com.ar'>
 						<img src={mailIcon} alt='' />
-						hola@<span>gonews</span>.com
+						hola@<span>gonews</span>.com.ar
 					</a>
 					<img
 						src={arrowUp}

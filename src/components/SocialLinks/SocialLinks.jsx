@@ -10,7 +10,7 @@ const SocialLinks = () => {
 	return (
 		<div id='social_icons_top'>
 			<a
-				href='https://twitter.com/gonews_ok'
+				href='https://twitter.com/GonewsOk'
 				target='_blank'
 				rel='noopener noreferrer'
 			>
@@ -24,7 +24,7 @@ const SocialLinks = () => {
 				<Instagram className='social_icon' />
 			</a>
 			<a
-				href='https://www.facebook.com/gonews_ok'
+				href='https://www.facebook.com/Go-News-Ok-123004192589186'
 				target='_blank'
 				rel='noopener noreferrer'
 			>
