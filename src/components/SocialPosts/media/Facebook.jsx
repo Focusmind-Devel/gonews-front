@@ -16,7 +16,7 @@ const Facebook = () => {
 			<FacebookDiv>
 				<div
 					className='fb-page'
-					data-href='https://www.facebook.com/gonews_ok/'
+					data-href='https://www.facebook.com/Go-News-Ok-123004192589186/'
 					data-tabs='timeline'
 					data-width='300'
 					data-height=''
@@ -26,10 +26,12 @@ const Facebook = () => {
 					data-show-facepile='false'
 				>
 					<blockquote
-						cite='https://www.facebook.com/gonews_ok/'
+						cite='https://www.facebook.com/Go-News-Ok-123004192589186/'
 						className='fb-xfbml-parse-ignore'
 					>
-						<a href='https://www.facebook.com/gonews_ok/'>GoNews</a>
+						<a href='https://www.facebook.com/Go-News-Ok-123004192589186/'>
+							Go News Ok
+						</a>
 					</blockquote>
 				</div>
 			</FacebookDiv>
@@ -39,7 +41,7 @@ const Facebook = () => {
 			<FacebookDiv>
 				<div
 					className='fb-page'
-					data-href='https://www.facebook.com/gonews_ok/'
+					data-href='https://www.facebook.com/Go-News-Ok-123004192589186/'
 					data-tabs='timeline'
 					data-width='500'
 					data-height=''
@@ -49,10 +51,12 @@ const Facebook = () => {
 					data-show-facepile='false'
 				>
 					<blockquote
-						cite='https://www.facebook.com/gonews_ok/'
+						cite='https://www.facebook.com/Go-News-Ok-123004192589186/'
 						className='fb-xfbml-parse-ignore'
 					>
-						<a href='https://www.facebook.com/gonews_ok/'>GoNews</a>
+						<a href='https://www.facebook.com/Go-News-Ok-123004192589186/'>
+							Go News Ok
+						</a>
 					</blockquote>
 				</div>
 			</FacebookDiv>
