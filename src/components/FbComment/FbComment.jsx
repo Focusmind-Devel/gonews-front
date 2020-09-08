@@ -1,7 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { FacebookProvider, Comments } from 'react-facebook';
 import './FbComments.sass';
 
 const FbComment = ({ slug }) => {
+	return (
+		<div className='ancho-comentatio'>
+			<FacebookProvider appId='654549662159553'>
+				<Comments href={`https://gonews.com.ar/nota/${slug}`} />
+			</FacebookProvider>
+		</div>
+	);
+
+	/*
 	useEffect(() => {
 		window.FB.XFBML.parse();
 	});
@@ -15,6 +25,7 @@ const FbComment = ({ slug }) => {
 			></div>
 		</div>
 	);
+	*/
 };
 
 export default FbComment;
