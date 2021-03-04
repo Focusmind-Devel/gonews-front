@@ -24,7 +24,7 @@ const SocialLinks = () => {
 				<Instagram className='social_icon' />
 			</a>
 			<a
-				href='https://www.facebook.com/Go-News-Ok-123004192589186'
+				href='https://www.facebook.com/Go-News-Ok-105143388120945'
 				target='_blank'
 				rel='noopener noreferrer'
 			>

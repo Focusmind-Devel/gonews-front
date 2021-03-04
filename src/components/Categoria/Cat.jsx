@@ -48,7 +48,7 @@ const Cat = ({ item }) => {
 			<div className='categoria'>
 				<div className='titulo'>
 					<img src={flecha} alt='icono flecha' />
-					<Link to='/actualidad'>{item[0]}</Link>
+					<Link to={item[1][0].category_slug}>{item[0]}</Link>
 				</div>
 				{screenSize >= 415 ? (
 					<div className='notas_categoria'>
