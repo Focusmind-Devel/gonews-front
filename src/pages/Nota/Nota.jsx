@@ -230,6 +230,11 @@ const Nota = ({ match }) => {
 						<meta name='twitter:title' content={nota.title} />
 						<meta name='twitter:description' content={nota.content} />
 						<meta name='twitter:image' content={nota.headerImage} />
+						
+						<meta property="og:type" content="article" />
+						<meta property="og:title" content={nota.title}/>
+						<meta property="og:description" content={nota.content} />
+						<meta property="og:image" content={nota.headerImage} />
 					</Helmet>
 				)}
 				<div className='container'>

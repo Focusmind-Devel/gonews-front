@@ -45,9 +45,9 @@ const Topbar = ({ isOpen, menuOpen }) => {
 					/>
 				)}
 				<div id='logo'>
-					<Link to='/'>
+					<a href='https://gonews.com.ar'>
 						<MainLogo alt='go news logo' />
-					</Link>
+					</a>
 				</div>
 				<SocialLinks />
 				<Busqueda />

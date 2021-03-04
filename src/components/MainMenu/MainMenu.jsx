@@ -114,12 +114,12 @@ const MainMenu = ({ menuOpen, isOpen }) => {
 			<nav id='navigation'>
 				<div id='menu' className='container'>
 					<div id='logo'>
-						<Link to='/'>
+						<a href='https://gonews.com.ar'>
 							<LogoFixed
 								className='animate__animated animate__fadeInLeft animate__faster'
 								alt='go news logo'
 							/>
-						</Link>
+						</a>
 					</div>
 					<ul id='main_menu'>
 						{main.length >= 1

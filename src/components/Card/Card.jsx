@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Card = ({ item }) => {
   return (
     <Link to={`/nota/${item.slug}`} className='card'>
-      <img src={item.thumbnail} alt='' />
+      <img src={(item.thumbnail)?item.thumbnail:item.headerImage} alt={item.title} />
       <div className='card_body'>
         <span className='category'>{item.category}</span>
         <h3 className='title'>{item.title}</h3>

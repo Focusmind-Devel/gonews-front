@@ -112,7 +112,7 @@ const NotasState = (props) => {
 	// get Next Category Page
 	const getNextPageCat = async (pageNumber = 2, category) => {
 		let res = await axios.get(
-			`${process.env.REACT_APP_API_GONEWS}/notes/?category=${category}&page=${pageNumber}`
+			`${process.env.REACT_APP_API_GONEWS}/notes/?category__slug=${category}&page=${pageNumber}`
 		);
 
 		window.scrollTo({ top: '600', behavior: 'smooth' });
