@@ -37,7 +37,7 @@ const Resultados = ({ item }) => {
             <span className='fecha'>{item.publisedAt}</span>
           </div>
           <div className='title-more'>
-            <h3 style={{ textTransform: 'capitalize' }}>{item.title}</h3>
+            <h3 >{item.title}</h3>
             <div className='leer_mas'>
               <img src={flecha} alt='icono flecha' />
               <span>Leer nota</span>

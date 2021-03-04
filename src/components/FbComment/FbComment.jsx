@@ -3,18 +3,19 @@ import { FacebookProvider, Comments } from 'react-facebook';
 import './FbComments.sass';
 
 const FbComment = ({ slug }) => {
+	React.useEffect(() => {
+		window.FB.XFBML.parse();
+	},[]);
 	return (
 		<div className='ancho-comentatio'>
-			<FacebookProvider appId='654549662159553'>
+			<FacebookProvider wait appId='654549662159553'>
 				<Comments href={`https://gonews.com.ar/nota/${slug}`} />
 			</FacebookProvider>
 		</div>
 	);
 
 	/*
-	useEffect(() => {
-		window.FB.XFBML.parse();
-	});
+		
 	return (
 		<div className='ancho-comentario'>
 			<div

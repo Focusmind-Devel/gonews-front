@@ -137,7 +137,7 @@ const MainMenu = ({ menuOpen, isOpen }) => {
 									className='menu_item principal animate__animated animate__fadeInLeft animate__faster'
 									onClick={showMenu}
 								>
-									Mas +
+									Más +
 								</li>
 								<li
 									className='menu_item adicional animate__animated animate__fadeInRight animate__faster menos'
