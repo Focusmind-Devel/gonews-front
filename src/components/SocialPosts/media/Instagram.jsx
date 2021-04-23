@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import instagram from 'user-instagram-profile';
+import React, { useEffect, useState, useContext } from 'react';
+import NotasContext from '../../../context/notas/notasContext';
 import styled from 'styled-components';
 import './Media.sass';
 
@@ -15,39 +15,38 @@ const Instagram = () => {
 	let [datosIG, setdatosIG] = useState({});
 	let [posts, setPosts] = useState([]);
 
+	const notasContext = useContext(NotasContext);
+
+	const { 
+		getInstagramData,
+		ig_data,
+	} = notasContext;
+
 	useEffect(() => {
-		instagram('https://www.instagram.com/gonews_ok/')
-			.then((data) => {
-				setdatosIG(data);
-				setPosts(data.posts);
-			})
-			.catch((e) => {
-				// Error will trigger if the account link provided is false.
-				console.error(e);
-			});
+		getInstagramData()
 	}, []);
 
 	return (
 		<React.Fragment>
 			<InstagramPosts>
-				{posts.length === 0 ? (
+				{(!('list_posts' in ig_data) || ig_data.list_posts.length === 0) ? (
 					<div style={{ textAlign: 'center', height: '300px', width: '100%' }}>
 						<h2>Cargando</h2>
 					</div>
 				) : (
-					posts.slice(0, 3).map((post) => (
+					ig_data.list_posts.slice(0, 3).map((post) => (
 						<div className='instagram-post' key={post.id}>
-							<a href={post.link} target='_blank' rel='noopener noreferrer'>
-								<img src={post.picture.thumbnail_320} alt='' />
+							<a href={post.url_link} target='_blank' rel='noopener noreferrer'>
+								<img src={post.display_url} alt='' />
 								<div className='post-body'>
 									<div className='profile-info'>
-										<img className='profile' src={datosIG.avatar} alt='' />
+										<img className='profile' src={ig_data.profile_pic_url} alt='' />
 										<div className='user-info'>
-											<p className='fullName'>{datosIG.fullName}</p>
-											<p>@{datosIG.username}</p>
+											<p className='fullName'>{ig_data.full_name}</p>
+											<p>@{ig_data.username}</p>
 										</div>
 									</div>
-									<div className='caption'>{post.captionText}</div>
+									<div className='caption'>{post.accessibility_caption}</div>
 								</div>
 							</a>
 						</div>

@@ -40,10 +40,10 @@ const PopupWrapper = styled.div`
 const PopupDiv = styled.div`
 	margin: 10% auto;
 	width: 100%;
-	max-width: 500px;
+	max-width: 800px;
 	img {
 		width: 100%;
-		max-width: 500px;
+		max-width: 800px;
 		position: relative;
 	}
 	@media (max-width: 620px) {
@@ -100,7 +100,7 @@ const Category = ({ match }) => {
 		return (
 			<Fragment>
 				{ads_category.popup_link === undefined ||
-				ads_category.popup_link === null ? (
+				ads_category.popup_image === null ? (
 					false
 				) : (
 					<PopupWrapper
@@ -137,8 +137,8 @@ const Category = ({ match }) => {
 				)}
 				<HeaderCategory category={category} />
 				<div className='container' id='sec_category'>
-					{ads_category.popup_image === undefined ||
-					ads_category.popup_image === null ? (
+					{ads_category.leaderboard_link === undefined ||
+					ads_category.leaderboard_image === null ? (
 						false
 					) : (
 						<div style={{ textAlign: 'center' }}>

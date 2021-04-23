@@ -40,7 +40,15 @@ const ShareButtons = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-top: 5%;
+	padding-left: 4em;
+	padding-right: 2em;
+	
+	@media (max-width: 1350px) {
+		padding-left: 1em;
+	}
+	
 	@media (max-width: 1190px) {
+		padding:0;
 		flex-direction: row;
 		justify-content: space-around;
 		margin: 0;
@@ -48,9 +56,9 @@ const ShareButtons = styled.div`
 		z-index: 1;
 		margin: 0;
 	}
+	
 	@media (max-width: 1444px) {
 		margin-top: 5%;
-		margin-left: 7%;
 	}
 `;
 
@@ -83,10 +91,10 @@ const PopupWrapper = styled.div`
 const PopupDiv = styled.div`
 	margin: 10% auto;
 	width: 100%;
-	max-width: 500px;
+	max-width: 800px;
 	img {
 		width: 100%;
-		max-width: 500px;
+		max-width: 800px;
 		position: relative;
 	}
 	@media (max-width: 620px) {

@@ -9,6 +9,7 @@
 		"animate.css": "^4.1.0",
 		"aos": "^2.3.4",
 		"axios": "^0.19.2",
+		"jquery": "^3.6.0",
 		"node-sass": "^4.14.1",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
@@ -22,6 +23,7 @@
 		"react-snap": "^1.23.0",
 		"serve": "^11.3.2",
 		"styled-components": "^5.1.1",
+		"user-instagram": "^2.1.9",
 		"user-instagram-profile": "^1.0.0"
 	},
 	"scripts": {

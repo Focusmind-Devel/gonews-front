@@ -8,15 +8,32 @@ import {
 	GET_ADS_NOTA,
 	GET_ADS_CATEGORY,
 	SET_LOADING,
+	GET_INSTA,
 } from '../types';
 
 export default (state, action) => {
+	const normalize_array_notes = (payload)=>{
+		const note_groups = [];
+
+		payload.forEach(element => {
+			if(!note_groups[element.category_slug]){
+				note_groups[element.category_slug] = [];
+			}
+
+			if(note_groups[element.category_slug].length < 4){
+				note_groups[element.category_slug].push(element);
+			}
+			
+		});
+
+		return note_groups
+	}
 	switch (action.type) {
 		case GET_HOME_ITEMS:
 			return {
 				...state,
 				mainHome: action.payload.main,
-				categories: action.payload.categories,
+				categories: normalize_array_notes(action.payload.categories),
 				latests: action.payload.latests,
 			};
 		case GET_MENU:
@@ -74,6 +91,12 @@ export default (state, action) => {
 				...state,
 				loading: true,
 			};
+		case GET_INSTA:
+			return {
+				...state,
+				ig_data: action.payload,
+				loading: false
+			}
 		default:
 			return state;
 	}

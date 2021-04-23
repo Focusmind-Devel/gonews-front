@@ -9,3 +9,4 @@ export const GET_HOME_ITEMS = 'GET_HOME_ITEMS';
 export const GET_ADS_NOTA = 'GET_ADS_NOTA';
 export const GET_ADS_CATEGORY = 'GET_ADS_CATEGORY';
 export const SET_LOADING = 'SET_LOADING';
+export const GET_INSTA = 'GET_INSTA';

@@ -12,6 +12,7 @@ import {
 	GET_ADS_NOTA,
 	GET_ADS_CATEGORY,
 	SET_LOADING,
+	GET_INSTA,
 } from '../types';
 
 const NotasState = (props) => {
@@ -34,6 +35,7 @@ const NotasState = (props) => {
 		related_notes: [],
 		ads_notes: {},
 		ads_category: {},
+		ig_data: {},
 	};
 
 	const [state, dispatch] = useReducer(NotasReducer, initialState);
@@ -160,6 +162,18 @@ const NotasState = (props) => {
 		});
 	};
 
+	//get instagram
+	const getInstagramData = async () => {
+		const res = await axios.get(
+			`${process.env.REACT_APP_API_GONEWS}/instagram-data`
+		);
+
+		dispatch({
+			type: GET_INSTA,
+			payload: res.data,
+		});
+	};
+
 	return (
 		<NotasContext.Provider
 			value={{
@@ -182,6 +196,7 @@ const NotasState = (props) => {
 				related_notes: state.related_notes,
 				ads_notes: state.ads_notes,
 				ads_category: state.ads_category,
+				ig_data: state.ig_data,
 				getHomeItems,
 				getMenu,
 				getData,
@@ -192,6 +207,7 @@ const NotasState = (props) => {
 				getNextPageCat,
 				getAdsNote,
 				getAdsByCategory,
+				getInstagramData,
 			}}
 		>
 			{props.children}
