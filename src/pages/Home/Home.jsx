@@ -47,6 +47,15 @@ const PopupDiv = styled.div`
 		}
 	}
 `;
+
+const FooterBannerDiv = styled.div`
+	text-align: center;
+	margin-top: 4rem;
+	@media (max-width: 620px) {
+		margin-top: 0px;
+		margin-bottom: 2rem;
+	}
+`;
 const Home = () => {
 	const notasContext = useContext(NotasContext);
 
@@ -134,7 +143,7 @@ const Home = () => {
 								rel='noopener noreferrer'
 							>
 								<img
-									style={{ width: '60%' }}
+									style={{ width: '100%', maxHeight: '250px' }}
 									src={ads_notes.leaderboard_image}
 									alt=''
 								/>
@@ -152,7 +161,7 @@ const Home = () => {
 						ads_notes.footbuttom_link === undefined ? (
 							false
 						) : (
-							<div style={{ textAlign: 'center', marginTop: '4rem' }}>
+							<FooterBannerDiv c>
 								<ReactGA.OutboundLink
 									eventLabel='footerNota'
 									to={ads_notes.footbuttom_link}
@@ -160,12 +169,12 @@ const Home = () => {
 									rel='noopener noreferrer'
 								>
 									<img
-										style={{ width: '100%', height: '150px' }}
+										style={{ width: '100%', maxHeight: '250px' }}
 										src={ads_notes.footbuttom_image}
 										alt='anuncio pie de pagina'
 									/>
 								</ReactGA.OutboundLink>
-							</div>
+							</FooterBannerDiv>
 						)}
 					</div>
 				</div>

@@ -7,7 +7,14 @@ import ReactGA from 'react-ga';
 import styled from 'styled-components';
 
 const NuestrasRedes = () => {
-
+	const FooterBannerDiv = styled.div`
+	text-align: center;
+	margin-top: 4rem;
+	@media (max-width: 620px) {
+		margin-top: 0px;
+		margin-bottom: 2rem;
+	}
+`;
 	const notasContext = useContext(NotasContext);
 	const {ads_notes} = notasContext;
 
@@ -19,7 +26,7 @@ const NuestrasRedes = () => {
 						ads_notes.prefooter_link === undefined ? (
 							false
 						) : (
-							<div style={{ textAlign: 'center', margin: '1rem', marginBottom: '4em'  }}>
+							<FooterBannerDiv >
 								<ReactGA.OutboundLink
 									eventLabel='PrefooterNota'
 									to={ads_notes.prefooter_link}
@@ -32,7 +39,7 @@ const NuestrasRedes = () => {
 										alt='anuncio en social area'
 									/>
 								</ReactGA.OutboundLink>
-							</div>
+							</FooterBannerDiv>
 						)}
 					</div>
 				</div>

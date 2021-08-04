@@ -27,8 +27,11 @@ const NotaIndividual = styled.div`
 	position: relative;
 	color: #02182b;
 	display: flex;
-	@media (min-width: 1190px) and (max-width: 1444px) {
+	@media (min-width: 1190px) and (max-width: 1635px) {
 		width: 80%;
+	}
+	@media (min-width: 1635px) and (max-width: 1900px) {
+		width: 90%;
 	}
 `;
 
@@ -104,6 +107,15 @@ const PopupDiv = styled.div`
 		img {
 			max-width: 300px;
 		}
+	}
+`;
+
+const FooterBannerDiv = styled.div`
+	text-align: center;
+	margin-top: 4rem;
+	@media (max-width: 620px) {
+		margin-top: 0px;
+		margin-bottom: 2rem;
 	}
 `;
 
@@ -247,7 +259,7 @@ const Nota = ({ match }) => {
 				)}
 				<div className='container'>
 					<div
-						className='leadboard'
+						className='leadboard-adaptable'
 						style={{ textAlign: 'center', marginTop: '2rem' }}
 					>
 						{loading ? (
@@ -264,7 +276,7 @@ const Nota = ({ match }) => {
 								rel='noopener noreferrer'
 							>
 								<img
-									style={{ width: '60%' }}
+									style={{ width: '100%', maxHeight: '250px' }}
 									src={ads_notes.leaderboard_image}
 									alt=''
 								/>
@@ -450,7 +462,7 @@ const Nota = ({ match }) => {
 						ads_notes.footbuttom_link === undefined ? (
 							false
 						) : (
-							<div style={{ textAlign: 'center', marginTop: '4rem' }}>
+							<FooterBannerDiv >
 								<ReactGA.OutboundLink
 									eventLabel='footerNota'
 									to={ads_notes.footbuttom_link}
@@ -458,12 +470,12 @@ const Nota = ({ match }) => {
 									rel='noopener noreferrer'
 								>
 									<img
-										style={{ width: '100%', height: '150px' }}
+										style={{ width: '100%', maxHeight: '250px' }}
 										src={ads_notes.footbuttom_image}
 										alt='anuncio pie de pagina'
 									/>
 								</ReactGA.OutboundLink>
-							</div>
+							</FooterBannerDiv>
 						)}
 					</div>
 				</div>
